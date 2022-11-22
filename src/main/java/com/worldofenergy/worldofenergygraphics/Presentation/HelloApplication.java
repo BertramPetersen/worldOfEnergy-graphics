@@ -1,4 +1,4 @@
-package com.worldofenergy.worldofenergygraphics;
+package com.worldofenergy.worldofenergygraphics.Presentation;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

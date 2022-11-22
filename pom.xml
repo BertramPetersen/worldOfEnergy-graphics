@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.worldofenergy.worldofenergygraphics/com.worldofenergy.worldofenergygraphics.HelloApplication
+                                com.worldofenergy.worldofenergygraphics/com.worldofenergy.worldofenergygraphics.Presentation.HelloApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
