@@ -3,8 +3,8 @@ module com.worldofenergy.worldofenergygraphics {
     requires javafx.fxml;
 
 
-    opens com.worldofenergy.worldofenergygraphics to javafx.fxml;
-    exports com.worldofenergy.worldofenergygraphics;
-    exports com.worldofenergy.worldofenergygraphics.Presentation;
-    opens com.worldofenergy.worldofenergygraphics.Presentation to javafx.fxml;
+    opens com.worldofenergy.mainDir to javafx.fxml;
+    exports com.worldofenergy.mainDir;
+    exports com.worldofenergy.mainDir.Presentation;
+    opens com.worldofenergy.mainDir.Presentation to javafx.fxml;
 }
