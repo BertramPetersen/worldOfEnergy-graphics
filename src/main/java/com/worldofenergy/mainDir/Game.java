@@ -264,4 +264,17 @@ public class Game implements DataService {
     public int getCoins(){
         return Wallet.getCoins();
     }
+
+    @Override
+    public double getTemp(){
+        return forecast.getTemperature();
+    }
+    @Override
+    public double getCO2(){
+        return forecast.getCO2();
+    }
+    @Override
+    public double getSea(){
+        return forecast.getSeaLevel();
+    }
 }

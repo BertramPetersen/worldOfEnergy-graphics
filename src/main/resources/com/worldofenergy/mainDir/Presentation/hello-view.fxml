@@ -63,17 +63,17 @@
                               <Font size="21.0" />
                            </font>
                         </Label>
-                        <Label text="CO2 increase: 15%">
+                        <Label fx:id="co2Forecast" text="CO2 increase: 15%">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <Label text="Sea level: 10 cm">
+                        <Label fx:id="seaForecast" text="Sea level: 10 cm">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <Label text="Temperature: 4 degrees">
+                        <Label fx:id="tempForecast" text="Temperature: 4 degrees">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>

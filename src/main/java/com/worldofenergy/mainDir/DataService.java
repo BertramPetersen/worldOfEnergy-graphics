@@ -16,4 +16,8 @@ public interface DataService {
 
     int getCoins();
 
+    double getTemp();
+    double getCO2();
+    double getSea();
+
 }
