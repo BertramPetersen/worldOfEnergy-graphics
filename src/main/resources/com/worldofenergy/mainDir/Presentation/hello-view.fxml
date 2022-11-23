@@ -13,10 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-           prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="com.worldofenergy.mainDir.Presentation.HelloController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.worldofenergy.mainDir.Presentation.HelloController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -143,7 +140,7 @@
                         <Insets bottom="5.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label contentDisplay="CENTER" text="500 Coins">
+                  <Label fx:id="coins" contentDisplay="CENTER" text="500 Coins">
                      <font>
                         <Font size="15.0" />
                      </font>
