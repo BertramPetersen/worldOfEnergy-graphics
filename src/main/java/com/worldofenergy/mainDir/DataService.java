@@ -13,4 +13,11 @@ public interface DataService {
     String whereAmI();
     List<String> getCommandDescription();
     void getPrices();
+
+    int getCoins();
+
+    double getTemp();
+    double getCO2();
+    double getSea();
+
 }

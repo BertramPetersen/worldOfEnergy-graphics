@@ -259,4 +259,22 @@ public class Game implements DataService {
         System.out.println("Geothermal power plants cost:   " + this.EnergyPrice[3].getPrice());
 
     }
+
+    @Override
+    public int getCoins(){
+        return Wallet.getCoins();
+    }
+
+    @Override
+    public double getTemp(){
+        return forecast.getTemperature();
+    }
+    @Override
+    public double getCO2(){
+        return forecast.getCO2();
+    }
+    @Override
+    public double getSea(){
+        return forecast.getSeaLevel();
+    }
 }
