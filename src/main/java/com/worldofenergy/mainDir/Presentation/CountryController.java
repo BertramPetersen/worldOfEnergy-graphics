@@ -73,7 +73,7 @@ public class CountryController{
     public void buildEnergySource(ActionEvent e){
         Button btn = (Button)e.getSource();
         String energyType = btn.getText();
-        EnergySource eType = stringToEnergySource(energyType);
+        EnergySource eType = game.stringToEnergySource(energyType);
         boolean construct = game.construct(energyType);
         if(construct){
             setBuilt(game.getCurrentRoom());
@@ -86,15 +86,5 @@ public class CountryController{
             alert.setContentText("You do not have enough funds for construction of "+energyType);
             alert.showAndWait();
         }
-    }
-
-    public EnergySource stringToEnergySource(String s){
-        switch(s){
-            case "Windmill": return new WindMill();
-            case "Hydro Power": return new HydroPowerplant();
-            case "Geo Power": return new GeothermalPowerplant();
-            case "Solar Panel": return new SolarPanel();
-        }
-        return null;
     }
 }

@@ -31,4 +31,6 @@ public interface DataService {
     double getTotalPowerOutput();
 
     PredictionService getForecast();
+
+    EnergySource stringToEnergySource(String s);
 }

@@ -305,4 +305,15 @@ public class Game implements DataService {
     public PredictionService getForecast(){
         return forecast;
     }
+
+    @Override
+    public EnergySource stringToEnergySource(String s){
+        switch(s){
+            case "Windmill": return new WindMill();
+            case "Hydro Power": return new HydroPowerplant();
+            case "Geo Power": return new GeothermalPowerplant();
+            case "Solar Panel": return new SolarPanel();
+        }
+        return null;
+    }
 }
