@@ -81,5 +81,6 @@ public class HelloController implements Initializable{
 
     public void endTurn(ActionEvent e){
         game.updateTurn();
+        setCoins();
     }
 }
