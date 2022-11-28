@@ -4,18 +4,18 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="1000" maxWidth="1900.0" minHeight="600.0" minWidth="900.0"
-           prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="com.worldofenergy.mainDir.Presentation.CountryController">
+<StackPane maxHeight="1000" maxWidth="1900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.worldofenergy.mainDir.Presentation.CountryController">
     <children>
         <AnchorPane prefHeight="200.0" prefWidth="200.0">
             <children>
@@ -28,7 +28,7 @@
                     <children>
                         <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="172.0">
                             <children>
-                                <Label text="Energybalance">
+                                <Label text="Energy Potential">
                                     <VBox.margin>
                                         <Insets top="20.0" />
                                     </VBox.margin>
@@ -36,52 +36,66 @@
                                         <Font size="21.0" />
                                     </font>
                                 </Label>
-                                <Label text="20% / 80%">
-                                    <VBox.margin>
-                                        <Insets top="10.0" />
-                                    </VBox.margin>
-                                    <font>
-                                        <Font size="20.0" />
-                                    </font>
-                                </Label>
-                                <ProgressBar prefHeight="18.0" prefWidth="150.0" progress="0.2">
-                                    <VBox.margin>
-                                        <Insets top="10.0" />
-                                    </VBox.margin>
-                                    <opaqueInsets>
-                                        <Insets />
-                                    </opaqueInsets>
-                                </ProgressBar>
-                                <Separator opacity="0.85" prefHeight="13.0" prefWidth="172.0"
-                                           style="-fx-background-color: #FFFFFFDA;">
+                        <GridPane>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Wind: " />
+                              <Label text="Hydro: " GridPane.columnIndex="1" />
+                              <Label text="Solar: " GridPane.rowIndex="1" />
+                              <Label text="Geo: " GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           </children>
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </GridPane>
+                                <Separator opacity="0.85" prefHeight="13.0" prefWidth="172.0" style="-fx-background-color: #FFFFFFDA;">
                                     <VBox.margin>
                                         <Insets bottom="5.0" top="5.0" />
                                     </VBox.margin>
                                 </Separator>
-                                <Label text="Future Forecast">
+                                <Label text="Built Energysources">
                                     <font>
-                                        <Font size="21.0" />
+                                        <Font size="17.0" />
                                     </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
                                 </Label>
-                                <Label fx:id="co2Forecast" text="CO2 increase: 15%">
+                        <GridPane prefHeight="118.0" prefWidth="156.0" vgap="5.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="132.5" minWidth="10.0" prefWidth="85.5" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="106.5" minWidth="10.0" prefWidth="86.5" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label prefHeight="17.0" prefWidth="84.0" text="Windmill" />
+                              <Label text="Hydro" GridPane.rowIndex="1" />
+                              <Label text="Solar" GridPane.rowIndex="2" />
+                              <Label text="Geothermal" GridPane.rowIndex="3" />
+                              <Label text="geoAmount" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label text="sunAmount" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label text="hydroAmount" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label text="windAmount" GridPane.columnIndex="1" />
+                           </children>
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </GridPane>
+                                <Button mnemonicParsing="false" prefHeight="88.0" prefWidth="144.0" style="-fx-border-style: Solid;" text="Exit">
                                     <VBox.margin>
-                                        <Insets top="10.0" />
-                                    </VBox.margin>
-                                </Label>
-                                <Label fx:id="seaForecast" text="Sea level: 10 cm">
-                                    <VBox.margin>
-                                        <Insets top="10.0" />
-                                    </VBox.margin>
-                                </Label>
-                                <Label fx:id="tempForecast" text="Temperature: 4 degrees">
-                                    <VBox.margin>
-                                        <Insets top="10.0" />
-                                    </VBox.margin>
-                                </Label>
-                                <Button mnemonicParsing="false" prefHeight="88.0" prefWidth="144.0"
-                                        style="-fx-border-style: Solid;" text="End Turn">
-                                    <VBox.margin>
-                                        <Insets top="240.0" />
+                                        <Insets top="215.0" />
                                     </VBox.margin>
                                     <font>
                                         <Font size="18.0" />
@@ -94,33 +108,7 @@
                         </VBox>
                     </children>
                 </VBox>
-                <Button layoutX="384.0" layoutY="255.0" mnemonicParsing="false" text="Southern Europe">
-                    <font>
-                        <Font size="9.0" />
-                    </font>
-                </Button>
-                <Button layoutX="425.0" layoutY="169.0" mnemonicParsing="false" text="Scandinavia">
-                    <font>
-                        <Font size="9.0" />
-                    </font>
-                </Button>
-                <Button layoutX="147.0" layoutY="255.0" mnemonicParsing="false" text="North America">
-                    <font>
-                        <Font size="9.0" />
-                    </font>
-                </Button>
-                <Button layoutX="249.0" layoutY="394.0" mnemonicParsing="false" text="South America">
-                    <font>
-                        <Font size="9.0" />
-                    </font>
-                </Button>
-                <Button layoutX="594.0" layoutY="255.0" mnemonicParsing="false" text="Asia">
-                    <font>
-                        <Font size="9.0" />
-                    </font>
-                </Button>
-                <ButtonBar layoutX="239.0" layoutY="539.0" prefHeight="61.0" prefWidth="345.0"
-                           style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid;">
+                <ButtonBar layoutX="239.0" layoutY="539.0" prefHeight="61.0" prefWidth="345.0" style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid;">
                     <buttons>
                         <Button mnemonicParsing="false" text="Windmill" />
                         <Button mnemonicParsing="false" text="Solar Panel" />
@@ -135,8 +123,7 @@
                         <Insets right="20.0" />
                     </padding>
                 </ButtonBar>
-                <VBox alignment="TOP_CENTER" prefHeight="88.0" prefWidth="150.0"
-                      style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid;">
+                <VBox alignment="TOP_CENTER" prefHeight="88.0" prefWidth="150.0" style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid;">
                     <children>
                         <Label contentDisplay="CENTER" text="Wallet">
                             <font>
