@@ -21,4 +21,9 @@ public interface PredictionService {
     double getTotalEnergy();
 
     double getFossilEnergy();
+
+    double getGreenPercent();
+    double getFossilPercent();
+
+    void incrementYear();
 }

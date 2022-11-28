@@ -34,7 +34,7 @@
                               <Font size="21.0" />
                            </font>
                         </Label>
-                        <Label text="20% / 80%">
+                        <Label fx:id="balanceLabel" text="20% / 80%">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
@@ -42,7 +42,7 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <ProgressBar prefHeight="18.0" prefWidth="150.0" progress="0.2">
+                        <ProgressBar fx:id="balanceBar" prefHeight="18.0" prefWidth="150.0" progress="0.2">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
@@ -67,17 +67,18 @@
                         </Label>
                         <Label fx:id="seaForecast" text="Sea level: 10 cm">
                            <VBox.margin>
-                              <Insets top="10.0" />
+                              <Insets top="15.0" />
                            </VBox.margin>
                         </Label>
                         <Label fx:id="tempForecast" text="Temperature: 4 degrees">
                            <VBox.margin>
-                              <Insets top="10.0" />
+                              <Insets top="15.0" />
                            </VBox.margin>
                         </Label>
-                        <Button mnemonicParsing="false" prefHeight="88.0" prefWidth="144.0" style="-fx-border-style: Solid;" text="End Turn">
+                        <Button mnemonicParsing="false" prefHeight="88.0" prefWidth="144.0"
+                                style="-fx-border-style: Solid;" text="End Turn" onAction="#endTurn">
                            <VBox.margin>
-                              <Insets top="240.0" />
+                              <Insets bottom="12.0" top="240.0" />
                            </VBox.margin>
                            <font>
                               <Font size="18.0" />
@@ -140,7 +141,7 @@
                         <Insets bottom="5.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="coins" contentDisplay="CENTER" text="500 Coins">
+                  <Label fx:id="coins" contentDisplay="CENTER" text="foo">
                      <font>
                         <Font size="15.0" />
                      </font>

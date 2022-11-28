@@ -1,6 +1,5 @@
 package com.worldofenergy.mainDir;
 
-
 import com.worldofenergy.mainDir.PredictionService.EnergyBalance;
 import com.worldofenergy.mainDir.PredictionService.Forecast;
 import com.worldofenergy.mainDir.PredictionService.PredictionService;
@@ -137,12 +136,13 @@ public class Game implements DataService {
     @Override
     public void updateTurn(){
         turnCounter++;
+        energyBalance.incrementYear();
         energyBalance.UpdateGreenEnergy(getTotalPowerOutput());
         forecast.update((EnergyBalance) energyBalance);
         System.out.println();
         updatePassiveIncome();
         energyBalance.show();
-        promptEnterKey();
+//        promptEnterKey();
         playQuizOrRandomEvent();
     }
 
@@ -295,5 +295,14 @@ public class Game implements DataService {
             this.location = destinationRoom;
             return true;
         }
+    }
+
+    @Override
+    public PredictionService getEnergyBalance(){
+        return energyBalance;
+    }
+    @Override
+    public PredictionService getForecast(){
+        return forecast;
     }
 }

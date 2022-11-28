@@ -42,12 +42,19 @@ public class EnergyBalance implements PredictionService {
         return totalEnergy;
     }
 
+    @Override
     public double getGreenPercent() {
         return greenPercent;
     }
 
+    @Override
     public double getFossilPercent() {
         return fossilPercent;
+    }
+
+    @Override
+    public void incrementYear() {
+
     }
 
     @Override

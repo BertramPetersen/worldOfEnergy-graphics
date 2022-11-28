@@ -13,13 +13,16 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         DataService game = new Game();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(HelloApplication.class.getResource("hello-view.fxml"));
+        Scene scene = new Scene(loader.load());
         stage.setTitle("World Of Energy");
         stage.setMinWidth(905.0);
         stage.setMinHeight(620.0);
         stage.setScene(scene);
         stage.show();
+        HelloController controller = loader.getController();
+        controller.init(game);
     }
 
     public static void showCountryView(DataService game, Stage stage) throws IOException{
@@ -34,16 +37,17 @@ public class HelloApplication extends Application {
         cc.setGame(game);
     }
 
-    public static void showMainView(Stage stage) throws IOException{
+    public static void showMainView(DataService game, Stage stage) throws IOException{
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(loader.load());
+        HelloController controller = loader.getController();
         stage.setScene(scene);
         stage.show();
+        controller.init(game);
     }
 
     public static void main(String[] args) {
-
         launch();
     }
 }
