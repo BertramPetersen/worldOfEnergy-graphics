@@ -136,12 +136,13 @@ public class Game implements DataService {
     @Override
     public void updateTurn(){
         turnCounter++;
+        energyBalance.incrementYear();
         energyBalance.UpdateGreenEnergy(getTotalPowerOutput());
         forecast.update((EnergyBalance) energyBalance);
         System.out.println();
         updatePassiveIncome();
         energyBalance.show();
-        promptEnterKey();
+//        promptEnterKey();
         playQuizOrRandomEvent();
     }
 

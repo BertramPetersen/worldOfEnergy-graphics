@@ -24,4 +24,6 @@ public interface PredictionService {
 
     double getGreenPercent();
     double getFossilPercent();
+
+    void incrementYear();
 }
