@@ -20,4 +20,5 @@ public interface DataService {
     double getCO2();
     double getSea();
 
+    Room getCurrentRoom();
 }

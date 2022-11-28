@@ -103,6 +103,8 @@ public class Game implements DataService {
         }
     }
 
+
+
     public CommandWords getCommands() {
         return commands;
     }
@@ -276,5 +278,10 @@ public class Game implements DataService {
     @Override
     public double getSea(){
         return forecast.getSeaLevel();
+    }
+
+    @Override
+    public Room getCurrentRoom(){
+        return this.location;
     }
 }

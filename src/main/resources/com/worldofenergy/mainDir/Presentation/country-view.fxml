@@ -46,10 +46,10 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label text="Wind: " />
-                              <Label text="Hydro: " GridPane.columnIndex="1" />
-                              <Label text="Solar: " GridPane.rowIndex="1" />
-                              <Label text="Geo: " GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="windPot" text="Wind: " />
+                              <Label fx:id="hydroPot" text="Hydro: " GridPane.columnIndex="1" />
+                              <Label fx:id="sunPot" text="Solar: " GridPane.rowIndex="1" />
+                              <Label fx:id="geoPot" text="Geo: " GridPane.columnIndex="1" GridPane.rowIndex="1" />
                            </children>
                            <VBox.margin>
                               <Insets left="5.0" />

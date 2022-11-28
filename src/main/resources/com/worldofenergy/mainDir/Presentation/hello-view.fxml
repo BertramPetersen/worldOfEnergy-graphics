@@ -13,9 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="1000" maxWidth="1900.0" minHeight="600.0" minWidth="900.0"
-           prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="com.worldofenergy.mainDir.Presentation.HelloController">
+<StackPane maxHeight="1000" maxWidth="1900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.worldofenergy.mainDir.Presentation.HelloController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -52,8 +50,7 @@
                               <Insets />
                            </opaqueInsets>
                         </ProgressBar>
-                        <Separator opacity="0.85" prefHeight="13.0" prefWidth="172.0"
-                                   style="-fx-background-color: #FFFFFFDA;">
+                        <Separator opacity="0.85" prefHeight="13.0" prefWidth="172.0" style="-fx-background-color: #FFFFFFDA;">
                            <VBox.margin>
                               <Insets bottom="5.0" top="5.0" />
                            </VBox.margin>
@@ -78,8 +75,7 @@
                               <Insets top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <Button mnemonicParsing="false" prefHeight="88.0" prefWidth="144.0"
-                                style="-fx-border-style: Solid;" text="End Turn">
+                        <Button mnemonicParsing="false" prefHeight="88.0" prefWidth="144.0" style="-fx-border-style: Solid;" text="End Turn">
                            <VBox.margin>
                               <Insets top="240.0" />
                            </VBox.margin>
@@ -99,7 +95,7 @@
                   <Font size="9.0" />
                </font>
             </Button>
-            <Button layoutX="425.0" layoutY="169.0" mnemonicParsing="false" text="Scandinavia">
+            <Button fx:id="scandiBtn" layoutX="425.0" layoutY="169.0" mnemonicParsing="false" onAction="#enterCountry" text="Scandinavia">
                <font>
                   <Font size="9.0" />
                </font>
@@ -119,8 +115,7 @@
                   <Font size="9.0" />
                </font>
             </Button>
-            <ButtonBar layoutX="239.0" layoutY="539.0" prefHeight="61.0" prefWidth="345.0"
-                       style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid;">
+            <ButtonBar layoutX="239.0" layoutY="539.0" prefHeight="61.0" prefWidth="345.0" style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid;">
               <buttons>
                 <Button mnemonicParsing="false" text="Windmill" />
                   <Button mnemonicParsing="false" text="Solar Panel" />
@@ -135,8 +130,7 @@
                   <Insets right="20.0" />
                </padding>
             </ButtonBar>
-            <VBox alignment="TOP_CENTER" prefHeight="88.0" prefWidth="150.0"
-                  style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid;">
+            <VBox alignment="TOP_CENTER" prefHeight="88.0" prefWidth="150.0" style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid;">
                <children>
                   <Label contentDisplay="CENTER" text="Wallet">
                      <font>
