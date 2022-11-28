@@ -110,20 +110,22 @@
                 </VBox>
                 <ButtonBar layoutX="239.0" layoutY="539.0" prefHeight="61.0" prefWidth="345.0" style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid;">
                     <buttons>
-                        <Button mnemonicParsing="false" text="Windmill" />
-                        <Button mnemonicParsing="false" text="Solar Panel" />
-                        <Button mnemonicParsing="false" text="Hydro Power" textAlignment="CENTER" wrapText="true">
+                        <Button mnemonicParsing="false" text="Windmill" onAction="#buildEnergySource" />
+                        <Button mnemonicParsing="false" text="Solar Panel" onAction="#buildEnergySource" />
+                        <Button mnemonicParsing="false" text="Hydro Power" textAlignment="CENTER"
+                                wrapText="true" onAction="#buildEnergySource">
                             <font>
                                 <Font size="10.0" />
                             </font>
                         </Button>
-                        <Button mnemonicParsing="false" text="Geo Power" />
+                        <Button mnemonicParsing="false" text="Geo Power" onAction="#buildEnergySource"/>
                     </buttons>
                     <padding>
                         <Insets right="20.0" />
                     </padding>
                 </ButtonBar>
-                <VBox alignment="TOP_CENTER" prefHeight="88.0" prefWidth="150.0" style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid;">
+                <VBox alignment="TOP_CENTER" prefHeight="88.0" prefWidth="150.0"
+                      style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid;">
                     <children>
                         <Label contentDisplay="CENTER" text="Wallet">
                             <font>
@@ -133,7 +135,7 @@
                                 <Insets bottom="5.0" top="10.0" />
                             </VBox.margin>
                         </Label>
-                        <Label fx:id="coins" contentDisplay="CENTER" text="500 Coins">
+                        <Label fx:id="coins" contentDisplay="CENTER" text="foo">
                             <font>
                                 <Font size="15.0" />
                             </font>

@@ -46,6 +46,7 @@ public class CountryController{
 
         setPot(room);
         setBuilt(room);
+        coins.setText(""+game.getCoins()+" Coins");
     }
 
     private void setBuilt(Room room) {
@@ -65,7 +66,17 @@ public class CountryController{
     public void exitCountry(ActionEvent e) throws IOException {
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         game.setCurrentRoom("AIRPORT");
-        HelloApplication.showMainView(stage);
+        HelloApplication.showMainView(game, stage);
 
+    }
+
+    public void buildEnergySource(ActionEvent e){
+        Button btn = (Button)e.getSource();
+        String energyType = btn.getText();
+        boolean construct = game.construct(energyType);
+        if(construct){
+            setBuilt(game.getCurrentRoom());
+            coins.setText(""+game.getCoins()+" Coins");
+        }
     }
 }

@@ -34,7 +34,7 @@
                               <Font size="21.0" />
                            </font>
                         </Label>
-                        <Label text="20% / 80%">
+                        <Label fx:id="balanceLabel" text="20% / 80%">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
@@ -42,7 +42,7 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <ProgressBar prefHeight="18.0" prefWidth="150.0" progress="0.2">
+                        <ProgressBar fx:id="balanceBar" prefHeight="18.0" prefWidth="150.0" progress="0.2">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
@@ -140,7 +140,7 @@
                         <Insets bottom="5.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="coins" contentDisplay="CENTER" text="500 Coins">
+                  <Label fx:id="coins" contentDisplay="CENTER" text="foo">
                      <font>
                         <Font size="15.0" />
                      </font>

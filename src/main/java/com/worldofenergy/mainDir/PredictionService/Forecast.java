@@ -113,5 +113,15 @@ public class Forecast implements PredictionService {
     public double getFossilEnergy() {
         return 0;
     }
+
+    @Override
+    public double getGreenPercent() {
+        return energyBalance.greenPercent;
+    }
+
+    @Override
+    public double getFossilPercent() {
+        return energyBalance.fossilPercent;
+    }
 }
 
