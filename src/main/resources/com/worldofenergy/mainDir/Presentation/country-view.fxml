@@ -84,16 +84,16 @@
                               <Label text="Hydro" GridPane.rowIndex="1" />
                               <Label text="Solar" GridPane.rowIndex="2" />
                               <Label text="Geothermal" GridPane.rowIndex="3" />
-                              <Label text="geoAmount" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <Label text="sunAmount" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <Label text="hydroAmount" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <Label text="windAmount" GridPane.columnIndex="1" />
+                              <Label fx:id="gAmount" text="geoAmount" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label fx:id="sAmount" text="sunAmount" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label fx:id="hAmount" text="hydroAmount" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="wAmount" text="windAmount" GridPane.columnIndex="1" />
                            </children>
                            <VBox.margin>
                               <Insets left="5.0" />
                            </VBox.margin>
                         </GridPane>
-                                <Button mnemonicParsing="false" prefHeight="88.0" prefWidth="144.0" style="-fx-border-style: Solid;" text="Exit">
+                                <Button fx:id="exitBtn" mnemonicParsing="false" onAction="#exitCountry" prefHeight="88.0" prefWidth="144.0" style="-fx-border-style: Solid;" text="Exit">
                                     <VBox.margin>
                                         <Insets top="215.0" />
                                     </VBox.margin>

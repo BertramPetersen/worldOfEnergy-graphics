@@ -284,4 +284,16 @@ public class Game implements DataService {
     public Room getCurrentRoom(){
         return this.location;
     }
+
+    @Override
+    public boolean setCurrentRoom(String destination){
+        Room destinationRoom = this.location.getExit(destination);
+
+        if (destinationRoom == null) {
+            return false;
+        } else {
+            this.location = destinationRoom;
+            return true;
+        }
+    }
 }

@@ -11,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
@@ -20,7 +21,7 @@ import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
 
-    DataService game = new Game();
+    DataService game;
     Parent root;
     Scene scene;
     Stage stage;
@@ -36,6 +37,7 @@ public class HelloController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        game = new Game();
         coins.setText(""+game.getCoins()+" Coins");
         co2Forecast.setText("CO2 increase: "+game.getCO2()+" Tonnes");
         tempForecast.setText("Temperature: "+game.getTemp()+" degrees");
@@ -44,15 +46,14 @@ public class HelloController implements Initializable {
 
     public void enterCountry(ActionEvent e) throws IOException{
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloController.class.getResource("country-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("World Of Energy");
-        stage.setMinWidth(905.0);
-        stage.setMinHeight(620.0);
-        stage.setScene(scene);
-        stage.show();
-        CountryController.setGame(game);
-        CountryController.load();
+        Button btn = (Button)e.getSource();
+        String destination = btn.getText().toUpperCase();
+        game.setCurrentRoom(destination);
+        HelloApplication.showCountryView(game, stage);
 
+    }
+
+    public void setGame(DataService obj){
+        game = obj;
     }
 }

@@ -21,4 +21,5 @@ public interface DataService {
     double getSea();
 
     Room getCurrentRoom();
+    boolean setCurrentRoom(String destination);
 }
