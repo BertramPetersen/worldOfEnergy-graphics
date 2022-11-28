@@ -63,11 +63,11 @@ public class Room implements EnergySourceConstructor {
     public boolean constructEnergy(String type){
         if (type.equalsIgnoreCase("Windmill")){
             return constructWind();
-        }else if (type.equalsIgnoreCase("Hydro Powerplant")){
+        }else if (type.equalsIgnoreCase("Hydro Power")){ // For texUI replace with Hydro Powerplant
             return constructHydro();
         }else if (type.equalsIgnoreCase("Solar Panel")){
             return constructSolar();
-        }else if (type.equalsIgnoreCase("Geo Powerplant")) {
+        }else if (type.equalsIgnoreCase("Geo Power")) { // For texUI replace with Geo Powerplant
             return constructGeoTherm();
         }
         System.out.println("I'm not sure what you mean. Did you type a valid Power Source to build?");

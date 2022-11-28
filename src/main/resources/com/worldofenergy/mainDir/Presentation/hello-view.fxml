@@ -117,7 +117,8 @@
                   <Font size="9.0" />
                </font>
             </Button>
-            <ButtonBar layoutX="239.0" layoutY="539.0" prefHeight="61.0" prefWidth="345.0" style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid;">
+            <ButtonBar layoutX="239.0" layoutY="539.0" prefHeight="61.0" prefWidth="345.0"
+                       style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid;">
               <buttons>
                 <Button mnemonicParsing="false" text="Windmill" />
                   <Button mnemonicParsing="false" text="Solar Panel" />

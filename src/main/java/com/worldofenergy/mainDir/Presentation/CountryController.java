@@ -1,11 +1,11 @@
 package com.worldofenergy.mainDir.Presentation;
 
-import com.worldofenergy.mainDir.DataService;
-import com.worldofenergy.mainDir.Room;
+import com.worldofenergy.mainDir.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -73,10 +73,28 @@ public class CountryController{
     public void buildEnergySource(ActionEvent e){
         Button btn = (Button)e.getSource();
         String energyType = btn.getText();
+        EnergySource eType = stringToEnergySource(energyType);
         boolean construct = game.construct(energyType);
         if(construct){
             setBuilt(game.getCurrentRoom());
             coins.setText(""+game.getCoins()+" Coins");
         }
+        else if (!room.ValidateFunds(eType)){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Insufficient funds");
+            alert.setHeaderText(null);
+            alert.setContentText("You do not have enough funds for construction of "+energyType);
+            alert.showAndWait();
+        }
+    }
+
+    public EnergySource stringToEnergySource(String s){
+        switch(s){
+            case "Windmill": return new WindMill();
+            case "Hydro Power": return new HydroPowerplant();
+            case "Geo Power": return new GeothermalPowerplant();
+            case "Solar Panel": return new SolarPanel();
+        }
+        return null;
     }
 }

@@ -65,9 +65,9 @@ public class HelloController implements Initializable{
         coins.setText(""+ game.getCoins()+" Coins");
     }
     public void setForecast(){
-        co2Forecast.setText("CO2 increase: "+game.getCO2()+" Tonnes");
-        tempForecast.setText("Temperature: "+game.getTemp()+" degrees");
-        seaForecast.setText("Sea Level: "+game.getSea()+" cm");
+        co2Forecast.setText("CO2 increase: %.2f Tonnes".formatted(game.getCO2()));
+        tempForecast.setText("Temperature: %.2f \u2103 ".formatted(game.getTemp())); // Unicode: degrees celcius
+        seaForecast.setText("Sea Level: %.2f cm".formatted(game.getSea()));
     }
     public void setBalance(){
         PredictionService energyBalance = game.getEnergyBalance();
