@@ -5,7 +5,7 @@ public interface PredictionService {
 
     void show();
 
-    void UpdateGreenEnergy(double greenEnergy);
+    void updateEnergy(double greenEnergy);
 
     void update(EnergyBalance energyBalance);
 
