@@ -38,4 +38,6 @@ public interface DataService {
     boolean getInitRandomEvent();
 
     void resetQuizSystem();
+
+    void getQuiz();
 }

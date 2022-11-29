@@ -344,4 +344,9 @@ public class Game implements DataService {
         timeToQuiz = false;
         initRandomEvent = false;
     }
+
+    @Override
+    public ArrayList<HashMap> getNextQuiz() {
+        quiz.getNextQuiz();
+    }
 }

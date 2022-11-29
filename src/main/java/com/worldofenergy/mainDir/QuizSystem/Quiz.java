@@ -33,13 +33,13 @@ public class Quiz implements QuizService {
      * Contains all the created questions and their respective answers of the quiz. Adds them all to the {@link #questions} Arraylist.
      */
     public void createQuestions () {
-        questions.add(new Question("""
-                Which of these is not a type of renewable energy?
-                (a) Solar
-                (b) Wind
-                (c) Hydropower
-                (d) Natural gas
-                """, "d"));
+        String p = "Which of these is not a type of renewable energy?";
+        String[] options = {"(a) Solar", "(b) Wind", "(c) Hydropower", "(d) Natural gas"};
+        questions.add(new Question(prompt, options, "d"));
+
+        String p1 = "By which year does FN want to substantially increase the share of renewable energy in the global energy mix?";
+        String[] o = {"(a) Solar", "(b) Wind", "(c) Hydropower", "(d) Natural gas"};
+        questions.add(new Question(prompt, options, "d"));
         questions.add(new Question("""
                 By which year does FN want to substantially increase the share of renewable energy in the global energy mix?
                 (a) 2025
@@ -233,5 +233,10 @@ public class Quiz implements QuizService {
     }
     @Override
     public void initiateRandomEvent(Forecast forecast){}
+
+    @Override
+    public String getNextQuestion() {
+        return questions.get(i).prompt;
+    }
 }
 

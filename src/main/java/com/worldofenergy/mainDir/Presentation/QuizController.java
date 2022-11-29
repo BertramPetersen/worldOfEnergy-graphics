@@ -38,7 +38,7 @@ public class QuizController {
     private Button submitBtn;
 
     public void init(DataService game){
-
+        game.getQuiz();
     }
 
 }

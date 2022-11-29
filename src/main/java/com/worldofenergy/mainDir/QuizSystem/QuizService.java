@@ -8,4 +8,6 @@ public interface QuizService {
 
     // RandomEvent methods
     void initiateRandomEvent(Forecast forecast);
+
+     String getNextQuestion();
 }
