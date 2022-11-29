@@ -53,6 +53,14 @@ public class HelloController implements Initializable{
         HelloApplication.showCountryView(game, stage);
 
     }
+
+    public void showQuiz() throws IOException{
+        HelloApplication.showQuiz(this.game);
+    }
+
+    public void initRandomEvent() throws IOException{
+
+    }
     public void init(DataService obj){
         this.game = obj;
         setForecast();
@@ -79,8 +87,14 @@ public class HelloController implements Initializable{
         balanceBar.setProgress(energyBalance.getGreenPercent() / 100);
     }
 
-    public void endTurn(ActionEvent e){
+    public void endTurn(ActionEvent e) throws IOException {
         game.updateTurn();
+        if (game.getTimeToQuiz()){
+            showQuiz();
+        } else if (game.getInitRandomEvent()){
+            initRandomEvent();
+        }
+        game.resetQuizSystem();
         setCoins();
     }
 }
