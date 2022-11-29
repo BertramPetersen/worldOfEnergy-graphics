@@ -57,15 +57,15 @@ public class HelloApplication extends Application {
         controller.init(game);
     }
 
-    public static void showQuiz(DataService game) throws IOException{
+    public static void showQuiz(DataService game) throws IOException, InterruptedException {
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(HelloApplication.class.getResource("quiz.fxml"));
+        loader.setControllerFactory(c -> new QuizController(game, stage));
         Scene scene = new Scene(loader.load());
-        QuizController controller = loader.getController();
         stage.setScene(scene);
-        stage.show();
-        controller.init(game);
+        stage.showAndWait();
+//        controller.init(game, stage);
 
     }
 
