@@ -1,7 +1,6 @@
 package com.worldofenergy.mainDir.Presentation;
 
 import com.worldofenergy.mainDir.DataService;
-import com.worldofenergy.mainDir.Game;
 import com.worldofenergy.mainDir.PredictionService.EnergyBalance;
 import com.worldofenergy.mainDir.PredictionService.PredictionService;
 import javafx.event.ActionEvent;
@@ -9,9 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -37,6 +34,8 @@ public class HelloController implements Initializable{
     private Label balanceLabel;
     @FXML
     private ProgressBar balanceBar;
+    @FXML
+    private Label turnCounter;
 
     public HelloController(DataService game, Stage stage){
         this.game = game;
@@ -115,11 +114,7 @@ public class HelloController implements Initializable{
         }
         game.resetQuizSystem();
         setCoins();
+        turnCounter.setText("turn: "+game.getTurnCount());
     }
 
-    @FXML
-    public void closeWindow(ActionEvent e){
-        Stage stage1 = (Stage)((Node)e.getSource()).getScene().getWindow();
-        stage1.close();
-    }
 }

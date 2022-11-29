@@ -375,4 +375,9 @@ public class Game implements DataService {
         builtEnergy[3] = this.location.getGeoplantCount();
         return builtEnergy;
     }
+
+    @Override
+    public int getTurnCount(){
+        return turnCounter;
+    }
 }
