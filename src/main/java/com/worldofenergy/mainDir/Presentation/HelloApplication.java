@@ -2,6 +2,7 @@ package com.worldofenergy.mainDir.Presentation;
 
 import com.worldofenergy.mainDir.DataService;
 import com.worldofenergy.mainDir.Game;
+import com.worldofenergy.mainDir.PredictionService.PredictionService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -54,6 +55,18 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.show();
         controller.init(game);
+    }
+
+    public static void showQuiz(DataService game) throws IOException{
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(HelloApplication.class.getResource("quiz.fxml"));
+        Scene scene = new Scene(loader.load());
+        QuizController controller = loader.getController();
+        stage.setScene(scene);
+        stage.show();
+        controller.init(game);
+
     }
 
     public static void main(String[] args) {
