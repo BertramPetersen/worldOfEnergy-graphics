@@ -33,4 +33,9 @@ public interface DataService {
     PredictionService getForecast();
 
     EnergySource stringToEnergySource(String s);
+
+    boolean getTimeToQuiz();
+    boolean getInitRandomEvent();
+
+    void resetQuizSystem();
 }

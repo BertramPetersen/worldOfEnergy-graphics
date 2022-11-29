@@ -53,6 +53,14 @@ public class HelloController implements Initializable{
         HelloApplication.showCountryView(game, stage);
 
     }
+
+    public void showQuiz() throws IOException{
+        HelloApplication.showQuiz(this.game);
+    }
+
+    public void initRandomEvent() throws IOException{
+
+    }
     public void init(DataService obj){
         this.game = obj;
         setForecast();
@@ -72,15 +80,21 @@ public class HelloController implements Initializable{
     public void setBalance(){
         PredictionService energyBalance = game.getEnergyBalance();
         PredictionService forecast = game.getForecast();
-        energyBalance.UpdateGreenEnergy(game.getTotalPowerOutput());
+        energyBalance.updateEnergy(game.getTotalPowerOutput());
         forecast.update((EnergyBalance) energyBalance);
         String balance = String.format("%.0f%% / %.0f%%",energyBalance.getGreenPercent(), energyBalance.getFossilPercent());
         balanceLabel.setText(balance);
         balanceBar.setProgress(energyBalance.getGreenPercent() / 100);
     }
 
-    public void endTurn(ActionEvent e){
+    public void endTurn(ActionEvent e) throws IOException {
         game.updateTurn();
+        if (game.getTimeToQuiz()){
+            showQuiz();
+        } else if (game.getInitRandomEvent()){
+            initRandomEvent();
+        }
+        game.resetQuizSystem();
         setCoins();
     }
 }
