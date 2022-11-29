@@ -72,7 +72,7 @@ public class HelloController implements Initializable{
     public void setBalance(){
         PredictionService energyBalance = game.getEnergyBalance();
         PredictionService forecast = game.getForecast();
-        energyBalance.UpdateGreenEnergy(game.getTotalPowerOutput());
+        energyBalance.updateEnergy(game.getTotalPowerOutput());
         forecast.update((EnergyBalance) energyBalance);
         String balance = String.format("%.0f%% / %.0f%%",energyBalance.getGreenPercent(), energyBalance.getFossilPercent());
         balanceLabel.setText(balance);

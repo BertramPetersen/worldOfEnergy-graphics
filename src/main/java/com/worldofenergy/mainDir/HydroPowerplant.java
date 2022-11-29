@@ -7,8 +7,4 @@ public class HydroPowerplant extends EnergySource {
         super.name = "Hydro Powerplant";
         super.passiveIncome = 140;
     }
-
-    public int showPrice() {
-        return price;
-    }
 }

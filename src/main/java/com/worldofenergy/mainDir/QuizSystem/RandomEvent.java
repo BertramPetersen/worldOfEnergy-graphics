@@ -7,27 +7,55 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class RandomEvent implements QuizService{
+    /**
+     * An int i. Used in {@link #initiateRandomEvent(Forecast)} to be able to prompt a new event and impact each time. Runs through the {@link #events} ArrayList.
+     * Placed outside of {@link #initiateRandomEvent(Forecast)} to prevent it from continuously being sat to 0.
+     * @see #initiateRandomEvent(Forecast)
+     * @see #events
+     */
     private int i;
+    /**
+     * An ArrayList of the class {@link Events}. Each item in the ArrayList contains a String "description" and a int "impact".
+     */
+    private final ArrayList<Events> events = new ArrayList<>();
 
-    Forecast forecast = new Forecast();
-
-    public ArrayList<Events> events = new ArrayList<>();
-
+    /**
+     * Ensures the {@link #createEvents()} method is called whenever a new instance of {@link RandomEvent} is created.
+     * Shuffles the events in {@link #createEvents()}. Ensuring a new sequence everytime the game is played.
+     */
     public RandomEvent() {
         createEvents();
         Collections.shuffle(events);
     }
 
-    public void createEvents() {
+    /**
+     * Contains all the created events and their respective descriptions and impacts. Adds them all to the {@link #events} Arraylist.
+     */
+    private void createEvents() {
         events.add(new Events("The brazilian government just announced an almost complete deforestation of the Amazon Rainforest. " +
                 "Now all the forest’s carbon storage capacity will be lost to the atmosphere", 1.5));
     }
 
+    /**
+     * Requires the user to hit enter before anything can happen
+     */
     private void promptEnterKey() {
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
     }
 
+    /**
+     * Alerts the player that something unusual has happened. Prompts a random event then displays how much the forecast has been impacted by the random event.
+     * <p>
+     * This method is called when a new turn has been initiated. It displays the event description. Then displays and visualizes by the new forecast
+     * It then tells the player by how much forecast has increased in percentage. After each guess {@link #i} is increased by 1 ensuring a new event next time initiateRandomEvent() is called.
+     * </p>
+     * <p> The method is wrapped in a try...catch statement to prevent an {@link IndexOutOfBoundsException}. In case of an {@link IndexOutOfBoundsException}
+     * then {@link #i} is sat to 0, the {@link #events} ArrayList is shuffled, and initiateRandomEvent() is called. Thereby, restarting the randomEvent completely.
+     * </p>
+     * @exception IndexOutOfBoundsException when {@link #i} is greater than the ArrayList length
+     * @param forecast the instance of forecast that is to be impacted by the random event.
+     */
     public void initiateRandomEvent(Forecast forecast) {
         try {
 
@@ -50,7 +78,7 @@ public class RandomEvent implements QuizService{
         } catch (IndexOutOfBoundsException e) {
             i = 0;
             Collections.shuffle(events);
-            initiateRandomEvent((Forecast) forecast);
+            initiateRandomEvent(forecast);
         }
         i++;
     }

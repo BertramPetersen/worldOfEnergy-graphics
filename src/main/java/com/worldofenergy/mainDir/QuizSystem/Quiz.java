@@ -8,14 +8,30 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class Quiz implements QuizService {
-    private int i = 0; // used in "takeQuiz"
+    /**
+     * An int i. Used in {@link #takeQuiz()} to be able to prompt new question and answer each time. Runs through the {@link #questions} ArrayList.
+     * Placed outside of {@link #takeQuiz()} to prevent it from continuously being sat to 0.
+     * @see #takeQuiz()
+     * @see #questions
+     */
+    private int i;
+    /**
+     * An ArrayList of the class {@link Question}. Each item in the ArrayList contains a String "prompt" and a String "answer".
+     */
+    private final ArrayList<Question> questions = new ArrayList<>();
 
+    /**
+     * Ensures the {@link #createQuestions()} method is called whenever a new instance of {@link Quiz} is created.
+     * Shuffles the questions in {@link #createQuestions()}. Ensuring a new sequence everytime the game is played.
+     */
     public Quiz(){
         createQuestions();
         Collections.shuffle(questions);
     }
-    // Create the list of questions and their respective answers
-    public ArrayList<Question> questions = new ArrayList<>();
+
+    /**
+     * Contains all the created questions and their respective answers of the quiz. Adds them all to the {@link #questions} Arraylist.
+     */
     public void createQuestions () {
         questions.add(new Question("""
                 Which of these is not a type of renewable energy?
@@ -164,6 +180,27 @@ public class Quiz implements QuizService {
     }
 
 
+    /**
+     * Prompts the user a quiz containing a question and its answer possibilities. Allows the user to try and guess the correct answer and win money to their wallet
+     * <p>
+     *
+     * </p>
+     * <p>
+     * This method is called when a new turn has been initiated. It first gives the user an introduction to the quiz.
+     * It then prints out the questions and answer possibilities.
+     * If the user input is equal to the answer e.g. user input = "a" and answer = "a". Then 50 coins is added to {@link Wallet}.
+     * If the user input is not equal to the answer e.g. user input = "a" and answer = "b". Then no coins is added to {@link Wallet}
+     * After each valid guess {@link #i} is increased by 1 ensuring a new question next time takeQuiz() is called.
+     * </p>
+     * <p>
+     * Should the user input not equal one of the answer possibilities a, b, c or d
+     * then an error message is to be received explaining the answer possibilities. After which takeQuiz() is called so the user gets a new chance to answer the question.
+     * </p>
+     * <p> The method is wrapped in a try...catch statement to prevent an {@link IndexOutOfBoundsException}. In case of an {@link IndexOutOfBoundsException}
+     * then {@link #i} is sat to 0, the {@link #questions} ArrayList is shuffled, and takeQuiz() is called. Thereby, restarting the quiz completely.
+     * </p>
+     * @exception IndexOutOfBoundsException when {@link #i} is greater than the ArrayList length
+     */
     // Lets you play the quiz
     public void takeQuiz() {
         System.out.println("You now have the opportunity to earn money to build more energy sources by taking the following quiz:");
@@ -194,9 +231,6 @@ public class Quiz implements QuizService {
             takeQuiz();
         }
     }
-
-
-
     @Override
     public void initiateRandomEvent(Forecast forecast){}
 }

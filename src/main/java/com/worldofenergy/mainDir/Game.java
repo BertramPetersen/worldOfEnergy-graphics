@@ -137,7 +137,7 @@ public class Game implements DataService {
     public void updateTurn(){
         turnCounter++;
         energyBalance.incrementYear();
-        energyBalance.UpdateGreenEnergy(getTotalPowerOutput());
+        energyBalance.updateEnergy(getTotalPowerOutput());
         forecast.update((EnergyBalance) energyBalance);
         System.out.println();
         updatePassiveIncome();
@@ -173,7 +173,7 @@ public class Game implements DataService {
     public double getTotalPowerOutput() {
         double p = 0;
         for (Room room : createdRooms) {
-            p += room.getRealPowerOutput();
+            p += room.getTotalGreenPowerOutput();
         }
         return p;
     }
