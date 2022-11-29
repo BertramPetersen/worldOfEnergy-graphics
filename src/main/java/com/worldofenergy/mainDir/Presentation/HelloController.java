@@ -9,19 +9,20 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.layout.TilePane;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class HelloController implements Initializable{
+public class HelloController implements Initializable {
 
     DataService game;
     Stage stage;
@@ -37,6 +38,8 @@ public class HelloController implements Initializable{
     private Label balanceLabel;
     @FXML
     private ProgressBar balanceBar;
+    @FXML
+    public Button helpButton;
 
 
     @Override
@@ -45,15 +48,16 @@ public class HelloController implements Initializable{
     }
 
 
-    public void enterCountry(ActionEvent e) throws IOException{
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        Button btn = (Button)e.getSource();
+    public void enterCountry(ActionEvent e) throws IOException {
+        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        Button btn = (Button) e.getSource();
         String destination = btn.getText().toUpperCase();
         game.setCurrentRoom(destination);
         HelloApplication.showCountryView(game, stage);
 
     }
-    public void init(DataService obj){
+
+    public void init(DataService obj) {
         this.game = obj;
         setForecast();
         setCoins();
@@ -61,26 +65,52 @@ public class HelloController implements Initializable{
 
     }
 
-    public void setCoins(){
-        coins.setText(""+ game.getCoins()+" Coins");
+    public void setCoins() {
+        coins.setText("" + game.getCoins() + " Coins");
     }
-    public void setForecast(){
+
+    public void setForecast() {
         co2Forecast.setText("CO2 increase: %.2f Tonnes".formatted(game.getCO2()));
         tempForecast.setText("Temperature: %.2f \u2103 ".formatted(game.getTemp())); // Unicode: degrees celcius
         seaForecast.setText("Sea Level: %.2f cm".formatted(game.getSea()));
     }
-    public void setBalance(){
+
+    public void setBalance() {
         PredictionService energyBalance = game.getEnergyBalance();
         PredictionService forecast = game.getForecast();
         energyBalance.UpdateGreenEnergy(game.getTotalPowerOutput());
         forecast.update((EnergyBalance) energyBalance);
-        String balance = String.format("%.0f%% / %.0f%%",energyBalance.getGreenPercent(), energyBalance.getFossilPercent());
+        String balance = String.format("%.0f%% / %.0f%%", energyBalance.getGreenPercent(), energyBalance.getFossilPercent());
         balanceLabel.setText(balance);
         balanceBar.setProgress(energyBalance.getGreenPercent() / 100);
     }
 
-    public void endTurn(ActionEvent e){
+    public void endTurn(ActionEvent e) {
         game.updateTurn();
         setCoins();
+    }
+
+    public void setHelpButton(ActionEvent e) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(HelloApplication.class.getResource("hello-view.fxml"));
+        Scene scene1 = new Scene(loader.load());
+
+        Stage stage1 = new Stage();
+        TilePane tilePane = new TilePane();
+
+        Label label = new Label("This is your help. \nTo build energy sources " +
+                "type 'build windmill' \nwith the name of the energy source " +
+                "you want to build. \nClose this window to continue the game.");
+        Popup popup = new Popup();
+        popup.setAutoHide(true);
+        popup.getContent().add(label);
+
+        Scene scene = new Scene(tilePane, 350, 150);
+        stage1.setScene(scene);
+        if (!popup.isShowing()) {
+            stage1.show();
+            popup.show(stage1);
+
+        }
     }
 }
