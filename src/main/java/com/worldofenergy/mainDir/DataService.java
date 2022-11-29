@@ -43,4 +43,6 @@ public interface DataService {
     ArrayList getQuiz();
 
     int[] getBuiltEnergy();
+
+    int getTurnCount();
 }
