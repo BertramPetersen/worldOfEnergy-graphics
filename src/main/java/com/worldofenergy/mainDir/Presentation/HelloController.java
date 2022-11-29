@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
@@ -96,14 +97,19 @@ public class HelloController implements Initializable {
         Stage stage1 = new Stage();
         TilePane tilePane = new TilePane();
 
-        Label label = new Label("This is your help. \nTo build energy sources " +
-                "type 'build windmill' \nwith the name of the energy source " +
-                "you want to build. \nClose this window to continue the game.");
+        Label label = new Label("\n \nTo build " +
+                "energy sources, go to one of the areas on he map.\n" +
+                "Press the button 'Windmill' or one of the four energy sources you want to build.\n" +
+                "You will then be able to build as many sources you want, and see how many different \n" +
+                "sources you have built. \n \nClose this window to continue the game.\n");
+        // label.setPadding(new Insets(100));
+        // Dette kan ikke gøres. Når det implementeres, kan vinduet ikke lukkes ned.
+        // Derfor sætter jeg 2 tomme linjer ind.
         Popup popup = new Popup();
         popup.setAutoHide(true);
         popup.getContent().add(label);
 
-        Scene scene = new Scene(tilePane, 350, 150);
+        Scene scene = new Scene(tilePane, 550, 130);
         stage1.setScene(scene);
         if (!popup.isShowing()) {
             stage1.show();

@@ -100,14 +100,16 @@ public class CountryController{
         Stage stage1 = new Stage();
         TilePane tilePane = new TilePane();
 
-        Label label = new Label("This is your help. \nTo build energy sources " +
-                "type 'build windmill' \nwith the name of the energy source " +
-                "you want to build. \nClose this window to continue the game.");
+        Label label = new Label("\n \nTo build " +
+                "energy sources, go to one of the areas on he map.\n" +
+                        "Press the button 'Windmill' or one of the four energy sources you want to build.\n" +
+                        "You will then be able to build as many sources you want, and see how many different \n" +
+                        "sources you have built. \n \nClose this window to continue the game.\n");
         Popup popup = new Popup();
         popup.setAutoHide(true);
         popup.getContent().add(label);
 
-        Scene scene = new Scene(tilePane, 350, 150);
+        Scene scene = new Scene(tilePane, 550, 130);
         stage1.setScene(scene);
         if (!popup.isShowing()) {
             stage1.show();
