@@ -93,7 +93,8 @@
                               <Insets left="5.0" />
                            </VBox.margin>
                         </GridPane>
-                                <Button fx:id="exitBtn" mnemonicParsing="false" onAction="#exitCountry" prefHeight="88.0" prefWidth="144.0" style="-fx-border-style: Solid;" text="Exit">
+                                <Button fx:id="exitBtn" mnemonicParsing="false" onAction="#exitCountry"
+                                        prefHeight="88.0" prefWidth="144.0" style="-fx-border-style: Solid;" text="Exit">
                                     <VBox.margin>
                                         <Insets bottom="12.0" top="215.0" />
                                     </VBox.margin>
@@ -108,7 +109,8 @@
                         </VBox>
                     </children>
                 </VBox>
-                <ButtonBar layoutX="239.0" layoutY="539.0" prefHeight="61.0" prefWidth="345.0" style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid;">
+                <ButtonBar layoutX="239.0" layoutY="539.0" prefHeight="61.0" prefWidth="345.0"
+                           style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid; -fx-opacity: 1;">
                     <buttons>
                         <Button mnemonicParsing="false" text="Windmill" onAction="#buildEnergySource" />
                         <Button mnemonicParsing="false" text="Solar Panel" onAction="#buildEnergySource" />
