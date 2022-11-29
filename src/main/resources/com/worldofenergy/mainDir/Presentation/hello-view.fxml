@@ -115,21 +115,15 @@
                   <Font size="9.0" />
                </font>
             </Button>
-            <ButtonBar layoutX="239.0" layoutY="539.0" prefHeight="61.0" prefWidth="345.0" style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid;">
-              <buttons>
-                <Button mnemonicParsing="false" text="Windmill" />
-                  <Button mnemonicParsing="false" text="Solar Panel" />
-                  <Button mnemonicParsing="false" text="Hydro Power" textAlignment="CENTER" wrapText="true">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" text="Geo Power" />
-              </buttons>
-               <padding>
-                  <Insets right="20.0" />
-               </padding>
-            </ButtonBar>
+            <Button layoutX="415.0" layoutY="300.0" mnemonicParsing="false" onAction="#enterCountry" text="North Africa">
+               <font>
+                  <Font size="9.0" />
+               </font></Button>
+            <Button layoutX="454.0" layoutY="449.0" mnemonicParsing="false" onAction="#enterCountry" text="South Africa">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Button>
             <VBox alignment="TOP_CENTER" prefHeight="88.0" prefWidth="150.0" style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid;">
                <children>
                   <Label contentDisplay="CENTER" text="Wallet">
@@ -147,8 +141,21 @@
                   </Label>
                </children>
             </VBox>
-            <Button layoutX="456.0" layoutY="460.0" mnemonicParsing="false" text="South Africa" />
-            <Button layoutX="383.0" layoutY="288.0" mnemonicParsing="false" text="North Africa" />
+            <ButtonBar layoutX="239.0" layoutY="539.0" prefHeight="61.0" prefWidth="345.0" style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid;">
+              <buttons>
+                <Button mnemonicParsing="false" text="Windmill" />
+                  <Button mnemonicParsing="false" text="Solar Panel" />
+                  <Button mnemonicParsing="false" text="Hydro Power" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" text="Geo Power" />
+              </buttons>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </ButtonBar>
          </children>
       </AnchorPane>
    </children>
