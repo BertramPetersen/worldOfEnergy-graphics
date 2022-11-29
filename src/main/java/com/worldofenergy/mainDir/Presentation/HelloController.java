@@ -54,8 +54,9 @@ public class HelloController implements Initializable{
 
     }
 
-    public void showQuiz() throws IOException{
+    public void showQuiz() throws IOException, InterruptedException {
         HelloApplication.showQuiz(this.game);
+        setCoins();
     }
 
     public void initRandomEvent() throws IOException{
@@ -87,7 +88,7 @@ public class HelloController implements Initializable{
         balanceBar.setProgress(energyBalance.getGreenPercent() / 100);
     }
 
-    public void endTurn(ActionEvent e) throws IOException {
+    public void endTurn(ActionEvent e) throws IOException, InterruptedException {
         game.updateTurn();
         if (game.getTimeToQuiz()){
             showQuiz();

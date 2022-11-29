@@ -146,7 +146,6 @@ public class Game implements DataService {
         updatePassiveIncome();
         energyBalance.show();
 //        promptEnterKey();
-        playQuizOrRandomEvent();
         switch(playQuizOrRandomEvent()){
             case 1: timeToQuiz = true;
             case -1: initRandomEvent = true;
@@ -172,10 +171,10 @@ public class Game implements DataService {
     public int playQuizOrRandomEvent() { // 2. version of play quiz or random event
         double x = Math.random();
         if (x >= 0.8 && turnCounter >= 3) { // RandomEvent has a 20% chance of being run after the 3rd round
-            randomEvent.initiateRandomEvent((Forecast) forecast);
+            // randomEvent.initiateRandomEvent((Forecast) forecast);
             return -1;
         } else if (x <= 0.7 || turnCounter < 3) { // takeQuiz has a 70% chance of being run. But is always run in the 2 first rounds
-            quiz.takeQuiz();   // This implies to things: 1. Quiz and Random Event cannot happen in the same round. 2. There is a 10% chance neither is run.
+            // quiz.takeQuiz();   // This implies to things: 1. Quiz and Random Event cannot happen in the same round. 2. There is a 10% chance neither is run.
             return 1;
         }
         return 0;
@@ -346,7 +345,15 @@ public class Game implements DataService {
     }
 
     @Override
-    public ArrayList<HashMap> getNextQuiz() {
-        quiz.getNextQuiz();
+    public ArrayList<Object> getQuiz() {
+        String question = quiz.getNextQuestion();
+        String[] options = quiz.getNextOptions();
+        String answer = quiz.getNextAnswer();
+        ArrayList<Object> list = new ArrayList<>();
+        list.add(question);
+        list.add(options);
+        list.add(answer);
+        quiz.incrementQuiz();
+        return list;
     }
 }

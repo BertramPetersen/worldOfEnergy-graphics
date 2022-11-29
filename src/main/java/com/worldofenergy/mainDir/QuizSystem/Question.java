@@ -21,18 +21,18 @@ public class Question {
      */
     public Question (String prompt, String answer) {
         this.prompt = prompt;
-        options = new String[3];
+        options = new String[4];
         promptSplitter(prompt);
         this.answer = answer;
     }
 
 
     private void promptSplitter(String prompt){
-        String[] split = prompt.split("\n", 4);
+        String[] split = prompt.split("\n", 5);
+        question = split[0];
         for (int i = 1; i < split.length; i++) {
             options[i-1] = split[i];
         }
-
     }
 
 }

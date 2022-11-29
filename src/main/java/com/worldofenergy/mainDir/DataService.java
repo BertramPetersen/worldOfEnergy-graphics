@@ -3,6 +3,7 @@ package com.worldofenergy.mainDir;
 import com.worldofenergy.mainDir.PredictionService.EnergyBalance;
 import com.worldofenergy.mainDir.PredictionService.PredictionService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface DataService {
@@ -39,5 +40,5 @@ public interface DataService {
 
     void resetQuizSystem();
 
-    void getQuiz();
+    ArrayList getQuiz();
 }
