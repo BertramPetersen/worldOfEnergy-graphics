@@ -43,6 +43,14 @@ public class Game implements DataService {
 
     private void createRooms() {
         roomMap = new HashMap<>();
+        Room southAfrica =new Room("South Africa",50,70,30,40 );
+        createdRooms.add(southAfrica);
+        roomMap.put("South Africa", southAfrica);
+
+        Room  NorthAfrica =new Room("NorthAfrica",40,80,20,40 );
+        createdRooms.add(NorthAfrica);
+        roomMap.put("North Africa", NorthAfrica);
+
         Room southernEurope = new Room("Southern Europe", 25, 80, 30, 40);
         createdRooms.add(southernEurope);
         roomMap.put("Southern Europe", southernEurope);
@@ -70,6 +78,8 @@ public class Game implements DataService {
         Room airport = new Room();
         createdRooms.add(airport);
         roomMap.put("Airport", airport);
+
+
 
         // Here we set exits of all rooms except airport to the room airport
         for (Room room : createdRooms) {
