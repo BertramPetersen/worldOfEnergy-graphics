@@ -3,11 +3,15 @@ package com.worldofenergy.mainDir.Presentation;
 import com.worldofenergy.mainDir.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.TilePane;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -85,6 +89,30 @@ public class CountryController{
             alert.setHeaderText(null);
             alert.setContentText("You do not have enough funds for construction of "+energyType);
             alert.showAndWait();
+        }
+    }
+
+    public void setHelpButton(ActionEvent e) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(HelloApplication.class.getResource("hello-view.fxml"));
+        Scene scene1 = new Scene(loader.load());
+
+        Stage stage1 = new Stage();
+        TilePane tilePane = new TilePane();
+
+        Label label = new Label("This is your help. \nTo build energy sources " +
+                "type 'build windmill' \nwith the name of the energy source " +
+                "you want to build. \nClose this window to continue the game.");
+        Popup popup = new Popup();
+        popup.setAutoHide(true);
+        popup.getContent().add(label);
+
+        Scene scene = new Scene(tilePane, 350, 150);
+        stage1.setScene(scene);
+        if (!popup.isShowing()) {
+            stage1.show();
+            popup.show(stage1);
+
         }
     }
 }

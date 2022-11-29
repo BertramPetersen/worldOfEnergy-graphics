@@ -38,8 +38,6 @@ public class HelloController implements Initializable {
     private Label balanceLabel;
     @FXML
     private ProgressBar balanceBar;
-    @FXML
-    public Button helpButton;
 
 
     @Override
