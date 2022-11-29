@@ -41,4 +41,6 @@ public interface DataService {
     void resetQuizSystem();
 
     ArrayList getQuiz();
+
+    int[] getBuiltEnergy();
 }

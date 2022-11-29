@@ -366,4 +366,13 @@ public class Game implements DataService {
         quiz.incrementQuiz();
         return list;
     }
+    @Override
+    public int[] getBuiltEnergy(){
+        int[] builtEnergy = new int[4];
+        builtEnergy[0] = this.location.getWindmillCount();
+        builtEnergy[1] = this.location.getWaterplantCount();
+        builtEnergy[2] = this.location.getSolarPanelCount();
+        builtEnergy[3] = this.location.getGeoplantCount();
+        return builtEnergy;
+    }
 }
