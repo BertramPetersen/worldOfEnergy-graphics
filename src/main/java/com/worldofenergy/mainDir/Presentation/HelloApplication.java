@@ -7,17 +7,35 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class HelloApplication extends Application {
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException, URISyntaxException {
+        File file = new File("src/main/resources/com/worldofenergy/mainDir/Presentation/imagProject.jpg");
+        System.out.println(file.exists());
+
+        String path = HelloApplication.class.getResource("imagProject.jpg").toURI().getPath();
+
+        Image image;
+        image = new Image(new FileInputStream(file));
+
+        stage.getIcons().add(image);
+
         DataService game = new Game();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(HelloApplication.class.getResource("hello-view.fxml"));
+
         Scene scene = new Scene(loader.load());
+
+
 //        Alert alert = new Alert(Alert.AlertType.WARNING);
 //        alert.setTitle("En verden af Skrald");
 //        alert.setHeaderText(null);
