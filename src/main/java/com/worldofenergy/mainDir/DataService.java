@@ -1,6 +1,5 @@
 package com.worldofenergy.mainDir;
 
-import com.worldofenergy.mainDir.PredictionService.EnergyBalance;
 import com.worldofenergy.mainDir.PredictionService.PredictionService;
 
 import java.util.ArrayList;
