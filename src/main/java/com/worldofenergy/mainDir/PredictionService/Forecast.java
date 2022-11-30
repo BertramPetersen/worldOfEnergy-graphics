@@ -2,29 +2,61 @@ package com.worldofenergy.mainDir.PredictionService;
 
 import java.time.Year;
 
-public class Forecast implements PredictionService {
+public class  Forecast implements PredictionService {
 
     EnergyBalance energyBalance = new EnergyBalance();
-    public double seaLevel = 5; // unit cm
-    public double temperature = 2; // unit celsius
-    public double CO2 = 15; // unit billion ton
-
-    double decrease = ((energyBalance.getGreenEnergy()/ energyBalance.getTotalEnergy())*100);// unit %
-
+    /**
+     * unit cm e.g. 5 cm.
+     */
+    public double seaLevel = 5;
+    /**
+     * Unit celsius e.g. 2°C.
+     */
+    public double temperature = 2;
+    /**
+     * Unit billion ton e.g. 15 billion ton.
+     */
+    public double CO2 = 15;
+    /**
+     * Unit year e.g. 2022
+     */
     int currentYear = Year.now().getValue();
 
+    /**
+     * @return the current year in the game as an int.
+     */
     public int getCurrentYear() {
         return currentYear;
     }
+
+    /**
+     * @return the current temperature in the game as a double.
+     */
     public double getTemperature() {
         return temperature;
     }
+    /**
+     * @return the current CO2 concentration in the game as a double.
+     */
     public double getCO2() {
         return CO2;
     }
+
+    /**
+     * @return the current sea level in the game as a double.
+     */
     public double getSeaLevel() {
         return seaLevel;
     }
+    /**
+     * Increases the forecast ({@link #seaLevel}, {@link #temperature}, {@link #CO2}) then prints what the forecast has increased to.
+     * <p>
+     * The method takes a parameter {@param increaseFactor}. The value of the argument is then multiplied with forecast variables.
+     * The {@param increaseFactor} argument must be between 1 < increaseFactor < ∞. E.g. an argument input of 1.5 is equal to 50% increase in the forecast.
+     * </p>
+     * @param increaseFactor dictates the amount forecast(Sea level, Temperature, C02) is increased e.g. 1.5
+     * @see #decrease
+     */
     public void increase(double increaseFactor) {
 
         seaLevel = seaLevel * increaseFactor;
@@ -38,7 +70,15 @@ public class Forecast implements PredictionService {
         System.out.println("The average temperature has risen to " + String.format("%.2f",temperature) + "\u2103.");
         System.out.println("---------------------------------------------------------------------------------------");
     }
-
+    /**
+     * Decreases the forecast ({@link #seaLevel}, {@link #temperature}, {@link #CO2}) then prints what the forecast has decreased to.
+     * <p>
+     * The method takes a parameter {@param decrease}. The value of the argument is then multiplied with forecast variables.
+     * The {@param decrease} argument must be between 0 < decrease < 1. E.g. an argument input of 0.1 is equal to 90% decrease in the forecast.
+     * </p>
+     * @param decrease dictates by how much forecast(Sea level, Temperature, C02) is decreased e.g. 0.6.
+     * @see #increase
+     */
     public void decrease(double decrease) {
         seaLevel = seaLevel * decrease;
         temperature = temperature * decrease;
@@ -49,7 +89,22 @@ public class Forecast implements PredictionService {
         System.out.printf("the CO2 emission has decreased to:  %.2f billion ton \n", CO2);
 
     }
-
+    /**
+     * Prints out a forecast that shows how much the {@link #seaLevel}, {@link #temperature} and {@link #CO2} has increased/decreased, and by how much it will increase/decrease per year.
+     * <p>
+     * This method is used when a new turn has been initiated. It first progresses a year (e.g. 2022 -> 2023). It then calls the {@link EnergyBalance#updatePercentage()}.
+     * The forecast variables increases if fossil energy > green energy. The forecast variables decreases if fossil energy < green energy.
+     * The increase and decrease value is determined by respectively {@link EnergyBalance#fossilPercent} and {@link EnergyBalance#greenPercent}.
+     * The {@link #seaLevel} increases with 30% of the value of fossilPercent, {@link #temperature} with 20% and {@link #CO2} with 50%.
+     * The {@link #seaLevel} decreases with 60% of the value of greenPercent, {@link #temperature} with 40% and {@link #CO2} with 100%.
+     * </p>
+     * @param energyBalance the instance of EnergyBalance that is to be updated
+     * @see EnergyBalance#getGreenEnergy()
+     * @see EnergyBalance#getFossilEnergy()
+     * @see EnergyBalance#updatePercentage()
+     * @see EnergyBalance#getGreenPercent()
+     * @see EnergyBalance#getFossilPercent()
+     */
     public void update(EnergyBalance energyBalance) {
 //        currentYear++;
         energyBalance.updatePercentage();
@@ -96,7 +151,7 @@ public class Forecast implements PredictionService {
     }
 
     @Override
-    public void UpdateGreenEnergy(double greenEnergy) {
+    public void updateEnergy(double greenEnergy) {
 
     }
     @Override

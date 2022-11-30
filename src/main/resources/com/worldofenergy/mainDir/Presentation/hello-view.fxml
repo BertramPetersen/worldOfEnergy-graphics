@@ -115,7 +115,8 @@
                   <Font size="9.0" />
                </font>
             </Button>
-            <ButtonBar layoutX="239.0" layoutY="539.0" prefHeight="61.0" prefWidth="345.0" style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid;">
+
+            <ButtonBar layoutX="239.0" layoutY="539.0" prefHeight="61.0" prefWidth="345.0" style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid; -fx-opacity: 0;">
               <buttons>
                 <Button mnemonicParsing="false" text="Windmill" />
                   <Button mnemonicParsing="false" text="Solar Panel" />
@@ -137,7 +138,7 @@
                         <Font size="21.0" />
                      </font>
                      <VBox.margin>
-                        <Insets bottom="5.0" top="10.0" />
+                        <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
                   <Label fx:id="coins" contentDisplay="CENTER" text="foo">
@@ -145,6 +146,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
+                  <Label fx:id="turnCounter" prefHeight="17.0" prefWidth="123.0" text="Turn: 0" />
                </children>
             </VBox>
             <Button fx:id="helpButtonHello" layoutX="14.0" layoutY="559.0" mnemonicParsing="false" onAction="#setHelpButton" style="-fx-background-color: #2345; -fx-background-radius: 15px; -fx-text-fill: #ffff;" text="?" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="860.0" AnchorPane.topAnchor="559.0">
@@ -152,6 +154,8 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
+            <Button layoutX="456.0" layoutY="460.0" mnemonicParsing="false" text="South Africa" />
+            <Button layoutX="383.0" layoutY="288.0" mnemonicParsing="false" text="North Africa" />
          </children>
       </AnchorPane>
    </children>

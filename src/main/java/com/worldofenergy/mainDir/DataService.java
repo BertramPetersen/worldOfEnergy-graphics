@@ -3,6 +3,7 @@ package com.worldofenergy.mainDir;
 import com.worldofenergy.mainDir.PredictionService.EnergyBalance;
 import com.worldofenergy.mainDir.PredictionService.PredictionService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface DataService {
@@ -33,4 +34,15 @@ public interface DataService {
     PredictionService getForecast();
 
     EnergySource stringToEnergySource(String s);
+
+    boolean getTimeToQuiz();
+    boolean getInitRandomEvent();
+
+    void resetQuizSystem();
+
+    ArrayList getQuiz();
+
+    int[] getBuiltEnergy();
+
+    int getTurnCount();
 }
