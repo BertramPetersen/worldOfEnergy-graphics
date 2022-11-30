@@ -19,7 +19,7 @@
     <children>
         <AnchorPane prefHeight="200.0" prefWidth="200.0">
             <children>
-                <ImageView fitHeight="600.0" fitWidth="900.0">
+                <ImageView fx:id="bg" fitHeight="600.0" fitWidth="900.0" style="-fx-background-size: contain">
                     <image>
                         <Image url="@world-map.gif" />
                     </image>

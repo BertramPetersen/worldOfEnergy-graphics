@@ -10,6 +10,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.TilePane;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
@@ -18,7 +20,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CountryController{
+public class CountryController implements Initializable{
 
     private DataService game;
     private Room room;
@@ -41,13 +43,21 @@ public class CountryController{
     private Label sAmount;
     @FXML
     private Label gAmount;
+    @FXML
+    private ImageView bg;
 
+    public CountryController(DataService game){
+        this.game = game;
+        this.room = game.getCurrentRoom();
 
-
-    public void setGame(DataService obj){
-        game = obj;
-        room = game.getCurrentRoom();
-
+    }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        String path = "/com/worldofenergy/mainDir/Presentation/CountryBackgrounds/" + room.getName()+".jpg";
+        URL bgPath = getClass().getResource(path);
+        if(bgPath != null){
+            bg.setImage(new Image(bgPath.toString()));
+        }
         setPot(room);
         setBuilt(room);
         coins.setText(""+game.getCoins()+" Coins");

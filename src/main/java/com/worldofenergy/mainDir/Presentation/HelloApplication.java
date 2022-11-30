@@ -54,13 +54,13 @@ public class HelloApplication extends Application {
     public static void showCountryView(DataService game, Stage stage) throws IOException{
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(HelloApplication.class.getResource("country-view.fxml"));
+        loader.setControllerFactory(c -> new CountryController(game));
         Scene scene = new Scene(loader.load());
 
         CountryController cc = loader.getController();
 
         stage.setScene(scene);
         stage.show();
-        cc.setGame(game);
     }
 
     public static void showMainView(DataService game, Stage stage) throws IOException{
