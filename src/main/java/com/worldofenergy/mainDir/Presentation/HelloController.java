@@ -90,10 +90,6 @@ public class HelloController implements Initializable {
     }
 
     public void setHelpButton(ActionEvent e) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene1 = new Scene(loader.load());
-
         Stage stage1 = new Stage();
         TilePane tilePane = new TilePane();
 
@@ -114,7 +110,6 @@ public class HelloController implements Initializable {
         if (!popup.isShowing()) {
             stage1.show();
             popup.show(stage1);
-
         }
     }
 }
