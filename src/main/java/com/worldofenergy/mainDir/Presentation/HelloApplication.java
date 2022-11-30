@@ -4,7 +4,9 @@ import com.worldofenergy.mainDir.DataService;
 import com.worldofenergy.mainDir.Game;
 import com.worldofenergy.mainDir.PredictionService.PredictionService;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -67,6 +69,11 @@ public class HelloApplication extends Application {
         stage.showAndWait();
 //        controller.init(game, stage);
 
+    }
+
+    public static void closeWindow(ActionEvent e){
+        Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        stage.close();
     }
 
     public static void main(String[] args) {

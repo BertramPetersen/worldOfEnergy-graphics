@@ -108,6 +108,9 @@ public class QuizController implements Initializable {
         succes.setAlignment(Pos.CENTER);
         TilePane tilePane = new TilePane(succes);
         tilePane.setAlignment(Pos.CENTER);
+        Button btn = new Button("Close");
+        btn.setOnAction(e -> HelloApplication.closeWindow(e));
+        tilePane.getChildren().add(btn);
         Scene scene = new Scene(tilePane, 600, 400);
         stage.setScene(scene);
     }

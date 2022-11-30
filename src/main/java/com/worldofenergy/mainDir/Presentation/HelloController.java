@@ -47,7 +47,7 @@ public class HelloController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setForecast();
+//        setForecast();
         setCoins();
         setBalance();
     }
@@ -115,6 +115,7 @@ public class HelloController implements Initializable{
         game.resetQuizSystem();
         setCoins();
         turnCounter.setText("turn: "+game.getTurnCount());
+        setForecast();
     }
 
 }
