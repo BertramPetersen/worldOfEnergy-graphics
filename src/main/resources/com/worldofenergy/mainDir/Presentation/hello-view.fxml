@@ -17,7 +17,7 @@
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <ImageView fitHeight="600.0" fitWidth="900.0">
+            <ImageView fx:id="helpbtn" fitHeight="600.0" fitWidth="900.0" layoutX="3" layoutY="3" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
                   <Image url="@world-map.gif" />
                </image>
@@ -115,6 +115,7 @@
                   <Font size="9.0" />
                </font>
             </Button>
+
             <ButtonBar layoutX="239.0" layoutY="539.0" prefHeight="61.0" prefWidth="345.0" style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid; -fx-opacity: 0;">
               <buttons>
                 <Button mnemonicParsing="false" text="Windmill" />
@@ -148,6 +149,11 @@
                   <Label fx:id="turnCounter" prefHeight="17.0" prefWidth="123.0" text="Turn: 0" />
                </children>
             </VBox>
+            <Button fx:id="helpButtonHello" layoutX="14.0" layoutY="559.0" mnemonicParsing="false" onAction="#setHelpButton" style="-fx-background-color: #2345; -fx-background-radius: 15px; -fx-text-fill: #ffff;" text="?" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="860.0" AnchorPane.topAnchor="559.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
             <Button layoutX="456.0" layoutY="460.0" mnemonicParsing="false" text="South Africa" />
             <Button layoutX="383.0" layoutY="288.0" mnemonicParsing="false" text="North Africa" />
          </children>
