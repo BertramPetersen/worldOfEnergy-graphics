@@ -54,10 +54,11 @@ public class CountryController{
     }
 
     private void setBuilt(Room room) {
-        wAmount.setText(""+room.getWindmillCount());
-        hAmount.setText(""+room.getWaterplantCount());
-        sAmount.setText(""+room.getSolarPanelCount());
-        gAmount.setText(""+room.getGeoplantCount());
+        int[] built = game.getBuiltEnergy();
+        wAmount.setText(""+built[0]);
+        hAmount.setText(""+built[1]);
+        sAmount.setText(""+built[2]);
+        gAmount.setText(""+built[3]);
     }
 
     private void setPot(Room room){

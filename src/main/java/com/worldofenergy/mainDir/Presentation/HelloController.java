@@ -1,7 +1,6 @@
 package com.worldofenergy.mainDir.Presentation;
 
 import com.worldofenergy.mainDir.DataService;
-import com.worldofenergy.mainDir.Game;
 import com.worldofenergy.mainDir.PredictionService.EnergyBalance;
 import com.worldofenergy.mainDir.PredictionService.PredictionService;
 import javafx.event.ActionEvent;
@@ -11,7 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -39,29 +37,58 @@ public class HelloController implements Initializable {
     private Label balanceLabel;
     @FXML
     private ProgressBar balanceBar;
+    @FXML
+    private Label turnCounter;
 
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public HelloController(DataService game, Stage stage){
+        this.game = game;
+        this.stage = stage;
+    }
+    public HelloController(){
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+//        setForecast();
+        setCoins();
+        setBalance();
+    }
 
-    public void enterCountry(ActionEvent e) throws IOException {
-        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Button btn = (Button) e.getSource();
+
+    public void enterCountry(ActionEvent e) throws IOException{
+        Button btn = (Button)e.getSource();
         String destination = btn.getText().toUpperCase();
         game.setCurrentRoom(destination);
         HelloApplication.showCountryView(game, stage);
 
     }
 
-    public void init(DataService obj) {
+
+    public void showWelcome() throws IOException{
+        Stage welcomeStage = new Stage();
+        welcomeStage.setTitle("Welcome to World Of Energy");
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(HelloController.class.getResource("welcome.fxml"));
+        Scene scene = new Scene(loader.load());
+        welcomeStage.setScene(scene);
+        welcomeStage.show();
+    }
+
+    public void showQuiz() throws IOException, InterruptedException {
+        HelloApplication.showQuiz(this.game);
+        setCoins();
+    }
+
+    public void initRandomEvent() throws IOException{
+
+    }
+    public void init(DataService obj) throws IOException{
         this.game = obj;
         setForecast();
         setCoins();
         setBalance();
-
+        showWelcome();
     }
 
     public void setCoins() {
@@ -77,16 +104,24 @@ public class HelloController implements Initializable {
     public void setBalance() {
         PredictionService energyBalance = game.getEnergyBalance();
         PredictionService forecast = game.getForecast();
-        energyBalance.UpdateGreenEnergy(game.getTotalPowerOutput());
+        energyBalance.updateEnergy(game.getTotalPowerOutput());
         forecast.update((EnergyBalance) energyBalance);
         String balance = String.format("%.0f%% / %.0f%%", energyBalance.getGreenPercent(), energyBalance.getFossilPercent());
         balanceLabel.setText(balance);
         balanceBar.setProgress(energyBalance.getGreenPercent() / 100);
     }
 
-    public void endTurn(ActionEvent e) {
+    public void endTurn(ActionEvent e) throws IOException, InterruptedException {
         game.updateTurn();
+        if (game.getTimeToQuiz()){
+            showQuiz();
+        } else if (game.getInitRandomEvent()){
+            initRandomEvent();
+        }
+        game.resetQuizSystem();
         setCoins();
+        turnCounter.setText("turn: "+game.getTurnCount());
+        setForecast();
     }
 
     public void setHelpButton(ActionEvent e) throws IOException {
@@ -113,3 +148,4 @@ public class HelloController implements Initializable {
         }
     }
 }
+

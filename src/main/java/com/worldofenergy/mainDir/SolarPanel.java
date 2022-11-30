@@ -7,7 +7,4 @@ public class SolarPanel extends EnergySource {
         super.name = "Solar Panel";
         super.passiveIncome = 20;
     }
-    public int showPrice() {
-        return price;
-    }
 }
