@@ -100,6 +100,9 @@ public class CountryController implements Initializable{
             alert.setHeaderText(null);
             alert.setContentText("You do not have enough funds for construction of "+energyType);
             alert.showAndWait();
+
+
+
         }
     }
 
