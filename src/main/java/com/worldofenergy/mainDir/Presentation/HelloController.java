@@ -163,8 +163,5 @@ public class HelloController implements Initializable {
             popup.show(stage1);
         }
     }
-    public static void showForecastPercent(){
-
-    }
 }
 
