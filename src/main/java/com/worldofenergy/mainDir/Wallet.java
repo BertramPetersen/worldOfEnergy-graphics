@@ -12,7 +12,7 @@ public class Wallet {
     private static int coins;
 
     /**
-     * @return the amount of coins in wallet
+     * @return the amount of coins in wallet.
      */
     public static int getCoins() {
         return coins;
