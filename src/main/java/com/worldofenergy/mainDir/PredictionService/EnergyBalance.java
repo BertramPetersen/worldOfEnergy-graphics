@@ -108,6 +108,11 @@ public class EnergyBalance implements PredictionService {
         return greenPercent;
     }
 
+    @Override
+    public boolean isDeacreasing() {
+        return false;
+    }
+
     /**
      * @return the percentage of {@link #fossilEnergy} as a double.
      */

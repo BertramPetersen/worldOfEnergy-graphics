@@ -47,4 +47,6 @@ public interface DataService {
     int[] getBuiltEnergy();
 
     int getTurnCount();
+
+    boolean isDecreasing();
 }

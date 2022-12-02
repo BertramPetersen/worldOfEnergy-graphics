@@ -396,4 +396,9 @@ public class Game implements DataService {
     public double getSeaInc() {
         return forecast.getSeaInc();
     }
+
+    @Override
+    public boolean isDecreasing() {
+        return forecast.isDeacreasing();
+    }
 }

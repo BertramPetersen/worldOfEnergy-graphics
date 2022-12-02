@@ -197,17 +197,24 @@ public class  Forecast implements PredictionService {
 
     @Override
     public double getTempInc() {
-        return 0;
+        return temperatureIncrease;
     }
 
     @Override
     public double getCO2Inc() {
-        return 0;
+        return CO2Increase;
     }
 
     @Override
     public double getSeaInc() {
-        return 0;
+        return seaLevelIncrease;
+    }
+
+    @Override
+    public boolean isDeacreasing() {
+        if (energyBalance.getGreenEnergy() <= energyBalance.getFossilEnergy()){
+            return false;
+        } else return true;
     }
 }
 

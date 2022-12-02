@@ -32,7 +32,11 @@ public class HelloController implements Initializable {
     @FXML
     private Label tempForecast;
     @FXML
+    private Label tempIncrease;
+    @FXML
     private Label seaForecast;
+    @FXML
+    private Label seaIncrease;
     @FXML
     private Label coins;
     @FXML
@@ -52,7 +56,7 @@ public class HelloController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        setForecast();
+        setForecast();
         setCoins();
         setBalance();
     }
@@ -99,9 +103,18 @@ public class HelloController implements Initializable {
 
     public void setForecast() {
         co2Forecast.setText("Yearly CO2 emission: %.2f Tonnes".formatted(game.getCO2()));
-        co2Increase.setText("CO2 emissions will increase by %.2f%% each year".formatted(game.getCO2()));
         tempForecast.setText("Temperature: %.2f \u2103 ".formatted(game.getTemp())); // Unicode: degrees celcius
         seaForecast.setText("Sea Level: %.2f cm".formatted(game.getSea()));
+
+        if (!game.isDecreasing()){
+            co2Increase.setText("CO2 emissions will increase by %.2f%% each year".formatted(game.getCO2Inc()));
+            tempIncrease.setText("CO2 emissions will increase by %.2f%% each year".formatted(game.getTempInc()));
+            seaIncrease.setText("Sea levels will increase by %.2f%% each year".formatted(game.getSeaInc()));
+        }else{
+            co2Increase.setText("CO2 emissions will decrease by %.2f%% each year".formatted(game.getCO2Inc()));
+            tempIncrease.setText("Temperatures will decrease by %.2f%% each year".formatted(game.getTempInc()));
+            seaIncrease.setText("Sea levels will decrease by %.2f%% each year".formatted(game.getSeaInc()));
+        }
     }
 
     public void setBalance() {
