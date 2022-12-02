@@ -66,12 +66,27 @@
                               <Insets top="10.0" />
                            </VBox.margin>
                         </Label>
+                        <Label fx:id="co2Increase" text="Temperature: 4 degrees">
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </Label>
                         <Label fx:id="seaForecast" text="Sea level: 10 cm">
                            <VBox.margin>
                               <Insets top="15.0" />
                            </VBox.margin>
                         </Label>
+                        <Label fx:id="seaIncrease" text="Temperature: 4 degrees">
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </Label>
                         <Label fx:id="tempForecast" text="Temperature: 4 degrees">
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="tempIncrease" text="Temperature: 4 degrees">
                            <VBox.margin>
                               <Insets top="15.0" />
                            </VBox.margin>

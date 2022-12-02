@@ -12,10 +12,13 @@ public interface PredictionService {
     int getCurrentYear();
 
     double getTemperature();
+    double getTempInc();
 
     double getCO2();
+    double getCO2Inc();
 
     double getSeaLevel();
+    double getSeaInc();
 
     double getGreenEnergy();
     double getTotalEnergy();

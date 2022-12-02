@@ -381,4 +381,19 @@ public class Game implements DataService {
     public int getTurnCount(){
         return turnCounter;
     }
+
+    @Override
+    public double getTempInc() {
+        return forecast.getTempInc();
+    }
+
+    @Override
+    public double getCO2Inc() {
+        return forecast.getCO2Inc();
+    }
+
+    @Override
+    public double getSeaInc() {
+        return forecast.getSeaInc();
+    }
 }

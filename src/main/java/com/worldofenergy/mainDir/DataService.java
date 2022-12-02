@@ -20,8 +20,11 @@ public interface DataService {
     int getCoins();
 
     double getTemp();
+    double getTempInc();
     double getCO2();
+    double getCO2Inc();
     double getSea();
+    double getSeaInc();
 
     Room getCurrentRoom();
     boolean setCurrentRoom(String destination);

@@ -28,6 +28,8 @@ public class HelloController implements Initializable {
     @FXML
     private Label co2Forecast;
     @FXML
+    private Label co2Increase;
+    @FXML
     private Label tempForecast;
     @FXML
     private Label seaForecast;
@@ -96,7 +98,8 @@ public class HelloController implements Initializable {
     }
 
     public void setForecast() {
-        co2Forecast.setText("CO2 increase: %.2f Tonnes".formatted(game.getCO2()));
+        co2Forecast.setText("Yearly CO2 emission: %.2f Tonnes".formatted(game.getCO2()));
+        co2Increase.setText("CO2 emissions will increase by %.2f%% each year".formatted(game.getCO2()));
         tempForecast.setText("Temperature: %.2f \u2103 ".formatted(game.getTemp())); // Unicode: degrees celcius
         seaForecast.setText("Sea Level: %.2f cm".formatted(game.getSea()));
     }
