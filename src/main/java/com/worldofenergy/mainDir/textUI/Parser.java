@@ -8,15 +8,29 @@ import java.util.Scanner;
 
 public class Parser
 {
+    /**
+     * Scanner used to read user input. Used in {@link #getCommand()}
+     */
     private Scanner reader;
+    /**
+     * Instance of the interface {@link DataService}.
+     */
     private final DataService dataService;
 
+    /**
+     * Constructor with a {@link DataService} parameter. Is instantiated in {@link CommandLineClient}
+     * @param game a variable of {@link DataService}
+     */
     public Parser(DataService game)
     {
         this.dataService = game;
         this.reader = new Scanner(System.in);
     }
 
+    /**
+     * This method reads the player's input and divides it into two variables word1 and word2.
+     * @return the command the player has typed. E.g. build windmill
+     */
     public Command getCommand()
     {
         String inputLine;
@@ -62,6 +76,11 @@ public class Parser
 //        } else return true;
 //    }
 
+    /**
+     * @param word1 the command the player's has typed. E.g. build
+     * @param tokenizer the second word the player has typed. E.g. windmill
+     * @return the command the player has typed. E.g. build windmill
+     */
     private Command buildCommand(String word1, Scanner tokenizer) {
         StringBuilder Word2 = new StringBuilder();
         String word2 = null;

@@ -1,5 +1,8 @@
 package com.worldofenergy.mainDir;
 
+/**
+ * EnergySource is an abstract class. It is therefore not able to create objects. The objects are created by the subclasses: {@link WindMill}, {@link SolarPanel}, {@link HydroPowerplant} and {@link GeothermalPowerplant}.
+ */
 public abstract class EnergySource {
     /**
      * The price of the energy source. E.g. 50 coins
