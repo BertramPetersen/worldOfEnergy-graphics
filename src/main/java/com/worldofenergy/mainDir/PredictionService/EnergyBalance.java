@@ -114,6 +114,11 @@ public class EnergyBalance implements PredictionService {
         return greenPercent;
     }
 
+    @Override
+    public boolean isDeacreasing() {
+        return false;
+    }
+
     /**
      * @return the percentage of {@link #fossilEnergy} as a double.
      */
@@ -143,12 +148,27 @@ public class EnergyBalance implements PredictionService {
     }
 
     @Override
+    public double getTempInc() {
+        return 0;
+    }
+
+    @Override
     public double getCO2() {
         return 0;
     }
 
     @Override
+    public double getCO2Inc() {
+        return 0;
+    }
+
+    @Override
     public double getSeaLevel() {
+        return 0;
+    }
+
+    @Override
+    public double getSeaInc() {
         return 0;
     }
 }

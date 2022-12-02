@@ -102,6 +102,7 @@ public class Game implements DataService {
         this.randomEvent = new RandomEvent();
         this.energyBalance = new EnergyBalance();
         this.forecast = new Forecast();
+        this.forecast.update((EnergyBalance)this.energyBalance);
         }
 
     /**
@@ -476,5 +477,25 @@ public class Game implements DataService {
     @Override
     public int getTurnCount(){
         return turnCounter;
+    }
+
+    @Override
+    public double getTempInc() {
+        return forecast.getTempInc();
+    }
+
+    @Override
+    public double getCO2Inc() {
+        return forecast.getCO2Inc();
+    }
+
+    @Override
+    public double getSeaInc() {
+        return forecast.getSeaInc();
+    }
+
+    @Override
+    public boolean isDecreasing() {
+        return forecast.isDeacreasing();
     }
 }

@@ -6,7 +6,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.effect.PerspectiveTransform?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -25,7 +24,7 @@
             </ImageView>
             <VBox layoutX="728.0" style="-fx-background-color: #FFFFFFDA;">
                <children>
-                  <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="172.0">
+                  <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="172.0" VBox.vgrow="NEVER">
                      <children>
                         <Label text="Energybalance">
                            <VBox.margin>
@@ -61,31 +60,61 @@
                               <Font size="21.0" />
                            </font>
                         </Label>
-                        <Label fx:id="co2Forecast" text="CO2 increase: 15%">
+                        <Label fx:id="co2Forecast" prefHeight="40.0" text="CO2 increase: 15%" textAlignment="CENTER" wrapText="true">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="co2Increase" prefHeight="40.0" text="Temperature: 4 degrees" textAlignment="CENTER" wrapText="true">
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
                         </Label>
                         <Label fx:id="seaForecast" text="Sea level: 10 cm">
                            <VBox.margin>
                               <Insets top="15.0" />
                            </VBox.margin>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="seaIncrease" prefHeight="40.0" text="Temperature: 4 degrees" textAlignment="CENTER" wrapText="true">
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
                         </Label>
                         <Label fx:id="tempForecast" text="Temperature: 4 degrees">
                            <VBox.margin>
                               <Insets top="15.0" />
                            </VBox.margin>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="tempIncrease" prefHeight="40.0" text="Temperature: 4 degrees" textAlignment="CENTER" wrapText="true">
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
                         </Label>
                         <Button mnemonicParsing="false" onAction="#endTurn" prefHeight="88.0" prefWidth="144.0" style="-fx-border-style: Solid;" text="End Turn">
                            <VBox.margin>
-                              <Insets bottom="12.0" top="240.0" />
+                              <Insets bottom="12.0" top="50" />
                            </VBox.margin>
                            <font>
                               <Font size="18.0" />
                            </font>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
                         </Button>
                      </children>
                   </VBox>
