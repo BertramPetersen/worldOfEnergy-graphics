@@ -83,6 +83,26 @@ public class RandomEvent implements QuizService{
         i++;
     }
     @Override
+    public String getNextQuestion() {
+        return null;
+    }
+
+    @Override
+    public String getNextAnswer() {
+        return null;
+    }
+
+    @Override
+    public String[] getNextOptions() {
+        return new String[0];
+    }
+
+    @Override
+    public void incrementQuiz() {
+
+    }
+
+    @Override
     public void takeQuiz(){}
 }
 

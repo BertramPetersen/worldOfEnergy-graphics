@@ -19,11 +19,16 @@
     <children>
         <AnchorPane prefHeight="200.0" prefWidth="200.0">
             <children>
-                <ImageView fitHeight="600.0" fitWidth="900.0">
+                <ImageView fx:id="bg" fitHeight="600.0" fitWidth="900.0" style="-fx-background-size: contain">
                     <image>
                         <Image url="@world-map.gif" />
                     </image>
                 </ImageView>
+                <Button fx:id="helpButtonCountry" layoutX="61.0" layoutY="552.0" mnemonicParsing="false" onAction="#setHelpButton" style="-fx-background-color: #2345; -fx-background-radius: 15px; -fx-text-fill: #ffff;" text="?" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="860.0" AnchorPane.topAnchor="559.0">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Button>
                 <VBox layoutX="728.0" style="-fx-background-color: #FFFFFFDA;">
                     <children>
                         <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="172.0">
@@ -93,7 +98,8 @@
                               <Insets left="5.0" />
                            </VBox.margin>
                         </GridPane>
-                                <Button fx:id="exitBtn" mnemonicParsing="false" onAction="#exitCountry" prefHeight="88.0" prefWidth="144.0" style="-fx-border-style: Solid;" text="Exit">
+                                <Button fx:id="exitBtn" mnemonicParsing="false" onAction="#exitCountry"
+                                        prefHeight="88.0" prefWidth="144.0" style="-fx-border-style: Solid;" text="Exit">
                                     <VBox.margin>
                                         <Insets bottom="12.0" top="215.0" />
                                     </VBox.margin>
@@ -108,24 +114,23 @@
                         </VBox>
                     </children>
                 </VBox>
-                <ButtonBar layoutX="239.0" layoutY="539.0" prefHeight="61.0" prefWidth="345.0" style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid;">
+                <ButtonBar layoutX="239.0" layoutY="539.0" prefHeight="61.0" prefWidth="345.0"
+                           style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid; -fx-opacity: 1;">
                     <buttons>
-                        <Button mnemonicParsing="false" text="Windmill" onAction="#buildEnergySource" />
-                        <Button mnemonicParsing="false" text="Solar Panel" onAction="#buildEnergySource" />
-                        <Button mnemonicParsing="false" text="Hydro Power" textAlignment="CENTER"
-                                wrapText="true" onAction="#buildEnergySource">
+                        <Button mnemonicParsing="false" onAction="#buildEnergySource" text="Windmill" />
+                        <Button mnemonicParsing="false" onAction="#buildEnergySource" text="Solar Panel" />
+                        <Button mnemonicParsing="false" onAction="#buildEnergySource" text="Hydro Power" textAlignment="CENTER" wrapText="true">
                             <font>
                                 <Font size="10.0" />
                             </font>
                         </Button>
-                        <Button mnemonicParsing="false" text="Geo Power" onAction="#buildEnergySource"/>
+                        <Button mnemonicParsing="false" onAction="#buildEnergySource" text="Geo Power" />
                     </buttons>
                     <padding>
                         <Insets right="20.0" />
                     </padding>
                 </ButtonBar>
-                <VBox alignment="TOP_CENTER" prefHeight="88.0" prefWidth="150.0"
-                      style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid;">
+                <VBox alignment="TOP_CENTER" prefHeight="88.0" prefWidth="150.0" style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid;">
                     <children>
                         <Label contentDisplay="CENTER" text="Wallet">
                             <font>
