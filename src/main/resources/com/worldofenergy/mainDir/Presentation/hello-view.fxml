@@ -14,11 +14,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="610.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.worldofenergy.mainDir.Presentation.HelloController">
+<StackPane maxHeight="610.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.worldofenergy.mainDir.Presentation.HelloController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <ImageView fitHeight="600.0" fitWidth="900.0">
+            <ImageView fx:id="helpbtn" fitHeight="600.0" fitWidth="900.0" layoutX="3" layoutY="3" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
                   <Image url="@world-map.gif" />
                </image>
@@ -128,24 +128,7 @@
                   <Font size="9.0" />
                </font>
             </Button>
-            <VBox alignment="TOP_CENTER" prefHeight="88.0" prefWidth="150.0" style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid;">
-               <children>
-                  <Label contentDisplay="CENTER" text="Wallet">
-                     <font>
-                        <Font size="21.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="5.0" top="10.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label fx:id="coins" contentDisplay="CENTER" text="foo">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-               </children>
-            </VBox>
-            <ButtonBar layoutX="239.0" layoutY="539.0" prefHeight="61.0" prefWidth="345.0" style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid;">
+            <ButtonBar layoutX="239.0" layoutY="539.0" prefHeight="61.0" prefWidth="345.0" style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid; -fx-opacity: 0;">
               <buttons>
                 <Button mnemonicParsing="false" text="Windmill" />
                   <Button mnemonicParsing="false" text="Solar Panel" />
@@ -160,6 +143,31 @@
                   <Insets right="20.0" />
                </padding>
             </ButtonBar>
+            <VBox alignment="TOP_CENTER" prefHeight="88.0" prefWidth="150.0" style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid;">
+               <children>
+                  <Label contentDisplay="CENTER" text="Wallet">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="coins" contentDisplay="CENTER" text="foo">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="turnCounter" prefHeight="17.0" prefWidth="123.0" text="Turn: 0" />
+               </children>
+            </VBox>
+            <Button fx:id="helpButtonHello" layoutX="14.0" layoutY="559.0" mnemonicParsing="false" onAction="#setHelpButton" style="-fx-background-color: #2345; -fx-background-radius: 15px; -fx-text-fill: #ffff;" text="?" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="860.0" AnchorPane.topAnchor="559.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="456.0" layoutY="460.0" mnemonicParsing="false" text="South Africa" />
+            <Button layoutX="383.0" layoutY="288.0" mnemonicParsing="false" text="North Africa" />
          </children>
       </AnchorPane>
    </children>
