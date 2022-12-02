@@ -53,7 +53,7 @@ public class CountryController implements Initializable{
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        String path = "/com/worldofenergy/mainDir/Presentation/CountryBackgrounds/" + room.getName()+".jpg";
+        String path = "/com/worldofenergy/mainDir/Presentation/CountryBackgrounds/" + room.getName()+".png";
         URL bgPath = getClass().getResource(path);
         if(bgPath != null){
             bg.setImage(new Image(bgPath.toString()));
