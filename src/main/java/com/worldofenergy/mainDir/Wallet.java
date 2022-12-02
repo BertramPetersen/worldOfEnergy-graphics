@@ -3,7 +3,7 @@ package com.worldofenergy.mainDir;
 
 /**
  * Class that stores the coins needed to buy energy sources.
- * Wallet is a static class as there is only one wallet in the game. In further development e.g. multiple players, wallet would become non-static
+ * Wallet is a static class as there is only one wallet in the game. In further development e.g. multiple players, wallet would need to become non-static.
  */
 public class Wallet {
     /**

@@ -1,7 +1,10 @@
 package com.worldofenergy.mainDir.QuizSystem;
-
 import java.util.ArrayList;
-
+/**
+ * This class' purpose is to create the requirements/variables needed for the questions that the player will be prompted in the game.
+ * It's mainly used in {@link Quiz} to create an ArrayList of Questions.
+ * @see Quiz
+ */
 public class Question {
     /**
      * Question and it's respective answer possibilities. E.g. "What color is the sun? (a) yellow (b) blue (c) green (d) black"
@@ -25,8 +28,6 @@ public class Question {
         promptSplitter(prompt);
         this.answer = answer;
     }
-
-
     private void promptSplitter(String prompt){
         String[] split = prompt.split("\n", 5);
         question = split[0];

@@ -1,12 +1,20 @@
 package com.worldofenergy.mainDir.QuizSystem;
 
 import com.worldofenergy.mainDir.PredictionService.Forecast;
+import com.worldofenergy.mainDir.PredictionService.PredictionService;
 import com.worldofenergy.mainDir.Wallet;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
+/**
+ * The class Quiz implements the interface {@link QuizService}, by which it implements multiple methods.
+ * The class consists of the logic behind the quiz system in the game. It also contains all the quiz questions in an {@link Question} ArrayList.
+ * It's main purpose is to display the quiz system, allow the player to try and guess the correct answer and possibly reward the player.
+ * @see Question
+ * @see QuizService
+ */
 public class Quiz implements QuizService {
     /**
      * An int i. Used in {@link #takeQuiz()} to be able to prompt new question and answer each time. Runs through the {@link #questions} ArrayList.
@@ -149,12 +157,9 @@ public class Quiz implements QuizService {
                 (D) 20""","a"));
     }
 
-
     /**
      * Prompts the user a quiz containing a question and its answer possibilities. Allows the user to try and guess the correct answer and win money to their wallet
-     * <p>
      *
-     * </p>
      * <p>
      * This method is called when a new turn has been initiated. It first gives the user an introduction to the quiz.
      * It then prints out the questions and answer possibilities.
@@ -171,7 +176,6 @@ public class Quiz implements QuizService {
      * </p>
      * @exception IndexOutOfBoundsException when {@link #i} is greater than the ArrayList length
      */
-    // Lets you play the quiz
     public void takeQuiz() {
         System.out.println("You now have the opportunity to earn money to build more energy sources by taking the following quiz:");
         System.out.println();
@@ -189,11 +193,11 @@ public class Quiz implements QuizService {
                 System.out.println("You just got 50 coins added to your wallet!");
                 Wallet.addCoins(50);
                 System.out.println("You now have " + Wallet.getCoins() + " coins in your wallet");
-                i++; // Progresses to next prompt and answer in the "worldOfEnergy.mainDir.QuizSystem.Question[] questions" array
+                i++;
             } else {
                 System.out.println("Oh no! Your answer was incorrect. The correct answer was " + questions.get(i).answer + ".");
                 System.out.println("You unfortunately get 0 coins. Better luck next time!");
-                i++; // Progresses to next prompt and answer in the "questions" arraylist
+                i++;
             }
         } catch (IndexOutOfBoundsException e) {
             i = 0;

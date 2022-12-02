@@ -5,6 +5,9 @@ import com.worldofenergy.mainDir.PredictionService.PredictionService;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Interface responsible for the data and information of in the game.
+ */
 public interface DataService {
     Command getCommand(String word1, String word2);
     void welcome();

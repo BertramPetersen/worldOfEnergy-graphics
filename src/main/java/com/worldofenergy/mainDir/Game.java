@@ -13,23 +13,83 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * The class Game implements the interface {@link DataService}, by which it implements multiple methods.
+ * The class merges and creates cooperation between many of the classes in the game.
+ * It is within the game class the logic that essentially runs the game lie.
+ * <p>
+ * This class' main purpose is to use the methods and tools created by the other classes to create a functioning game.
+ * Within this class is also where many of the necessary classes is instantiated.
+ *
+ * It also holds all the built energy sources in an {@link EnergySource} ArrayList.
+ * </p>
+ * <p>
+ *     The game class uses {@link Room}, {@link CommandWords}, {@link EnergySource}, {@link QuizService} and {@link PredictionService} interfaces and classes.
+ * </p>
+ * @see Room
+ * @see CommandWords
+ * @see EnergySource
+ * @see QuizService
+ * @see PredictionService
+ */
 public class Game implements DataService {
 
+    /**
+     * Responsible for keeping track of what turn the player is on. Always starts at 0. Increases by 1 every turn.
+     */
     int turnCounter;
+    /**
+     * location is the room the player is currently in.
+     */
     private Room location;
+    /**
+     * All the created rooms in the game.
+     */
     ArrayList<Room> createdRooms;
+    /**
+     * Map responsible for player navigation. Limits the player, so he does not have free movement between every room.
+     * E.g. player can go Airport -> Asia, but not Asia -> Southern Europe.
+     */
     HashMap<String, Room> roomMap;
     private boolean timeToQuiz;
     private boolean initRandomEvent;
+    /**
+     * The available commands in the game.
+     */
     private CommandWords commands;
-    public EnergySource EnergyPrice[] = {new WindMill(), new HydroPowerplant(), new SolarPanel(), new GeothermalPowerplant()};
+    /**
+     * Array of the energy sources. Used to list the price of each one in the help menu.
+     */
+    public EnergySource[] EnergyPrice = {new WindMill(), new HydroPowerplant(), new SolarPanel(), new GeothermalPowerplant()};
 
+    /**
+     * Instance of QuizService
+     */
     QuizService quiz;
+    /**
+     * Instance of QuizService
+     */
     QuizService randomEvent;
-
+    /**
+     * Instance of PredictionService
+     */
     PredictionService prediction;
+    /**
+     * Instance of PredictionService
+     */
     PredictionService energyBalance;
+    /**
+     * Instance of PredictionService
+     */
     PredictionService forecast;
+    /**
+     * Calls our newly instantiated classes and our created variables.
+     *
+     * <p>
+     *  In this constructor we determine the start terms of the game. We set the {@link #turnCounter} equal to 0, give the player 500 coins to start with and
+     *  sets the start location to "Airport".
+     * </p>
+     */
     public Game() {
         this.turnCounter = 0;
         this.timeToQuiz = false;
@@ -44,6 +104,18 @@ public class Game implements DataService {
         this.forecast = new Forecast();
         }
 
+    /**
+     * Creates all the rooms in the game and simultaneously add them to the {@link #createdRooms} ArrayList and the {@link #roomMap} HashMap. Sets possible exits for each room.
+     *
+     * <p>
+     * This method is responsible for the creation of all the rooms in the game. Each room has a name, windPot, sunPot, waterPot, geoPot. E.g.
+     * "Southern Europe", 25, 80, 30, 40.
+     * </p>
+     * <p>
+     * After each room has been created there is 2 loops. The first loop sets all the rooms exits except airport to the room airport.
+     * The second loop sets all the other rooms' exit to airport.
+     * </p>
+     */
     private void createRooms() {
         roomMap = new HashMap<>();
         Room southAfrica = new Room("South Africa",50,70,30,40 );
@@ -83,21 +155,28 @@ public class Game implements DataService {
         roomMap.put("Airport", airport);
 
 
-
-
-        // Here we set exits of all rooms except airport to the room airport
         for (Room room : createdRooms) {
             if (!room.getName().equalsIgnoreCase("airport")) {
                 room.setExit("AIRPORT", airport);
             }
         }
-        // airport get all other rooms set as exit
         for (Room room : createdRooms) {
             if (!room.getName().equals("Airport")) {
                 airport.setExit(room.getName().toUpperCase(), room);
             }
         }
     }
+
+    /**
+     * Given a valid command, lets the player travel between rooms
+     * <p>
+     * This method first checks if the player has typed a room after his 'go to' command. Returning false if the player hasn't.
+     * It then checks if the new room is a valid exit for the current room, if not returning false, else
+     * setting current location to the new room and returning true.
+     * </p>
+     * @param command the 'go to' command the player inputs.
+     * @return false if player doesn't type destination room or types invalid room, return true if player type valid room
+     */
     @Override
     public boolean goRoom(Command command) {
         if (!command.hasCommandValue()) {
@@ -117,7 +196,10 @@ public class Game implements DataService {
     }
 
 
-
+    /**
+     * IS NOT USED SHOULD POSSIBLY BE REMOVED.
+     * @return the available commands to the player
+     */
     public CommandWords getCommands() {
         return commands;
     }
@@ -165,6 +247,12 @@ public class Game implements DataService {
 
     }
 
+    /**
+     * Updates the passive income of all rooms.
+     * <p>
+     * This method updates the passive income generated by each room created in the game.
+     * </p>
+     */
     public void updatePassiveIncome() {
         for (Room room : createdRooms){
             room.PassiveIncome();
@@ -191,6 +279,10 @@ public class Game implements DataService {
         return 0;
     }
 
+    /**
+     * @return the accumulative green power generated by each room combined
+     * @see Room#updateOutput()
+     */
     // Collects PowerOutput for each room in the game. Look at Room.updateOutput()
     public double getTotalPowerOutput() {
         double p = 0;
@@ -272,6 +364,10 @@ public class Game implements DataService {
         return !command.hasCommandValue();
     }
 
+    /**
+     * IS NEVER USED SHOULD POSSILBY BE DELETED
+     * @return all the created rooms in the game
+     */
     public ArrayList<Room> getCreatedRooms() {
         return createdRooms;
     }

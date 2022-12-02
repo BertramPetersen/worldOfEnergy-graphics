@@ -2,7 +2,13 @@ package com.worldofenergy.mainDir.PredictionService;
 
 import java.time.Year;
 
-public class  Forecast implements PredictionService {
+/**
+ * The class Forecast implements the interface {@link PredictionService}, by which it implements multiple methods.
+ * This class consists of the logic behind the game's forecast.
+ * It's main function is to display and calculate the forecast of the game, which is reliant on the player's performance.
+ * @see PredictionService
+ */
+public class Forecast implements PredictionService {
 
     EnergyBalance energyBalance = new EnergyBalance();
     /**
@@ -147,9 +153,7 @@ public class  Forecast implements PredictionService {
     }
     @Override
     public void show() {
-
     }
-
     @Override
     public void updateEnergy(double greenEnergy) {
 
