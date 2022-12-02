@@ -133,9 +133,9 @@ public class Game implements DataService {
         Room centralEurope = new Room("Central Europe", 40, 40, 55, 40);
         createdRooms.add(centralEurope);
         roomMap.put("Central Europe", centralEurope);
-        Room easternEurope = new Room("Eastern Europe", 60, 15, 37, 53);
-        createdRooms.add(easternEurope);
-        roomMap.put("Eastern Europe", easternEurope);
+        Room northAmerica = new Room("North America", 60, 15, 37, 75);
+        createdRooms.add(northAmerica);
+        roomMap.put("North America", northAmerica);
         Room scandinavia = new Room("Scandinavia", 90, 20, 40, 60);
         createdRooms.add(scandinavia);
         roomMap.put("Scandinavia", scandinavia);
