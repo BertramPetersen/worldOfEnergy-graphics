@@ -122,30 +122,77 @@ public class HelloController implements Initializable {
         PredictionService forecast = game.getForecast();
         energyBalance.updateEnergy(game.getTotalPowerOutput());
         forecast.update((EnergyBalance) energyBalance);
-        String balance = String.format("%.0f%% / %.0f%%", energyBalance.getGreenPercent(), energyBalance.getFossilPercent());
+        String balance;
+        if (energyBalance.getGreenPercent() >= 100 ) {
+            balance = "100% / 0%";
+        }
+            else {
+                balance = String.format("%.0f%% / %.0f%%", energyBalance.getGreenPercent(), energyBalance.getFossilPercent());
+            }
         balanceLabel.setText(balance);
         balanceBar.setProgress(energyBalance.getGreenPercent() / 100);
     }
 
     public void endTurn(ActionEvent e) throws IOException, InterruptedException {
-        game.updateTurn();
-        if (game.getTimeToQuiz()){
-            showQuiz();
-        } else if (game.getInitRandomEvent()){
-            initRandomEvent();
+        if(!winLoseCondition()) {
+            game.updateTurn();
+            if (game.getTimeToQuiz()) {
+                showQuiz();
+            } else if (game.getInitRandomEvent()) {
+                initRandomEvent();
+            }
+            game.resetQuizSystem();
+            setCoins();
+            turnCounter.setText("turn: " + game.getTurnCount());
+            setForecast();
+            setBalance();
         }
-        game.resetQuizSystem();
-        setCoins();
-        turnCounter.setText("turn: "+game.getTurnCount());
-        setForecast();
     }
+    public static void showLoseStage() throws IOException {
+        Stage loseStage = new Stage();
+        loseStage.setTitle("Defeat");
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(HelloController.class.getResource("lose-view.fxml"));
+        Scene scene = new Scene(loader.load());
+        loseStage.setScene(scene);
+        loseStage.showAndWait();
 
+    }
+    public static void showWinStage() throws IOException {
+        Stage winStage = new Stage();
+        winStage.setTitle("Victory");
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(HelloController.class.getResource("Win-view.fxml"));
+        Scene scene = new Scene(loader.load());
+        winStage.setScene(scene);
+        winStage.showAndWait();
+    }
+    public boolean winLoseCondition() throws IOException {
+        PredictionService energyBalance = game.getEnergyBalance();
+        // if (energy.balance.getGreenPercent() >= 50 {
+            // showProgressIndicator()
+            // "Keep building you are doing a phenomenal job!
+        // if (game.getTurnCount() >= 10) {
+            // showHalfwayPoint()
+            // You are halfway through the game. Build strategic with your sources, or else you might lose!
+
+        if (energyBalance.getGreenPercent() >= 100) {
+            showWinStage();
+            return true;
+        }
+        else if (game.getTurnCount() >= 2 ) {
+            showLoseStage();
+            return true;
+        } else {
+            return false;
+        }
+    }
     public void setHelpButton(ActionEvent e) throws IOException {
         Stage stage1 = new Stage();
         TilePane tilePane = new TilePane();
 
         Label label = new Label("\n \nTo build " +
-                "energy sources, go to one of the areas on he map.\n" +
+                "energy sources, go to one of the areas on the map.\n" +
                 "Press the button 'Windmill' or one of the four energy sources you want to build.\n" +
                 "You will then be able to build as many sources you want, and see how many different \n" +
                 "sources you have built. \n \nClose this window to continue the game.\n");
