@@ -180,7 +180,7 @@ public class HelloController implements Initializable {
             showWinStage();
             return true;
         }
-        else if (game.getTurnCount() >= 2 ) {
+        else if (game.getTurnCount() >= 20 ) {
             showLoseStage();
             return true;
         } else {
