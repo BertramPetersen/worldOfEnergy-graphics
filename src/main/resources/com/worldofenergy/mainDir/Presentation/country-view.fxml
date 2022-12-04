@@ -15,7 +15,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="1000" maxWidth="1900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.worldofenergy.mainDir.Presentation.CountryController">
+<StackPane maxHeight="1000" maxWidth="1900.0" minHeight="600.0" minWidth="900.0"
+           prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.worldofenergy.mainDir.Presentation.CountryController">
     <children>
         <AnchorPane prefHeight="200.0" prefWidth="200.0">
             <children>
@@ -114,8 +116,8 @@
                         </VBox>
                     </children>
                 </VBox>
-                <ButtonBar layoutX="239.0" layoutY="539.0" prefHeight="61.0" prefWidth="345.0"
-                           style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid; -fx-opacity: 1;">
+                <ButtonBar fx:id="bar" layoutX="239.0" layoutY="539.0" prefHeight="61.0" prefWidth="345.0"
+                           style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid; -fx-opacity: 0;">
                     <buttons>
                         <Button mnemonicParsing="false" onAction="#buildEnergySource" text="Windmill" />
                         <Button mnemonicParsing="false" onAction="#buildEnergySource" text="Solar Panel" />
