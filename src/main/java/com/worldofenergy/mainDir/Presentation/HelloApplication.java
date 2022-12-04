@@ -88,6 +88,13 @@ public class HelloApplication extends Application {
         Scene scene = new Scene(loader.load());
         stage.setScene(scene);
     }
+    public static void RandomEvent3(DataService game, Stage stage) throws IOException{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(HelloApplication.class.getResource("RandomEventScene3.fxml"));
+        loader.setControllerFactory(c -> new RandomEventSceneController(game, stage));
+        Scene scene = new Scene(loader.load());
+        stage.setScene(scene);
+    }
     public static void closeWindow(ActionEvent e){
         Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         stage.close();
