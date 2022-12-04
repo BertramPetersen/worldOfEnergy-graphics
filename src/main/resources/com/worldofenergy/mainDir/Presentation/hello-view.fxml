@@ -15,193 +15,191 @@
 
 <?import javafx.scene.shape.SVGPath?>
 <?import java.net.URL?>
-<StackPane maxHeight="610.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.worldofenergy.mainDir.Presentation.HelloController">
+
+<AnchorPane fx:id="Anchor" maxHeight="610.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.worldofenergy.mainDir.Presentation.HelloController">
    <children>
-      <AnchorPane fx:id="Anchor" prefHeight="200.0" prefWidth="200.0">
+      <ImageView fx:id="helpbtn" fitHeight="600.0" fitWidth="900.0" layoutX="3" layoutY="3"
+                 AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@world-map.gif" />
+         </image>
+      </ImageView>
+      <SVGPath id="North Africa" layoutX="3" layoutY="3"
+               content="m 405 280 l -28 44 l -1 26 l 22 25 l 32 -5 l 107 7 l 11 -24 l -18 4 l -7 -11 l -27 -51 l -5 1 l -18 -6 l -29 -16 z"
+               onMouseClicked="#enterCountry1" styleClass="NAfrica"/>
+      <VBox layoutX="728.0" style="-fx-background-color: #FFFFFFDA;">
          <children>
-            <ImageView fx:id="helpbtn" fitHeight="600.0" fitWidth="900.0" layoutX="3" layoutY="3" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <image>
-                  <Image url="@world-map.gif" />
-               </image>
-            </ImageView>
-            <SVGPath id="North Africa" layoutX="3" layoutY="3"
-                     content="m 405 280 l -28 44 l -1 26 l 22 25 l 32 -5 l 107 7 l 11 -24 l -18 4 l -7 -11 l -27 -51 l -5 1 l -18 -6 l -29 -16 z"
-                     onMouseClicked="#enterCountry1" styleClass="NAfrica"/>
-            <VBox layoutX="728.0" style="-fx-background-color: #FFFFFFDA;">
+            <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="172.0" VBox.vgrow="NEVER">
                <children>
-                  <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="172.0" VBox.vgrow="NEVER">
-                     <children>
-                        <Label text="Energybalance">
-                           <VBox.margin>
-                              <Insets top="20.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="balanceLabel" text="20% / 80%">
-                           <VBox.margin>
-                              <Insets top="10.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Label>
-                        <ProgressBar fx:id="balanceBar" prefHeight="18.0" prefWidth="150.0" progress="0.2">
-                           <VBox.margin>
-                              <Insets top="10.0" />
-                           </VBox.margin>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                        </ProgressBar>
-                        <Separator opacity="0.85" prefHeight="13.0" prefWidth="172.0" style="-fx-background-color: #FFFFFFDA;">
-                           <VBox.margin>
-                              <Insets bottom="5.0" top="5.0" />
-                           </VBox.margin>
-                        </Separator>
-                        <Label text="Future Forecast">
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="co2Forecast" prefHeight="40.0" text="CO2 increase: 15%" textAlignment="CENTER" wrapText="true">
-                           <VBox.margin>
-                              <Insets top="10.0" />
-                           </VBox.margin>
-                           <padding>
-                              <Insets left="10.0" right="10.0" />
-                           </padding>
-                        </Label>
-                        <Label fx:id="co2Increase" prefHeight="40.0" text="Temperature: 4 degrees" textAlignment="CENTER" wrapText="true">
-                           <VBox.margin>
-                              <Insets top="15.0" />
-                           </VBox.margin>
-                           <padding>
-                              <Insets left="10.0" right="10.0" />
-                           </padding>
-                        </Label>
-                        <Label fx:id="seaForecast" text="Sea level: 10 cm">
-                           <VBox.margin>
-                              <Insets top="15.0" />
-                           </VBox.margin>
-                           <padding>
-                              <Insets left="10.0" right="10.0" />
-                           </padding>
-                        </Label>
-                        <Label fx:id="seaIncrease" prefHeight="40.0" text="Temperature: 4 degrees" textAlignment="CENTER" wrapText="true">
-                           <VBox.margin>
-                              <Insets top="15.0" />
-                           </VBox.margin>
-                           <padding>
-                              <Insets left="10.0" right="10.0" />
-                           </padding>
-                        </Label>
-                        <Label fx:id="tempForecast" text="Temperature: 4 degrees">
-                           <VBox.margin>
-                              <Insets top="15.0" />
-                           </VBox.margin>
-                           <padding>
-                              <Insets left="10.0" right="10.0" />
-                           </padding>
-                        </Label>
-                        <Label fx:id="tempIncrease" prefHeight="40.0" text="Temperature: 4 degrees" textAlignment="CENTER" wrapText="true">
-                           <VBox.margin>
-                              <Insets top="15.0" />
-                           </VBox.margin>
-                           <padding>
-                              <Insets left="10.0" right="10.0" />
-                           </padding>
-                        </Label>
-                        <Button mnemonicParsing="false" onAction="#endTurn" prefHeight="88.0" prefWidth="144.0" style="-fx-border-style: Solid;" text="End Turn">
-                           <VBox.margin>
-                              <Insets bottom="12.0" top="50" />
-                           </VBox.margin>
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </VBox>
-               </children>
-            </VBox>
-            <Button layoutX="384.0" layoutY="255.0" mnemonicParsing="false" onAction="#enterCountry" text="Southern Europe">
-               <font>
-                  <Font size="9.0" />
-               </font>
-            </Button>
-            <Button fx:id="scandiBtn" layoutX="425.0" layoutY="169.0" mnemonicParsing="false" onAction="#enterCountry" text="Scandinavia">
-               <font>
-                  <Font size="9.0" />
-               </font>
-            </Button>
-            <Button layoutX="147.0" layoutY="255.0" mnemonicParsing="false" onAction="#enterCountry" text="North America">
-               <font>
-                  <Font size="9.0" />
-               </font>
-            </Button>
-            <Button layoutX="249.0" layoutY="394.0" mnemonicParsing="false" onAction="#enterCountry" text="South America">
-               <font>
-                  <Font size="9.0" />
-               </font>
-            </Button>
-            <Button layoutX="594.0" layoutY="255.0" mnemonicParsing="false" onAction="#enterCountry" text="Asia">
-               <font>
-                  <Font size="9.0" />
-               </font>
-            </Button>
-            <Button layoutX="415.0" layoutY="300.0" mnemonicParsing="false" onAction="#enterCountry" text="North Africa">
-               <font>
-                  <Font size="9.0" />
-               </font>
-            </Button>
-            <Button layoutX="454.0" layoutY="449.0" mnemonicParsing="false" onAction="#enterCountry" text="South Africa">
-               <font>
-                  <Font size="9.0" />
-               </font>
-            </Button>
-            <ButtonBar layoutX="239.0" layoutY="539.0" prefHeight="61.0" prefWidth="345.0" style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid; -fx-opacity: 0;">
-              <buttons>
-                <Button mnemonicParsing="false" text="Windmill" />
-                  <Button mnemonicParsing="false" text="Solar Panel" />
-                  <Button mnemonicParsing="false" text="Hydro Power" textAlignment="CENTER" wrapText="true">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" text="Geo Power" />
-              </buttons>
-               <padding>
-                  <Insets right="20.0" />
-               </padding>
-            </ButtonBar>
-            <VBox alignment="TOP_CENTER" prefHeight="88.0" prefWidth="150.0" style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid;">
-               <children>
-                  <Label contentDisplay="CENTER" text="Wallet">
+                  <Label text="Energybalance">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
                      <font>
                         <Font size="21.0" />
                      </font>
+                  </Label>
+                  <Label fx:id="balanceLabel" text="20% / 80%">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
-                  </Label>
-                  <Label fx:id="coins" contentDisplay="CENTER" text="foo">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="turnCounter" prefHeight="17.0" prefWidth="123.0" text="Turn: 0" />
+                  <ProgressBar fx:id="balanceBar" prefHeight="18.0" prefWidth="150.0" progress="0.2">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </ProgressBar>
+                  <Separator opacity="0.85" prefHeight="13.0" prefWidth="172.0" style="-fx-background-color: #FFFFFFDA;">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <Label text="Future Forecast">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="co2Forecast" prefHeight="40.0" text="CO2 increase: 15%" textAlignment="CENTER" wrapText="true">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="co2Increase" prefHeight="40.0" text="Temperature: 4 degrees" textAlignment="CENTER" wrapText="true">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="seaForecast" text="Sea level: 10 cm">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="seaIncrease" prefHeight="40.0" text="Temperature: 4 degrees" textAlignment="CENTER" wrapText="true">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="tempForecast" text="Temperature: 4 degrees">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="tempIncrease" prefHeight="40.0" text="Temperature: 4 degrees" textAlignment="CENTER" wrapText="true">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </Label>
+                  <Button mnemonicParsing="false" onAction="#endTurn" prefHeight="88.0" prefWidth="144.0" style="-fx-border-style: Solid;" text="End Turn">
+                     <VBox.margin>
+                        <Insets bottom="12.0" top="50" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
                </children>
             </VBox>
-            <Button fx:id="helpButtonHello" layoutX="14.0" layoutY="559.0" mnemonicParsing="false" onAction="#setHelpButton" style="-fx-background-color: #2345; -fx-background-radius: 15px; -fx-text-fill: #ffff;" text="?" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="860.0" AnchorPane.topAnchor="559.0">
+         </children>
+      </VBox>
+      <Button layoutX="384.0" layoutY="255.0" mnemonicParsing="false" onAction="#enterCountry" text="Southern Europe">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button fx:id="scandiBtn" layoutX="425.0" layoutY="169.0" mnemonicParsing="false" onAction="#enterCountry" text="Scandinavia">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button layoutX="147.0" layoutY="255.0" mnemonicParsing="false" onAction="#enterCountry" text="North America">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button layoutX="249.0" layoutY="394.0" mnemonicParsing="false" onAction="#enterCountry" text="South America">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button layoutX="594.0" layoutY="255.0" mnemonicParsing="false" onAction="#enterCountry" text="Asia">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button layoutX="415.0" layoutY="300.0" mnemonicParsing="false" onAction="#enterCountry" text="North Africa">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button layoutX="454.0" layoutY="449.0" mnemonicParsing="false" onAction="#enterCountry" text="South Africa">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <ButtonBar layoutX="239.0" layoutY="539.0" prefHeight="61.0" prefWidth="345.0" style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid; -fx-opacity: 0;">
+        <buttons>
+          <Button mnemonicParsing="false" text="Windmill" />
+            <Button mnemonicParsing="false" text="Solar Panel" />
+            <Button mnemonicParsing="false" text="Hydro Power" textAlignment="CENTER" wrapText="true">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font size="10.0" />
                </font>
             </Button>
+            <Button mnemonicParsing="false" text="Geo Power" />
+        </buttons>
+         <padding>
+            <Insets right="20.0" />
+         </padding>
+      </ButtonBar>
+      <VBox alignment="TOP_CENTER" prefHeight="88.0" prefWidth="150.0" style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid;">
+         <children>
+            <Label contentDisplay="CENTER" text="Wallet">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="coins" contentDisplay="CENTER" text="foo">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="turnCounter" prefHeight="17.0" prefWidth="123.0" text="Turn: 0" />
          </children>
-      </AnchorPane>
+      </VBox>
+      <Button fx:id="helpButtonHello" layoutX="14.0" layoutY="559.0" mnemonicParsing="false" onAction="#setHelpButton" style="-fx-background-color: #2345; -fx-background-radius: 15px; -fx-text-fill: #ffff;" text="?" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="860.0" AnchorPane.topAnchor="559.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
    </children>
    <stylesheets>
       <URL value="@style.css"/>
    </stylesheets>
-</StackPane>
+</AnchorPane>
