@@ -13,9 +13,21 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="610.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.worldofenergy.mainDir.Presentation.HelloController">
+<?import javafx.scene.shape.SVGPath?>
+<?import java.net.URL?>
+
+<AnchorPane fx:id="Anchor" maxHeight="610.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.worldofenergy.mainDir.Presentation.HelloController">
    <children>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+      <ImageView fx:id="helpbtn" fitHeight="600.0" fitWidth="900.0" layoutX="3" layoutY="3"
+                 AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@world-map.gif" />
+         </image>
+      </ImageView>
+      <SVGPath id="North Africa" layoutX="3" layoutY="3"
+               content="m 405 280 l -28 44 l -1 26 l 22 25 l 32 -5 l 107 7 l 11 -24 l -18 4 l -7 -11 l -27 -51 l -5 1 l -18 -6 l -29 -16 z"
+               onMouseClicked="#enterCountry1" styleClass="NAfrica"/>
+      <VBox layoutX="728.0" style="-fx-background-color: #FFFFFFDA;">
          <children>
             <ImageView fx:id="helpbtn" fitHeight="600.0" fitWidth="717.0" layoutX="12.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="198.0" AnchorPane.topAnchor="0.0">
                <image>
@@ -161,7 +173,7 @@
                   <Button mnemonicParsing="false" text="Solar Panel" />
                   <Button mnemonicParsing="false" text="Hydro Power" textAlignment="CENTER" wrapText="true">
                      <font>
-                        <Font size="10.0" />
+                        <Font size="21.0" />
                      </font>
                   </Button>
                   <Button mnemonicParsing="false" text="Geo Power" />
@@ -172,7 +184,7 @@
             </ButtonBar>
             <Button fx:id="helpButtonHello" layoutX="25.0" layoutY="558.0" mnemonicParsing="false" onAction="#setHelpButton" style="-fx-background-color: #2345; -fx-background-radius: 15px; -fx-text-fill: #ffff;" text="?" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="849.0" AnchorPane.topAnchor="558.0">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font size="10.0" />
                </font>
             </Button>
             <Button layoutX="563.0" layoutY="482.0" mnemonicParsing="false" onAction="#enterCountry" text="Australia" AnchorPane.leftAnchor="563.0">
@@ -211,6 +223,14 @@
                </font>
             </Label>
          </children>
-      </AnchorPane>
+      </VBox>
+      <Button fx:id="helpButtonHello" layoutX="14.0" layoutY="559.0" mnemonicParsing="false" onAction="#setHelpButton" style="-fx-background-color: #2345; -fx-background-radius: 15px; -fx-text-fill: #ffff;" text="?" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="860.0" AnchorPane.topAnchor="559.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
    </children>
-</StackPane>
+   <stylesheets>
+      <URL value="@style.css"/>
+   </stylesheets>
+</AnchorPane>

@@ -1,0 +1,10 @@
+.NAfrica {
+    -fx-opacity: 0;
+
+}
+
+.NAfrica:hover{
+    -fx-opacity: 0.3;
+    -fx-cursor: HAND;
+
+}
