@@ -8,12 +8,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Cursor;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
+import javafx.scene.shape.SVGPath;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 
@@ -45,6 +50,8 @@ public class HelloController implements Initializable {
     private ProgressBar balanceBar;
     @FXML
     private Label turnCounter;
+    @FXML
+    private Pane Anchor;
 
     public HelloController(DataService game, Stage stage){
         this.game = game;
@@ -59,6 +66,21 @@ public class HelloController implements Initializable {
         setForecast();
         setCoins();
         setBalance();
+//        SVGPath svg = new SVGPath();
+//        String path = "M 364 229 L 336 273 L 335 299 L 357 324 L 389 319 L 496 326 L 507 302 L 489 306 L 482 295 L 455 244 L 450 245 L 432 239 L 403 223 L 364 229";
+//        svg.setContent(path);
+//        svg.setId("North Africa");
+//        svg.setOpacity(0.1);
+//        svg.setOnMouseClicked(e  -> {
+//            try {
+//                enterCountry(e);
+//            } catch (IOException ex) {
+//                throw new RuntimeException(ex);
+//            }
+//        });
+
+//        Anchor.getChildren().add(svg);
+
     }
 
 
@@ -68,6 +90,12 @@ public class HelloController implements Initializable {
         game.setCurrentRoom(destination);
         HelloApplication.showCountryView(game, stage);
 
+    }
+    public void enterCountry1(MouseEvent e) throws IOException{
+        SVGPath svg = (SVGPath)e.getSource();
+        String destination = svg.getId().toUpperCase();
+        game.setCurrentRoom(destination);
+        HelloApplication.showCountryView(game, stage);
     }
 
 
