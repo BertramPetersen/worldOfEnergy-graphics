@@ -16,8 +16,14 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-public class RandomEventSceneController {
+public class RandomEventSceneController  {
 
+    private final Stage stage;
+    private final DataService game;
 
+    public RandomEventSceneController(DataService game, Stage stage) {
+        this.game = game;
+        this.stage = stage;
 
+    }
 }

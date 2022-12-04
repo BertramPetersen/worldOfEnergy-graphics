@@ -81,7 +81,7 @@ public class HelloController implements Initializable {
     }
 
     public void initRandomEvent() throws IOException{
-
+        HelloApplication.ShowRandomEvent(game, stage);
     }
     public void init(DataService obj) throws IOException{
         this.game = obj;
@@ -112,6 +112,7 @@ public class HelloController implements Initializable {
     }
 
     public void endTurn(ActionEvent e) throws IOException, InterruptedException {
+        initRandomEvent();
         game.updateTurn();
         if (game.getTimeToQuiz()){
             showQuiz();
