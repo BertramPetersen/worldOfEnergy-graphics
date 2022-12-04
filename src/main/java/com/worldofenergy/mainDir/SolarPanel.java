@@ -1,4 +1,8 @@
 package com.worldofenergy.mainDir;
+
+import javafx.scene.paint.Color;
+import javafx.util.Pair;
+
 /**
  * The SolarPanel class extends the abstract class {@link EnergySource}. The class utilizes EnergySource's variables by using the "super" keyword.
  */
@@ -12,5 +16,6 @@ public class SolarPanel extends EnergySource {
         super.output = 0.2;
         super.name = "Solar Panel";
         super.passiveIncome = 20;
+        super.colorStrokePair = new Pair<>(new Color(0,0,0,1), Color.WHITE);
     }
 }

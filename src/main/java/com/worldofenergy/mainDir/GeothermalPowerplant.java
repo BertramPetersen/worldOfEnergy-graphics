@@ -1,5 +1,8 @@
 package com.worldofenergy.mainDir;
 
+import javafx.scene.paint.Color;
+import javafx.util.Pair;
+
 /**
  * The GeothermalPowerplant class extends the abstract class {@link EnergySource}. The class utilizes EnergySource's variables by using the "super" keyword.
  */
@@ -13,5 +16,6 @@ public class GeothermalPowerplant extends EnergySource {
         super.output = 0.9;
         super.name = "Geo Powerplant";
         super.passiveIncome = 390;
+        super.colorStrokePair = new Pair<>(new Color(0.35,0.25,0.1,1), Color.BLACK);
     }
 }

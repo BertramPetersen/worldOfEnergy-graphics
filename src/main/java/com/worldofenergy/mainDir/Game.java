@@ -122,32 +122,27 @@ public class Game implements DataService {
         Room southAfrica = new Room("South Africa",50,70,30,40 );
         createdRooms.add(southAfrica);
         roomMap.put("South Africa", southAfrica);
-
         Room  NorthAfrica = new Room("North Africa",40,80,20,40 );
         createdRooms.add(NorthAfrica);
         roomMap.put("North Africa", NorthAfrica);
-
         Room southernEurope = new Room("Southern Europe", 25, 80, 30, 40);
         createdRooms.add(southernEurope);
         roomMap.put("Southern Europe", southernEurope);
-        Room centralEurope = new Room("Central Europe", 40, 40, 55, 40);
-        createdRooms.add(centralEurope);
-        roomMap.put("Central Europe", centralEurope);
         Room northAmerica = new Room("North America", 60, 15, 37, 75);
         createdRooms.add(northAmerica);
         roomMap.put("North America", northAmerica);
         Room scandinavia = new Room("Scandinavia", 90, 20, 40, 60);
         createdRooms.add(scandinavia);
         roomMap.put("Scandinavia", scandinavia);
-        Room asia = new Room("Asia", 67, 56, 40, 20);
-        createdRooms.add(asia);
-        roomMap.put("Asia", asia);
+        Room northAsia = new Room("North Asia", 67, 56, 40, 20);
+        createdRooms.add(northAsia);
+        roomMap.put("North Asia", northAsia);
         Room southAmerica = new Room("South America", 10, 75, 55, 66);
         createdRooms.add(southAmerica);
         roomMap.put("South America", southAmerica);
-        Room centralAmerica = new Room("Central America", 20, 78, 5, 68);
-        createdRooms.add(centralAmerica);
-        roomMap.put("Central America", centralAmerica);
+        Room southAsia = new Room("South Asia", 20, 78, 5, 68);
+        createdRooms.add(southAsia);
+        roomMap.put("South Asia", southAsia);
         Room australia = new Room("Australia", 20, 75, 5, 6);
         createdRooms.add(australia);
         roomMap.put("Australia", australia);

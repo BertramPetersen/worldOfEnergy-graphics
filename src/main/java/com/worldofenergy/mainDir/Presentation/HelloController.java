@@ -24,12 +24,14 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.Year;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
 
     DataService game;
     Stage stage;
+    private final int year = Year.now().getValue();
     @FXML
     private Label co2Forecast;
     @FXML
@@ -65,6 +67,7 @@ public class HelloController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setForecast();
         setCoins();
+        turnCounter.setText(String.valueOf(20 + (-game.getTurnCount()) + " years"));
         setBalance();
 //        SVGPath svg = new SVGPath();
 //        String path = "M 364 229 L 336 273 L 335 299 L 357 324 L 389 319 L 496 326 L 507 302 L 489 306 L 482 295 L 455 244 L 450 245 L 432 239 L 403 223 L 364 229";
@@ -122,6 +125,7 @@ public class HelloController implements Initializable {
         setForecast();
         setCoins();
         setBalance();
+        turnCounter.setText(String.valueOf(20 + (-game.getTurnCount()) + " years"));
         showWelcome();
     }
 
@@ -171,7 +175,7 @@ public class HelloController implements Initializable {
             }
             game.resetQuizSystem();
             setCoins();
-            turnCounter.setText("turn: " + game.getTurnCount());
+            turnCounter.setText(String.valueOf(20 + (-game.getTurnCount()) + " years"));
             setForecast();
             setBalance();
         }
