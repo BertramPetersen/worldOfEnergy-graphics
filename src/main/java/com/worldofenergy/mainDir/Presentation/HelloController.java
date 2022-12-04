@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.Year;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
@@ -45,6 +46,7 @@ public class HelloController implements Initializable {
     private ProgressBar balanceBar;
     @FXML
     private Label turnCounter;
+    private final int year = Year.now().getValue();
 
     public HelloController(DataService game, Stage stage){
         this.game = game;
@@ -58,6 +60,7 @@ public class HelloController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setForecast();
         setCoins();
+        turnCounter.setText(String.valueOf(20 + (-game.getTurnCount()) + " years"));
         setBalance();
     }
 
@@ -94,6 +97,7 @@ public class HelloController implements Initializable {
         setForecast();
         setCoins();
         setBalance();
+        turnCounter.setText(String.valueOf(20 + (-game.getTurnCount()) + " years"));
         showWelcome();
     }
 
@@ -143,7 +147,7 @@ public class HelloController implements Initializable {
             }
             game.resetQuizSystem();
             setCoins();
-            turnCounter.setText("turn: " + game.getTurnCount());
+            turnCounter.setText(String.valueOf(20 + (-game.getTurnCount()) + " years"));
             setForecast();
             setBalance();
         }

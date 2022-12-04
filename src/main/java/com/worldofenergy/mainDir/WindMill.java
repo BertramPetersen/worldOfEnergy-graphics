@@ -1,5 +1,8 @@
 package com.worldofenergy.mainDir;
 
+import javafx.scene.paint.Color;
+import javafx.util.Pair;
+
 /**
  * The WindMill class extends the abstract class {@link EnergySource}. The class utilizes EnergySource's variables by using the "super" keyword.
  */
@@ -13,5 +16,6 @@ public class WindMill extends EnergySource {
         super.output = 0.4;
         super.name = "Windmill";
         super.passiveIncome = 40;
+        super.colorStrokePair = new Pair<>(new Color(1,1,1,1), Color.BLACK);
     }
 }
