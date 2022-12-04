@@ -1,6 +1,7 @@
 package com.worldofenergy.mainDir.Presentation;
 
 import com.worldofenergy.mainDir.*;
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -8,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -19,6 +21,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -53,7 +56,8 @@ public class CountryController implements Initializable{
     private Pane greenPane;
     @FXML
     private AnchorPane anchorPane;
-
+    @FXML
+    private ButtonBar bar;
 
     public CountryController(DataService game){
         this.game = game;
@@ -96,14 +100,21 @@ public class CountryController implements Initializable{
         setPot(room);
         setBuilt(room);
         coins.setText(""+game.getCoins()+" Coins");
-
         if (!positions.isEmpty()){
             if (positions.get(room.getName()) != null){
                 positions.get(room.getName())
                         .forEach((position) -> drawCircle2(position.getX(), position.getY(), position.getEnergySource()));
             }
         }
-
+        anime();
+    }
+    
+    private void anime(){
+        FadeTransition fade = new FadeTransition(Duration.millis(200), bar);
+        fade.setFromValue(0.0);
+        fade.setToValue(1.0);
+        fade.setCycleCount(1);
+        fade.play();
     }
 
     private void setBuilt(Room room) {
