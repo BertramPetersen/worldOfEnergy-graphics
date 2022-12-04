@@ -13,15 +13,20 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.shape.SVGPath?>
+<?import java.net.URL?>
 <StackPane maxHeight="610.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.worldofenergy.mainDir.Presentation.HelloController">
    <children>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+      <AnchorPane fx:id="Anchor" prefHeight="200.0" prefWidth="200.0">
          <children>
             <ImageView fx:id="helpbtn" fitHeight="600.0" fitWidth="900.0" layoutX="3" layoutY="3" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
                   <Image url="@world-map.gif" />
                </image>
             </ImageView>
+            <SVGPath id="North Africa" layoutX="3" layoutY="3"
+                     content="m 405 280 l -28 44 l -1 26 l 22 25 l 32 -5 l 107 7 l 11 -24 l -18 4 l -7 -11 l -27 -51 l -5 1 l -18 -6 l -29 -16 z"
+                     onMouseClicked="#enterCountry1" styleClass="NAfrica"/>
             <VBox layoutX="728.0" style="-fx-background-color: #FFFFFFDA;">
                <children>
                   <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="172.0" VBox.vgrow="NEVER">
@@ -196,4 +201,7 @@
          </children>
       </AnchorPane>
    </children>
+   <stylesheets>
+      <URL value="@style.css"/>
+   </stylesheets>
 </StackPane>
