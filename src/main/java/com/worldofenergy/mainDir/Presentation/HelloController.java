@@ -232,7 +232,6 @@ public class HelloController implements Initializable {
         // Dette kan ikke gøres. Når det implementeres, kan vinduet ikke lukkes ned.
         // Derfor sætter jeg 2 tomme linjer ind.
         Popup popup = new Popup();
-        popup.setAutoHide(true);
         popup.getContent().add(label);
 
         Scene scene = new Scene(tilePane, 550, 130);

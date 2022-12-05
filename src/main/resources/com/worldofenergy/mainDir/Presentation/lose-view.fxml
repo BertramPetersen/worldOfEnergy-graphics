@@ -16,7 +16,7 @@
       </ImageView>
       <Pane fx:id="losePaneview" layoutY="371.0" prefHeight="79.0" prefWidth="613.0" style="-fx-background-color: FFCCCB;">
          <children>
-            <Label fx:id="loseLabelView" layoutX="1.0" layoutY="12.0" prefHeight="56.0" prefWidth="611.0" text="Oh no! You haved failed! You didn't change the energy balance in time... Dark times await..." wrapText="true">
+            <Label fx:id="loseLabelView" layoutX="1.0" layoutY="12.0" prefHeight="56.0" prefWidth="611.0" text="Oh no! You have failed! You didn't change the energy balance in time... Dark times await..." wrapText="true">
                <font>
                   <Font size="15.0" />
                </font>
