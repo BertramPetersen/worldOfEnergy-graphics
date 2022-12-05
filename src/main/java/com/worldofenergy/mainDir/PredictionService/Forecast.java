@@ -128,12 +128,12 @@ public class Forecast implements PredictionService {
         energyBalance.updatePercentage();
         if (energyBalance.getGreenEnergy() <= energyBalance.getFossilEnergy()) {
             double increase = energyBalance.getFossilPercent(); // unit  %
-            seaLevelIncrease = 1+(0.3*(increase));
-            temperatureIncrease = 1+(0.2*(increase));
-            CO2Increase = 1+ (0.5*(increase));
-            seaLevel *= seaLevelIncrease/100;
-            temperature *=  temperatureIncrease/100;
-            CO2 *= 1+ CO2Increase/100;
+            seaLevelIncrease = (0.3*(increase));
+            temperatureIncrease = (0.2*(increase));
+            CO2Increase = (0.5*(increase));
+            seaLevel *= (1+ (seaLevelIncrease / 100));
+            temperature *= ( 1 + (temperatureIncrease / 100) );
+            CO2 *=  (1+ (CO2Increase / 100));
 //            System.out.println();
 //            System.out.println("Oh no! The year is now " + currentYear + " and the world's C02 output is still increasing!");
 //            System.out.println("---------------------------------------------------------------------------------------");
