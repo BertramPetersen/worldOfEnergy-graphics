@@ -69,20 +69,6 @@ public class HelloController implements Initializable {
         setCoins();
         turnCounter.setText(String.valueOf(20 + (-game.getTurnCount()) + " years"));
         setBalance();
-//        SVGPath svg = new SVGPath();
-//        String path = "M 364 229 L 336 273 L 335 299 L 357 324 L 389 319 L 496 326 L 507 302 L 489 306 L 482 295 L 455 244 L 450 245 L 432 239 L 403 223 L 364 229";
-//        svg.setContent(path);
-//        svg.setId("North Africa");
-//        svg.setOpacity(0.1);
-//        svg.setOnMouseClicked(e  -> {
-//            try {
-//                enterCountry(e);
-//            } catch (IOException ex) {
-//                throw new RuntimeException(ex);
-//            }
-//        });
-
-//        Anchor.getChildren().add(svg);
 
     }
 

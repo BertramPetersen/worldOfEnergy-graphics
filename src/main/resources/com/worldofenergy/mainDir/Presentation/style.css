@@ -8,3 +8,29 @@
     -fx-cursor: HAND;
 
 }
+
+.StackPane {
+ -fx-background-color: linear-gradient(#2f6ed3 5%,#5095e4 20%,#5095e4 60%,#2f6ed3 95%);
+}
+
+.ForecastBox{
+    /*-fx-background-color: rgba( 1, 186, 255, 0.2 );*/
+    -fx-background-color: rgba( 255, 255, 255, 0.2 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur(12px );
+    -fx-border-style: solid;
+    -fx-border-color: rgba( 255, 255, 255, 0.18 );
+    -fx-border-width: 1px;
+}
+.ForecastBox Seperator{
+    -fx-background-color: transparent;
+}
+
+.ForecastBox Label {
+    -fx-text-fill: #fff;
+}
+.ForecastBox Button {
+    -fx-background-color: rgba(246, 246, 246, 0.7);
+    -fx-border-color: #fff;
+    -fx-border-width: 2px;
+}
