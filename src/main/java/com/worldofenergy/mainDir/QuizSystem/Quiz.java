@@ -48,13 +48,13 @@ public class Quiz implements QuizService {
                 (b) Wind
                 (c) Hydropower
                 (d) Natural gas""", "d"));
-        questions.add(new Question("By which year does FN want to substantially increase the " +
-                "share of renewable energy in the global energy mix? \n " +
-                "(a) 2025 \n " +
-                "(b) 2030 \n " +
-                "(c) 2040 \n " +
-                "(d) 2050",
-                "b"));
+        questions.add(new Question("""
+                By which year does FN want to substantially increase the
+                share of renewable energy in the global energy mix?
+                (a) 2025
+                (b) 2030
+                (c) 2040
+                (d) 2050""",  "b"));
         questions.add(new Question("""
                 What is sustainable energy?
                 (a) Green energy
@@ -135,7 +135,7 @@ public class Quiz implements QuizService {
                 (d) It produces conventional energy, through heat in the soil""", "a"));
         questions.add(new Question("""
                 What is World Goal number 7?
-                (a) is about giving everyone access to reliable, sustainable and modern energy
+                (a) is about giving everyone access to reliable, sustainable and modern \nenergy
                 (b) is about giving everyone access to school and education
                 (c) is not exists
                 (d) None of the above""", "a"));
