@@ -17,15 +17,12 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-public class RandomEventSceneController  {
+public class RandomEventSceneController implements Initializable  {
     @FXML
     private Button buttonClose;
-
     @FXML
-    private Button buttonClose1;
+    private Label Description;
 
-    @FXML
-    private Button buttonClose2;
 
 
     private final Stage stage;
@@ -36,19 +33,15 @@ public class RandomEventSceneController  {
         this.stage = stage;
 
     }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Description.setText(game.getRandomEvent());
+    }
+
     @FXML
-    public void handleCloseButtonAction(ActionEvent event) {
+    private void closeEvent(ActionEvent e){
         Stage stage = (Stage) buttonClose.getScene().getWindow();
-        stage.close();
-    }
-    @FXML
-    public void handleCloseButtonAction1(ActionEvent event) {
-        Stage stage = (Stage) buttonClose1.getScene().getWindow();
-        stage.close();
-    }
-    @FXML
-    public void handleCloseButtonAction2(ActionEvent event) {
-        Stage stage = (Stage) buttonClose2.getScene().getWindow();
         stage.close();
     }
 

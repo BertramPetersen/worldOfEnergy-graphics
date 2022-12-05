@@ -113,5 +113,21 @@ public class RandomEvent implements QuizService{
 
     @Override
     public void takeQuiz(){}
+
+    @Override
+    public String getEvent(Forecast forecast) {
+        try {
+            forecast.increase(events.get(i).impact);
+            String description = events.get(i).description;
+            i++;
+            return description;
+        }catch(IndexOutOfBoundsException e){
+            i=0;
+            return getEvent(forecast);
+            }
+
+    }
+
+
 }
 

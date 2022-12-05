@@ -52,4 +52,6 @@ public interface DataService {
     int getTurnCount();
 
     boolean isDecreasing();
+
+    String getRandomEvent();
 }

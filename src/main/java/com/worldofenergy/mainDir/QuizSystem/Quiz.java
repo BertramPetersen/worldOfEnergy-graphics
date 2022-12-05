@@ -227,5 +227,9 @@ public class Quiz implements QuizService {
         return questions.get(i).question;
     }
 
+    @Override
+    public String getEvent(Forecast forecast) {
+        return null;
+    }
 }
 
