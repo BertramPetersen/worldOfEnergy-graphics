@@ -20,6 +20,20 @@
     -fx-border-color: rgba( 255, 255, 255, 0.18 );
     -fx-border-width: 1px;
 }
+.ForecastBoxCountry{
+    -fx-background-color: linear-gradient(#2f6ed3 5%,#5095e4 20%,#5095e4 60%,#2f6ed3 95%);
+    -fx-border-style: solid;
+    -fx-border-color: rgba( 255, 255, 255, 0.18 );
+    -fx-border-width: 1px;
+}
+.ForecastBoxCountry Label {
+    -fx-text-fill: #fff;
+}
+.ForecastBoxCountry Button {
+    -fx-background-color: rgba(246, 246, 246, 0.7);
+    -fx-border-color: #fff;
+    -fx-border-width: 2px;
+}
 .Sep{
     -fx-background-color: transparent;
     -fx-fill: #fff;
