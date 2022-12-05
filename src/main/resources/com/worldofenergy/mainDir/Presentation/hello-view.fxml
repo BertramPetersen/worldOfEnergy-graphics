@@ -13,9 +13,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.shape.SVGPath?>
-<?import java.net.URL?>
-
 <StackPane maxHeight="610.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.worldofenergy.mainDir.Presentation.HelloController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
@@ -208,7 +205,12 @@
                   <Image url="@WoodWallet.png" />
                </image>
             </ImageView>
-            <Label fx:id="turnCounter" contentDisplay="CENTER" layoutX="571.0" layoutY="19.0" prefHeight="38.0" prefWidth="143.0" style="-fx-font-weight: bold; -fx-font-size: 25;" text="2022 / 2042" textFill="#ffeb69">
+            <Label fx:id="turnCounter" contentDisplay="CENTER" layoutX="571.0" layoutY="3.0" prefHeight="38.0" prefWidth="143.0" style="-fx-font-weight: bold; -fx-font-size: 35;" text="20 years" textFill="#ffeb69">
+               <font>
+                  <Font size="38.0" />
+               </font>
+            </Label>
+            <Label fx:id="turnCounter1" contentDisplay="CENTER" layoutX="616.0" layoutY="39.0" prefHeight="38.0" prefWidth="53.0" style="-fx-font-size: 15;" text="(to go)" textFill="#ffeb69">
                <font>
                   <Font size="38.0" />
                </font>
