@@ -14,7 +14,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.TilePane;
+import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -76,10 +78,16 @@ public class QuizController implements Initializable {
         answerD.setText(options[3]);
     }
 
-    public void submitQuiz(ActionEvent e) throws IOException{
-        Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        RadioButton selectedBtn = (RadioButton) group.getSelectedToggle();
-        if (answer.equalsIgnoreCase(selectedBtn.getText())){
+    @FXML
+    public void submitQuiz(MouseEvent e) throws IOException{
+       String text;
+        if (e.getSource() instanceof SVGPath){
+            text = ((SVGPath) e.getSource()).getId();
+        } else {
+            text = ((Label) e.getSource()).getText();
+        }
+
+        if (answer.equalsIgnoreCase(text)){
             Wallet.addCoins(50);
 
             showCorrect(stage);

@@ -1,0 +1,11 @@
+.answerPane Label{
+    -fx-text-fill: #444;
+    -fx-alignment: CENTER;
+    -fx-font-size: 14px;
+}
+.answerPane SVGPath{
+    -fx-opacity: 0.5;
+}
+.answerPane:hover > SVGPath {
+    -fx-opacity: 1;
+}
