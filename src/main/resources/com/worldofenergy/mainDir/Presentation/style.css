@@ -16,14 +16,13 @@
 .ForecastBox{
     /*-fx-background-color: rgba( 1, 186, 255, 0.2 );*/
     -fx-background-color: rgba( 255, 255, 255, 0.2 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur(12px );
     -fx-border-style: solid;
     -fx-border-color: rgba( 255, 255, 255, 0.18 );
     -fx-border-width: 1px;
 }
-.ForecastBox Seperator{
+.Sep{
     -fx-background-color: transparent;
+    -fx-fill: #fff;
 }
 
 .ForecastBox Label {

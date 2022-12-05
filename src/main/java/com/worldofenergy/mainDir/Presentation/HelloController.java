@@ -32,6 +32,10 @@ public class HelloController implements Initializable {
     DataService game;
     Stage stage;
     private final int year = Year.now().getValue();
+    private final int endYear = this.year + 20;
+
+    @FXML
+    private Label Forecast;
     @FXML
     private Label co2Forecast;
     @FXML
@@ -120,6 +124,7 @@ public class HelloController implements Initializable {
     }
 
     public void setForecast() {
+        Forecast.setText(""+endYear+" Forecast");
         co2Forecast.setText("Yearly CO2 emission: %.2f Tonnes".formatted(game.getCO2()));
         tempForecast.setText("Temperature: %.2f \u2103 ".formatted(game.getTemp())); // Unicode: degrees celcius
         seaForecast.setText("Sea Level: %.2f cm".formatted(game.getSea()));
