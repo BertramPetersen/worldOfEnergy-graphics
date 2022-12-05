@@ -117,6 +117,7 @@ public class CountryController implements Initializable{
         fade.play();
     }
 
+
     private void setBuilt(Room room) {
         int[] built = game.getBuiltEnergy();
         wAmount.setText(""+built[0]);
