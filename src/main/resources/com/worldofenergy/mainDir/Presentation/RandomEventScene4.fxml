@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.worldofenergy.mainDir.Presentation.RandomEventSceneController">
+    <children>
+        <AnchorPane prefHeight="400.0" prefWidth="600.0">
+            <children>
+                <ImageView fitHeight="400.0" fitWidth="600.0">
+                    <image>
+                        <Image url="@Nepal.png" />
+                    </image>
+                </ImageView>
+                <Label contentDisplay="CENTER" layoutY="125.0" prefHeight="103.0" prefWidth="601.0" style="-fx-background-color: rgba(255,255,255,0.7);" text="There has just been an earthquake in Nepal. Your energy sources in south Asia have been damaged, this will result in a decrease in green energy." textAlignment="CENTER" wrapText="true">
+                    <font>
+                        <Font size="18.0" />
+                    </font></Label>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
