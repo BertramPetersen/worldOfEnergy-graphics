@@ -14,27 +14,27 @@ public class Forecast implements PredictionService {
     /**
      * Representation of the percentage at which the seaLevel will increase at each new turn
      */
-    private double seaLevelIncrease;
+    protected double seaLevelIncrease;
     /**
      * Representation of the percentage at which the CO2 emissions will increase at each new turn
      */
-    private double CO2Increase;
+    protected double CO2Increase;
     /**
      * Representation of the percentage at which the temperature will increase at each new turn
      */
-    private double temperatureIncrease;
+    protected double temperatureIncrease;
     /**
      * unit cm e.g. 5 cm.
      */
-    public double seaLevel = 5;
+    protected double seaLevel = 5;
     /**
      * Unit celsius e.g. 2°C.
      */
-    public double temperature = 2;
+    protected double temperature = 2;
     /**
      * Unit billion ton e.g. 15 billion ton.
      */
-    public double CO2 = 15;
+    protected double CO2 = 15;
     /**
      * Unit year e.g. 2022
      */

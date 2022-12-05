@@ -108,7 +108,7 @@ public class CountryController implements Initializable{
         }
         anime();
     }
-    
+
     private void anime(){
         FadeTransition fade = new FadeTransition(Duration.millis(200), bar);
         fade.setFromValue(0.0);

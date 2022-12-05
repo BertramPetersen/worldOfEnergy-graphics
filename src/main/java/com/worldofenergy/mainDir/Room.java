@@ -30,7 +30,7 @@ public class Room implements EnergySourceConstructor {
     /**
      * The name of a room. E.g. Southern America. Used in the {@link Room} constructor
      */
-    String name;
+     String name;
     /**
      * An Arraylist of the abstract class {@link EnergySource}. Each built energy source is added to the builtEnergySource ArrayList.
      */

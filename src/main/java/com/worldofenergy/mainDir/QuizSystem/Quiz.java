@@ -124,13 +124,13 @@ public class Quiz implements QuizService {
                 What is the percentage og sustainable energy in the world?
                 (a) 34%
                 (b) 26%
-                (c) 11%
+                (c) 30%
                 (d) 9%""","c"));
         questions.add(new Question("""
                 In which way is a geothermal power plant good?
                 (a) It produces sustainable energy, through heat in the soil
                 (b) It produces conventional energy, through cold in the soil
-                (c) It produces sustainable energy, through cold in the soil
+                (c) It produces sustainable energy, through moderate in the soil
                 (d) It produces conventional energy, through heat in the soil""","a"));
         questions.add(new Question("""
                  What is World Goal number 7?
