@@ -20,6 +20,7 @@ import java.net.URISyntaxException;
 import java.util.Random;
 
 public class HelloApplication extends Application {
+
     @Override
     public void start(Stage stage) throws IOException {
         File file = new File("src/main/resources/com/worldofenergy/mainDir/Presentation/imagProject.jpg");
@@ -103,8 +104,6 @@ public class HelloApplication extends Application {
             Scene scene = new Scene(loader.load());
             stage.setScene(scene);
             stage.showAndWait();
-
-
         } else if (x == 3) {
             Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader();
@@ -113,7 +112,6 @@ public class HelloApplication extends Application {
             Scene scene = new Scene(loader.load());
             stage.setScene(scene);
             stage.showAndWait();
-
         }
 
     }

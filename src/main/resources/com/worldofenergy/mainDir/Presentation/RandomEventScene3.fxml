@@ -14,11 +14,11 @@
             <Image url="@Volcano.jpg" />
          </image>
       </ImageView>
-      <Label contentDisplay="CENTER" layoutX="1.0" layoutY="146.0" prefHeight="93.0" prefWidth="600.0" style="-fx-background-color: rgba(255,255,255,0.7) rgba(255,255,255,0.7);" text="A vulcano on Hawaii have erupted. This has resulted in a big cloud of ash, therefor solarpanels will not have any use for a month. Your green energy will therefor decrease" textAlignment="CENTER" wrapText="true">
+      <Label contentDisplay="CENTER" layoutX="1.0" layoutY="146.0" prefHeight="93.0" prefWidth="600.0" style="-fx-background-color: rgba(255,255,255,0.7) rgba(255,255,255,0.7);" text="A vulcano on Hawaii have erupted. This has resulted in a big cloud of ash, therefore solarpanels will not have any use for a month. Your green energy will therefore decrease" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="275.0" layoutY="272.0" mnemonicParsing="false" text="Got it!" />
+      <Button fx:id="buttonClose2" layoutX="275.0" layoutY="272.0" mnemonicParsing="false" onAction="#handleCloseButtonAction2" text="Got it!" />
    </children>
 </AnchorPane>

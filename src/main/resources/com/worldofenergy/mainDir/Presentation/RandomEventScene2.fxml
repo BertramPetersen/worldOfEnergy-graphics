@@ -20,7 +20,7 @@
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Button layoutX="275.0" layoutY="263.0" mnemonicParsing="false" text="Got it !" />
+            <Button fx:id="buttonClose1" layoutX="275.0" layoutY="263.0" mnemonicParsing="false" onAction="#handleCloseButtonAction1" text="Got it !" />
          </children>
       </AnchorPane>
    </children>
