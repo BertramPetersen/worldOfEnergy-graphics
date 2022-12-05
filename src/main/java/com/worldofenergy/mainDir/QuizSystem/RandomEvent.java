@@ -26,7 +26,7 @@ public class RandomEvent implements QuizService {
      */
     private int i;
     /**
-     * An ArrayList of the class {@link Events}. Each item in the ArrayList contains a String "description" and a int "impact".
+     * An ArrayList of the class {@link Events}. Each item in the ArrayList contains a String "description" and an int "impact".
      */
     private final ArrayList<Events> events = new ArrayList<>();
 

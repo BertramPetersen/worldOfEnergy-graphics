@@ -26,8 +26,8 @@ import java.util.*;
 
 public class CountryController implements Initializable {
 
-    private DataService game;
-    private Room room;
+    private final DataService game;
+    private final Room room;
     private Stage stage;
     @FXML
     private Label coins;
@@ -200,7 +200,7 @@ public class CountryController implements Initializable {
         greenPane.getChildren().add(circle);
     }
 
-    public void setHelpButton(ActionEvent e) throws IOException {
+    public void setHelpButton(ActionEvent e) {
         Stage stage1 = new Stage();
         TilePane tilePane = new TilePane();
 
