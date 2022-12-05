@@ -16,6 +16,7 @@ import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.Random;
 
 public class HelloApplication extends Application {
     @Override
@@ -79,6 +80,30 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.showAndWait();
 //        controller.init(game, stage);
+
+    }
+    public static void ShowRandomEvent(DataService game, Stage stage) throws IOException{
+        Random random = new Random();
+        int x = random.nextInt(3)+1;
+        if(x == 1){
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(HelloApplication.class.getResource("RandomEventScene1.fxml"));
+            loader.setControllerFactory(c -> new RandomEventSceneController(game, stage));
+            Scene scene = new Scene(loader.load());
+            stage.setScene(scene);
+        } else if (x == 2) {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(HelloApplication.class.getResource("RandomEventScene2.fxml"));
+            loader.setControllerFactory(c -> new RandomEventSceneController(game, stage));
+            Scene scene = new Scene(loader.load());
+            stage.setScene(scene);
+        } else if (x == 3) {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(HelloApplication.class.getResource("RandomEventScene3.fxml"));
+            loader.setControllerFactory(c -> new RandomEventSceneController(game, stage));
+            Scene scene = new Scene(loader.load());
+            stage.setScene(scene);
+        }
 
     }
 

@@ -118,7 +118,7 @@ public class HelloController implements Initializable {
     }
 
     public void initRandomEvent() throws IOException{
-
+        HelloApplication.ShowRandomEvent(game, stage);
     }
     public void init(DataService obj) throws IOException{
         this.game = obj;
@@ -166,6 +166,7 @@ public class HelloController implements Initializable {
     }
 
     public void endTurn(ActionEvent e) throws IOException, InterruptedException {
+
         if(!winLoseCondition()) {
             game.updateTurn();
             if (game.getTimeToQuiz()) {
@@ -178,6 +179,7 @@ public class HelloController implements Initializable {
             turnCounter.setText(String.valueOf(20 + (-game.getTurnCount()) + " years"));
             setForecast();
             setBalance();
+
         }
     }
     public static void showLoseStage() throws IOException {
