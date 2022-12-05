@@ -11,13 +11,13 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.worldofenergy.mainDir.Presentation.RandomEventSceneController">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0">
-         <image>
-            <Image url="@11182021-amazon-deforestation-istock-facebook.jpg" />
-         </image>
-      </ImageView>
       <AnchorPane prefHeight="400.0" prefWidth="611.0">
          <children>
+            <ImageView fx:id="background" fitHeight="400.0" fitWidth="614.0">
+               <image>
+                  <Image url="@AmazonDeforestation.jpg" />
+               </image>
+            </ImageView>
             <Label fx:id="Description" alignment="CENTER" layoutX="1.0" layoutY="147.0" prefHeight="109.0" prefWidth="600.0" style="-fx-background-color: rgba(255,255,255,0.7);" text="The brazilian government just announced an almost complete deforestation of the Amazon Rainforest. Now all the forest’s carbon storage capacity will be lost to the atmosphere  Your green energy will decrease" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="System Bold" size="12.0" />

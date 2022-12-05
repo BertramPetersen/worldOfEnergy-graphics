@@ -166,7 +166,7 @@ public class HelloController implements Initializable {
     }
 
     public void endTurn(ActionEvent e) throws IOException, InterruptedException {
-        game.getInitRandomEvent();
+
         if(!winLoseCondition()) {
             game.updateTurn();
             if (game.getTimeToQuiz()) {

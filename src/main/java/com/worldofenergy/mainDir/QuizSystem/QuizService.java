@@ -2,6 +2,7 @@ package com.worldofenergy.mainDir.QuizSystem;
 
 import com.worldofenergy.mainDir.PredictionService.EnergyBalance;
 import com.worldofenergy.mainDir.PredictionService.Forecast;
+import javafx.util.Pair;
 
 /**
  * This interface serves as a security measure to hide certain details from {@link Quiz} and {@link RandomEvent} and only show the important details.
@@ -19,7 +20,6 @@ public interface QuizService {
     String getNextAnswer();
     String[] getNextOptions();
     void incrementQuiz();
-
-    String getEvent(Forecast forecast);
+    Pair<String, String> getEventDescription(Forecast forecast);
 
 }

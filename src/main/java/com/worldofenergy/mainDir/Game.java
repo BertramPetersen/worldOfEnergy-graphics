@@ -7,6 +7,7 @@ import com.worldofenergy.mainDir.QuizSystem.Quiz;
 import com.worldofenergy.mainDir.QuizSystem.QuizService;
 import com.worldofenergy.mainDir.QuizSystem.RandomEvent;
 import com.worldofenergy.mainDir.util.Colors;
+import javafx.util.Pair;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -495,8 +496,7 @@ public class Game implements DataService {
     }
 
     @Override
-    public String getRandomEvent() {
-        return randomEvent.getEvent((Forecast) forecast);
+    public Pair<String, String> getRandomEvent() {
+        return randomEvent.getEventDescription((Forecast) forecast);
     }
-
 }
