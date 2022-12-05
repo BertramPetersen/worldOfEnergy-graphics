@@ -213,7 +213,6 @@ public class CountryController implements Initializable{
                 "You will then be able to build as many sources you want, and see how many different \n" +
                 "sources you have built. \n \nClose this window to continue the game.\n");
         Popup popup = new Popup();
-        popup.setAutoHide(true);
         popup.getContent().add(label);
 
         Scene scene = new Scene(tilePane, 550, 130);
