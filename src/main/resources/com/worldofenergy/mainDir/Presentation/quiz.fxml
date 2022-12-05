@@ -28,25 +28,25 @@
       <StackPane layoutX="46.0" layoutY="210.0" styleClass="answerPane" AnchorPane.leftAnchor="46.0">
          <children>
             <SVGPath id="a" content="M 0 0 L 40 -20 L 504 -20 L 544 0 L 504 20 L 40 20 z" fill="#055da699" onMouseClicked="#submitQuiz" />
-            <Label id="a" fx:id="answerA" onMouseClicked="#submitQuiz" prefHeight="17.0" prefWidth="465.0" text="Label" />
+            <Label id="a" fx:id="answerA" onMouseClicked="#submitQuiz" prefHeight="40.0" prefWidth="465.0" text="Label" textAlignment="CENTER" wrapText="true" />
          </children>
       </StackPane>
       <StackPane layoutX="46.0" layoutY="260.0" styleClass="answerPane" AnchorPane.leftAnchor="46.0">
          <children>
             <SVGPath id="b" content="M 0 0 L 40 -20 L 504 -20 L 544 0 L 504 20 L 40 20 z" fill="#ffcc00ab" onMouseClicked="#submitQuiz" />
-            <Label id="b" fx:id="answerB" onMouseClicked="#submitQuiz" prefHeight="17.0" prefWidth="465.0" text="Label" />
+            <Label id="b" fx:id="answerB" onMouseClicked="#submitQuiz" prefHeight="40.0" prefWidth="465.0" text="Label" textAlignment="CENTER" wrapText="true" />
          </children>
       </StackPane>
       <StackPane layoutX="46.0" layoutY="310.0" styleClass="answerPane" AnchorPane.leftAnchor="46.0">
          <children>
             <SVGPath id="c" content="M 0 0 L 40 -20 L 504 -20 L 544 0 L 504 20 L 40 20 z" fill="#ff00e188" onMouseClicked="#submitQuiz" />
-            <Label id="c" fx:id="answerC" onMouseClicked="#submitQuiz" prefHeight="17.0" prefWidth="465.0" text="Label" />
+            <Label id="c" fx:id="answerC" onMouseClicked="#submitQuiz" prefHeight="40.0" prefWidth="465.0" text="Label" textAlignment="CENTER" wrapText="true" />
          </children>
       </StackPane>
       <StackPane layoutX="46.0" layoutY="360.0" styleClass="answerPane" AnchorPane.leftAnchor="46.0">
          <children>
             <SVGPath id="d" content="M 0 0 L 40 -20 L 504 -20 L 544 0 L 504 20 L 40 20 z" fill="#ff008d" onMouseClicked="#submitQuiz" />
-            <Label id="d" fx:id="answerD" onMouseClicked="#submitQuiz" prefHeight="17.0" prefWidth="465.0" text="Label" />
+            <Label id="d" fx:id="answerD" onMouseClicked="#submitQuiz" prefHeight="40.0" prefWidth="465.0" text="Label" textAlignment="CENTER" wrapText="true" />
          </children>
       </StackPane>
    </children>
