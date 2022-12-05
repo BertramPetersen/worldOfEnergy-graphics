@@ -131,7 +131,7 @@ public class HelloController implements Initializable {
 
         if (!game.isDecreasing()){
             co2Increase.setText("CO2 emissions will increase by %.2f%% each year".formatted(game.getCO2Inc()));
-            tempIncrease.setText("CO2 emissions will increase by %.2f%% each year".formatted(game.getTempInc()));
+            tempIncrease.setText("Temperatures will increase by %.2f%% each year".formatted(game.getTempInc()));
             seaIncrease.setText("Sea levels will increase by %.2f%% each year".formatted(game.getSeaInc()));
         }else{
             co2Increase.setText("CO2 emissions will decrease by %.2f%% each year".formatted(game.getCO2Inc()));
