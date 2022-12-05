@@ -132,12 +132,10 @@ public class EnergyBalance implements PredictionService {
 
     @Override
     public void incrementYear() {
-
     }
 
     @Override
     public void update(EnergyBalance energyBalance) {
-
     }
 
     @Override

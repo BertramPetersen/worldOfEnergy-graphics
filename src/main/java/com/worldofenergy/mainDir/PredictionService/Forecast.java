@@ -178,7 +178,6 @@ public class Forecast implements PredictionService {
 
     @Override
     public void updateEnergy(double greenEnergy) {
-
     }
 
     @Override
