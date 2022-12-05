@@ -7,6 +7,7 @@ import com.worldofenergy.mainDir.QuizSystem.Quiz;
 import com.worldofenergy.mainDir.QuizSystem.QuizService;
 import com.worldofenergy.mainDir.QuizSystem.RandomEvent;
 import com.worldofenergy.mainDir.util.Colors;
+import javafx.util.Pair;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -265,7 +266,7 @@ public class Game implements DataService {
     }
     public int playQuizOrRandomEvent() { // 2. version of play quiz or random event
         double x = Math.random();
-        if (x >= 0.75 && turnCounter > 3) { // RandomEvent has a 20% chance of being run after the 3rd round
+        if (x >= 0.1 && turnCounter > 3) { // RandomEvent has a 20% chance of being run after the 3rd round
             // randomEvent.initiateRandomEvent((Forecast) forecast);
             return -1;
         } else { // takeQuiz has a 70% chance of being run. But is always run in the 2 first rounds
@@ -492,5 +493,10 @@ public class Game implements DataService {
     @Override
     public boolean isDecreasing() {
         return forecast.isDeacreasing();
+    }
+
+    @Override
+    public Pair<String, String> getRandomEvent() {
+        return randomEvent.getEventDescription((Forecast) forecast);
     }
 }

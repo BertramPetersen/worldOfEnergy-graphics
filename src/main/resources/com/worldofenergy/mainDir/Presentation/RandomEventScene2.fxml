@@ -16,11 +16,11 @@
                   <Image url="@original.jpg" />
                </image>
             </ImageView>
-            <Label contentDisplay="CENTER" layoutY="125.0" prefHeight="103.0" prefWidth="601.0" style="-fx-background-color: rgba(255,255,255,0.7);" text="Japan has just been hit by a tsunami,  and there are therefor a nucleareactor meltdown. This meltdown has caused a nuclearcloud being released into the sky. This will result in a drecrease in green energy" textAlignment="CENTER" wrapText="true">
+            <Label fx:id="Description" contentDisplay="CENTER" layoutY="125.0" prefHeight="103.0" prefWidth="601.0" style="-fx-background-color: rgba(255,255,255,0.7);" text="Japan has just been hit by a tsunami,  and there are therefor a nucleareactor meltdown. This meltdown has caused a nuclearcloud being released into the sky. This will result in a drecrease in green energy" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Button fx:id="buttonClose1" layoutX="275.0" layoutY="263.0" mnemonicParsing="false" onAction="#handleCloseButtonAction1" text="Got it !" />
+            <Button fx:id="buttonClose" layoutX="275.0" layoutY="263.0" mnemonicParsing="false" onAction="#closeEvent" text="Got it !" />
          </children>
       </AnchorPane>
    </children>

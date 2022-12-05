@@ -8,7 +8,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
@@ -20,7 +19,6 @@ import java.net.URISyntaxException;
 import java.util.Random;
 
 public class HelloApplication extends Application {
-
     @Override
     public void start(Stage stage) throws IOException {
         File file = new File("src/main/resources/com/worldofenergy/mainDir/Presentation/imagProject.jpg");
@@ -85,9 +83,6 @@ public class HelloApplication extends Application {
 
     }
     public static void ShowRandomEvent(DataService game) throws IOException{
-        Random random = new Random();
-        int x = random.nextInt(3)+1;
-        if(x == 1){
             Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(HelloApplication.class.getResource("RandomEventScene1.fxml"));
@@ -95,25 +90,6 @@ public class HelloApplication extends Application {
             Scene scene = new Scene(loader.load());
             stage.setScene(scene);
             stage.showAndWait();
-
-        } else if (x == 2) {
-            Stage stage = new Stage();
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(HelloApplication.class.getResource("RandomEventScene2.fxml"));
-            loader.setControllerFactory(c -> new RandomEventSceneController(game, stage));
-            Scene scene = new Scene(loader.load());
-            stage.setScene(scene);
-            stage.showAndWait();
-        } else if (x == 3) {
-            Stage stage = new Stage();
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(HelloApplication.class.getResource("RandomEventScene3.fxml"));
-            loader.setControllerFactory(c -> new RandomEventSceneController(game, stage));
-            Scene scene = new Scene(loader.load());
-            stage.setScene(scene);
-            stage.showAndWait();
-        }
-
     }
 
     public static void closeWindow(ActionEvent e){

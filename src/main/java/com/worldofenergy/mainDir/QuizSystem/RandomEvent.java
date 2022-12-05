@@ -1,6 +1,8 @@
 package com.worldofenergy.mainDir.QuizSystem;
 
 import com.worldofenergy.mainDir.PredictionService.Forecast;
+import javafx.scene.paint.Color;
+import javafx.util.Pair;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,6 +18,7 @@ import java.util.Scanner;
  * @see QuizService
  */
 public class RandomEvent implements QuizService{
+
     /**
      * An int i. Used in {@link #initiateRandomEvent(Forecast)} to be able to prompt a new event and impact each time. Runs through the {@link #events} ArrayList.
      * Placed outside of {@link #initiateRandomEvent(Forecast)} to prevent it from continuously being sat to 0.
@@ -23,6 +26,8 @@ public class RandomEvent implements QuizService{
      * @see #events
      */
     private int i;
+
+    private String url;
     /**
      * An ArrayList of the class {@link Events}. Each item in the ArrayList contains a String "description" and a int "impact".
      */
@@ -42,7 +47,14 @@ public class RandomEvent implements QuizService{
      */
     private void createEvents() {
         events.add(new Events("The brazilian government just announced an almost complete deforestation of the Amazon Rainforest. " +
-                "Now all the forest’s carbon storage capacity will be lost to the atmosphere", 1.5));
+                "Now all the forest’s carbon storage capacity will be lost to the atmosphere", 1.5, "AmazonDeforestation.jpg"));
+        events.add(new Events("Japan has just been hit by a tsunami which unfortunately caused a nuclear reactor meltdown. This meltdown has caused a nuclear cloud being released into the sky. This will result in a decrease in green energy", 1.4, "original.jpg"));
+        events.add(new Events("A volcano on Hawaii have erupted. This has resulted in a big cloud of ash, therefore solar panels will not have any use for a month. Your green energy will therefore decrease", 1.4, "Volcano.jpg"));
+        events.add(new Events("There has just been an earthquake in Nepal. Your energy sources in south asia have been damaged, this will result in a decrease in green energy", 1.3, "NepalEarthquake.jpg"));
+        events.add(new Events("The river Nile in Egypt has been flooded, and your hydropower plants have been damaged. This will cause an increase of fossil energy", 1.5, "NileFlooding.jpg" ));
+        events.add(new Events("A super typhoon hit the Philippines, and your windmills are damaged. This is causing green energy levels to decrease.", 1.6, "PhilippinesTyphoon.jpg"));
+        events.add(new Events("A complete breakdown of the energy infrastructure in Scandinavia has resulted in a severe decrease of green energy output in the world. This will undoubtedly affect the forecast and energy balance", 1.6, "ScandinaviaBreakdown.jpg"));
+
     }
 
     /**
@@ -67,7 +79,6 @@ public class RandomEvent implements QuizService{
      */
     public void initiateRandomEvent(Forecast forecast) {
         try {
-
             System.out.println("Wait...");
             promptEnterKey();
             System.out.println("Something is off...");
@@ -89,7 +100,6 @@ public class RandomEvent implements QuizService{
             Collections.shuffle(events);
             initiateRandomEvent(forecast);
         }
-        i++;
     }
     @Override
     public String getNextQuestion() {
@@ -110,8 +120,28 @@ public class RandomEvent implements QuizService{
     public void incrementQuiz() {
 
     }
-
     @Override
     public void takeQuiz(){}
+
+    Pair<String, String> descriptionAndImage;
+
+    /* public Pair<String, String> getDescriptionAndImage() {
+        return descriptionAndImage;
+    }
+
+    public void setDescriptionAndImage(Pair<String, String>) {
+        this.descriptionAndImage = descriptionAndImage;
+    }
+     */
+    @Override
+    public Pair<String, String> getEventDescription(Forecast forecast) {
+        if (i >= events.size()) i=0;
+        forecast.increase(events.get(i).impact);
+        String description = events.get(i).description;
+        String fileName = events.get(i).fileName;
+        descriptionAndImage = new Pair<>(description, fileName);
+        i++;
+        return descriptionAndImage;
+    }
 }
 

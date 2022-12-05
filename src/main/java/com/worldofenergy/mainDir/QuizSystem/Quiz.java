@@ -1,8 +1,8 @@
 package com.worldofenergy.mainDir.QuizSystem;
 
 import com.worldofenergy.mainDir.PredictionService.Forecast;
-import com.worldofenergy.mainDir.PredictionService.PredictionService;
 import com.worldofenergy.mainDir.Wallet;
+import javafx.util.Pair;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -225,6 +225,11 @@ public class Quiz implements QuizService {
     @Override
     public String getNextQuestion(){
         return questions.get(i).question;
+    }
+
+    @Override
+    public Pair<String, String> getEventDescription(Forecast forecast) {
+        return null;
     }
 
 }
