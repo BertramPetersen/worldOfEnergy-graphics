@@ -10,15 +10,17 @@ import java.util.Scanner;
  * The class RandomEvent implements the interface {@link QuizService}, by which it implements multiple methods.
  * The class consists of the logic behind the randomly occurring events in the game. It also contains all the possible events in an {@link Events} ArrayList.
  * <p>
- *     It's main purpose is to display the random event, affect the forecast negatively by accelerating the negative consequences, show and explain to the player the consequences of the random event.
+ * It's main purpose is to display the random event, affect the forecast negatively by accelerating the negative consequences, show and explain to the player the consequences of the random event.
  * </p>
+ *
  * @see Events
  * @see QuizService
  */
-public class RandomEvent implements QuizService{
+public class RandomEvent implements QuizService {
     /**
      * An int i. Used in {@link #initiateRandomEvent(Forecast)} to be able to prompt a new event and impact each time. Runs through the {@link #events} ArrayList.
      * Placed outside of {@link #initiateRandomEvent(Forecast)} to prevent it from continuously being sat to 0.
+     *
      * @see #initiateRandomEvent(Forecast)
      * @see #events
      */
@@ -62,8 +64,9 @@ public class RandomEvent implements QuizService{
      * <p> The method is wrapped in a try...catch statement to prevent an {@link IndexOutOfBoundsException}. In case of an {@link IndexOutOfBoundsException}
      * then {@link #i} is sat to 0, the {@link #events} ArrayList is shuffled, and initiateRandomEvent() is called. Thereby, restarting the randomEvent completely.
      * </p>
-     * @exception IndexOutOfBoundsException when {@link #i} is greater than the ArrayList length
+     *
      * @param forecast the instance of forecast that is to be impacted by the random event.
+     * @throws IndexOutOfBoundsException when {@link #i} is greater than the ArrayList length
      */
     public void initiateRandomEvent(Forecast forecast) {
         try {
@@ -91,6 +94,7 @@ public class RandomEvent implements QuizService{
         }
         i++;
     }
+
     @Override
     public String getNextQuestion() {
         return null;
@@ -108,10 +112,10 @@ public class RandomEvent implements QuizService{
 
     @Override
     public void incrementQuiz() {
-
     }
 
     @Override
-    public void takeQuiz(){}
+    public void takeQuiz() {
+    }
 }
 

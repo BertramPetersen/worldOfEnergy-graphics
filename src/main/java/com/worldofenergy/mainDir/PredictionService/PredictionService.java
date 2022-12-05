@@ -35,5 +35,5 @@ public interface PredictionService {
 
     void incrementYear();
 
-    boolean isDeacreasing();
+    boolean isDecreasing();
 }

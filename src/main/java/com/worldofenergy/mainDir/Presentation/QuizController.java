@@ -1,8 +1,6 @@
 package com.worldofenergy.mainDir.Presentation;
 
 import com.worldofenergy.mainDir.DataService;
-import com.worldofenergy.mainDir.PredictionService.PredictionService;
-import com.worldofenergy.mainDir.QuizSystem.Quiz;
 import com.worldofenergy.mainDir.Wallet;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,8 +22,8 @@ import java.util.ResourceBundle;
 
 public class QuizController implements Initializable {
 
-    DataService game;
-    Stage stage;
+    private DataService game;
+    private Stage stage;
     private String answer;
     @FXML
     private Label question;

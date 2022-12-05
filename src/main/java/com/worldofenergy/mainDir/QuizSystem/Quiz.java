@@ -1,7 +1,6 @@
 package com.worldofenergy.mainDir.QuizSystem;
 
 import com.worldofenergy.mainDir.PredictionService.Forecast;
-import com.worldofenergy.mainDir.PredictionService.PredictionService;
 import com.worldofenergy.mainDir.Wallet;
 
 import java.util.ArrayList;
@@ -12,6 +11,7 @@ import java.util.Scanner;
  * The class Quiz implements the interface {@link QuizService}, by which it implements multiple methods.
  * The class consists of the logic behind the quiz system in the game. It also contains all the quiz questions in an {@link Question} ArrayList.
  * It's main purpose is to display the quiz system, allow the player to try and guess the correct answer and possibly reward the player.
+ *
  * @see Question
  * @see QuizService
  */
@@ -19,6 +19,7 @@ public class Quiz implements QuizService {
     /**
      * An int i. Used in {@link #takeQuiz()} to be able to prompt new question and answer each time. Runs through the {@link #questions} ArrayList.
      * Placed outside of {@link #takeQuiz()} to prevent it from continuously being sat to 0.
+     *
      * @see #takeQuiz()
      * @see #questions
      */
@@ -32,7 +33,7 @@ public class Quiz implements QuizService {
      * Ensures the {@link #createQuestions()} method is called whenever a new instance of {@link Quiz} is created.
      * Shuffles the questions in {@link #createQuestions()}. Ensuring a new sequence everytime the game is played.
      */
-    public Quiz(){
+    public Quiz() {
         createQuestions();
         Collections.shuffle(questions);
     }
@@ -40,7 +41,7 @@ public class Quiz implements QuizService {
     /**
      * Contains all the created questions and their respective answers of the quiz. Adds them all to the {@link #questions} Arraylist.
      */
-    public void createQuestions () {
+    public void createQuestions() {
         questions.add(new Question("""
                 Which of these is not a type of renewable energy?
                 (a) Solar
@@ -71,90 +72,85 @@ public class Quiz implements QuizService {
                 (a) Just because
                 (b) The energy source can be reused again and again
                 (c) The energy source can not be reused again and again
-                (d) It is not good""","b"));
+                (d) It is not good""", "b"));
         questions.add(new Question("""
                 Where is it best to place a windmill?
                 (a) Where there is wind
                 (b) Where there is sun
                 (c) Where there is water flow
-                (d) Where there is warm soil""","a"));
+                (d) Where there is warm soil""", "a"));
         questions.add(new Question("""
                 Where is it best to place a solar panels?
                 (a) Where there is wind
                 (b) Where there is sun
                 (c) Where there is water flow
-                (d) Where there is warm soil""","b"));
+                (d) Where there is warm soil""", "b"));
         questions.add(new Question("""
                 Where is it best to place a hydropower plant?
                 (a) Where there is wind
                 (b) Where there is sun
                 (c) Where there is water flow
-                (d) Where there is warm soil""","c"));
+                (d) Where there is warm soil""", "c"));
         questions.add(new Question("""
                 Where is it best to place a geothermal power plant?
                 (a) Where there is wind
                 (b) Where there is sun
                 (c) Where there is water flow
-                (d) Where there is warm soil""","d"));
+                (d) Where there is warm soil""", "d"));
         questions.add(new Question("""
                 Why is it good to place windmills away from population?
                 (a) Because they are loud
                 (b) Because they are silent
                 (c) Because they are small
-                (d) It's good to place them close to population""","a"));
+                (d) It's good to place them close to population""", "a"));
         questions.add(new Question("""
                 When does solar panels produce the most energy?
                 (a) At night
                 (b) During the day
                 (c) It depends
-                (d) What do I know""","b"));
+                (d) What do I know""", "b"));
         questions.add(new Question("""
                 Why does solar panels have to be placed at a open place?
                 (a) They don't have to
                 (b) Because there shouldn't be shadows
                 (c) Just because
-                (d) It's up to the individual""","b"));
+                (d) It's up to the individual""", "b"));
         questions.add(new Question("""
                 Why are solar panels a sustainable energy source?
                 (a) Because it is durable and can be used for many years
                 (b) Because it is not durable and can not be used for many years
                 (c) Because it translates heat  from the ground to renewable energy
-                (d) Because it is cheaper than conventional energy""","a"));
+                (d) Because it is cheaper than conventional energy""", "a"));
         questions.add(new Question("""
                 What is the percentage og sustainable energy in the world?
                 (a) 34%
                 (b) 26%
                 (c) 11%
-                (d) 9%""","c"));
+                (d) 9%""", "c"));
         questions.add(new Question("""
                 In which way is a geothermal power plant good?
                 (a) It produces sustainable energy, through heat in the soil
                 (b) It produces conventional energy, through cold in the soil
                 (c) It produces sustainable energy, through cold in the soil
-                (d) It produces conventional energy, through heat in the soil""","a"));
+                (d) It produces conventional energy, through heat in the soil""", "a"));
         questions.add(new Question("""
-                 What is World Goal number 7?
+                What is World Goal number 7?
                 (a) is about giving everyone access to reliable, sustainable and modern energy
                 (b) is about giving everyone access to school and education
                 (c) is not exists
-                (d) None of the above""","a"));
-        questions.add(new Question("""
-                Where does green energy come from?
-                (a) Fossil fuels
-                (b) Most wind power, solar energy
-                (c) it is just exist""","b"));
+                (d) None of the above""", "a"));
         questions.add(new Question("""
                 Is Denmark self-sufficient in electricity?
                 (a) Yes
                 (b) No
                 (c) I don't Know
-                (D) I don't Care""","a"));
+                (D) maybe""", "a"));
         questions.add(new Question("""
                 What percentage is green energy in Denmark?
-                (a) 34
-                (b) 40
-                (c) 60
-                (D) 20""","a"));
+                (a) 34%
+                (b) 40%
+                (c) 60%
+                (D) 20%""", "a"));
     }
 
     /**
@@ -174,7 +170,8 @@ public class Quiz implements QuizService {
      * <p> The method is wrapped in a try...catch statement to prevent an {@link IndexOutOfBoundsException}. In case of an {@link IndexOutOfBoundsException}
      * then {@link #i} is sat to 0, the {@link #questions} ArrayList is shuffled, and takeQuiz() is called. Thereby, restarting the quiz completely.
      * </p>
-     * @exception IndexOutOfBoundsException when {@link #i} is greater than the ArrayList length
+     *
+     * @throws IndexOutOfBoundsException when {@link #i} is greater than the ArrayList length
      */
     public void takeQuiz() {
         System.out.println("You now have the opportunity to earn money to build more energy sources by taking the following quiz:");
@@ -205,8 +202,10 @@ public class Quiz implements QuizService {
             takeQuiz();
         }
     }
+
     @Override
-    public void initiateRandomEvent(Forecast forecast){}
+    public void initiateRandomEvent(Forecast forecast) {
+    }
 
 
     public String[] getNextOptions() {
@@ -223,7 +222,7 @@ public class Quiz implements QuizService {
     }
 
     @Override
-    public String getNextQuestion(){
+    public String getNextQuestion() {
         return questions.get(i).question;
     }
 

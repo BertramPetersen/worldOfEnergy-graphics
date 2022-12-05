@@ -6,8 +6,7 @@ import com.worldofenergy.mainDir.DataService;
 import java.util.Scanner;
 
 
-public class Parser
-{
+public class Parser {
     /**
      * Scanner used to read user input. Used in {@link #getCommand()}
      */
@@ -19,20 +18,20 @@ public class Parser
 
     /**
      * Constructor with a {@link DataService} parameter. Is instantiated in {@link CommandLineClient}
+     *
      * @param game a variable of {@link DataService}
      */
-    public Parser(DataService game)
-    {
+    public Parser(DataService game) {
         this.dataService = game;
         this.reader = new Scanner(System.in);
     }
 
     /**
      * This method reads the player's input and divides it into two variables word1 and word2.
+     *
      * @return the command the player has typed. E.g. build windmill
      */
-    public Command getCommand()
-    {
+    public Command getCommand() {
         String inputLine;
         String word1 = null;
         String word2 = null;
@@ -77,14 +76,14 @@ public class Parser
 //    }
 
     /**
-     * @param word1 the command the player's has typed. E.g. build
+     * @param word1     the command the player's has typed. E.g. build
      * @param tokenizer the second word the player has typed. E.g. windmill
      * @return the command the player has typed. E.g. build windmill
      */
     private Command buildCommand(String word1, Scanner tokenizer) {
         StringBuilder Word2 = new StringBuilder();
         String word2 = null;
-        if(tokenizer.hasNext()){
+        if (tokenizer.hasNext()) {
             Word2.append(tokenizer.nextLine().strip());
             word2 = Word2.toString();
             return dataService.getCommand(word1, word2);
