@@ -1,11 +1,13 @@
 package com.worldofenergy.mainDir;
 
-import com.worldofenergy.mainDir.PredictionService.EnergyBalance;
 import com.worldofenergy.mainDir.PredictionService.PredictionService;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Interface responsible for the data and information of in the game.
+ */
 public interface DataService {
     Command getCommand(String word1, String word2);
     void welcome();
@@ -21,8 +23,11 @@ public interface DataService {
     int getCoins();
 
     double getTemp();
+    double getTempInc();
     double getCO2();
+    double getCO2Inc();
     double getSea();
+    double getSeaInc();
 
     Room getCurrentRoom();
     boolean setCurrentRoom(String destination);
@@ -45,4 +50,6 @@ public interface DataService {
     int[] getBuiltEnergy();
 
     int getTurnCount();
+
+    boolean isDecreasing();
 }

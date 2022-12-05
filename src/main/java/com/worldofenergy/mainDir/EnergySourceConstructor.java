@@ -1,5 +1,8 @@
 package com.worldofenergy.mainDir;
 
+/**
+ * Interface responsible for the methods able to validate, build and print energy sources.
+ */
 public interface EnergySourceConstructor {
     String[] types = {"Windmill", "Solar Panel", "Hydro Powerplant", "Geo Powerplant"};
 

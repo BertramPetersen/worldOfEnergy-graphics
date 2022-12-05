@@ -6,6 +6,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
+/**
+ * The class RandomEvent implements the interface {@link QuizService}, by which it implements multiple methods.
+ * The class consists of the logic behind the randomly occurring events in the game. It also contains all the possible events in an {@link Events} ArrayList.
+ * <p>
+ *     It's main purpose is to display the random event, affect the forecast negatively by accelerating the negative consequences, show and explain to the player the consequences of the random event.
+ * </p>
+ * @see Events
+ * @see QuizService
+ */
 public class RandomEvent implements QuizService{
     /**
      * An int i. Used in {@link #initiateRandomEvent(Forecast)} to be able to prompt a new event and impact each time. Runs through the {@link #events} ArrayList.

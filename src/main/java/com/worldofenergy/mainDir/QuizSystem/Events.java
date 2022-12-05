@@ -1,5 +1,10 @@
 package com.worldofenergy.mainDir.QuizSystem;
 
+/**
+ * This class' purpose is to create the requirements/variables needed for the events that can randomly occur in the game.
+ * It's mainly used in {@link RandomEvent} to create an ArrayList of Events.
+ * @see RandomEvent
+ */
 public class Events {
     /**
      * Description of the random event.

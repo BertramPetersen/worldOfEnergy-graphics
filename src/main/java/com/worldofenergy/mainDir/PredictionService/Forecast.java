@@ -2,9 +2,27 @@ package com.worldofenergy.mainDir.PredictionService;
 
 import java.time.Year;
 
-public class  Forecast implements PredictionService {
+/**
+ * The class Forecast implements the interface {@link PredictionService}, by which it implements multiple methods.
+ * This class consists of the logic behind the game's forecast.
+ * It's main function is to display and calculate the forecast of the game, which is reliant on the player's performance.
+ * @see PredictionService
+ */
+public class Forecast implements PredictionService {
 
     EnergyBalance energyBalance = new EnergyBalance();
+    /**
+     * Representation of the percentage at which the seaLevel will increase at each new turn
+     */
+    private double seaLevelIncrease;
+    /**
+     * Representation of the percentage at which the CO2 emissions will increase at each new turn
+     */
+    private double CO2Increase;
+    /**
+     * Representation of the percentage at which the temperature will increase at each new turn
+     */
+    private double temperatureIncrease;
     /**
      * unit cm e.g. 5 cm.
      */
@@ -110,12 +128,12 @@ public class  Forecast implements PredictionService {
         energyBalance.updatePercentage();
         if (energyBalance.getGreenEnergy() <= energyBalance.getFossilEnergy()) {
             double increase = energyBalance.getFossilPercent(); // unit  %
-            double seaLevelIncrease = (0.3*(increase));
-            double temperatureIncrease = (0.2*(increase));
-            double C02Increase = (0.5*(increase));
-            seaLevel *= (1 + seaLevelIncrease/100);
-            temperature *=  (1 + temperatureIncrease/100);
-            CO2 *= (1 + C02Increase/100);
+            seaLevelIncrease = 1+(0.3*(increase));
+            temperatureIncrease = 1+(0.2*(increase));
+            CO2Increase = 1+ (0.5*(increase));
+            seaLevel *= seaLevelIncrease/100;
+            temperature *=  temperatureIncrease/100;
+            CO2 *= 1+ CO2Increase/100;
 //            System.out.println();
 //            System.out.println("Oh no! The year is now " + currentYear + " and the world's C02 output is still increasing!");
 //            System.out.println("---------------------------------------------------------------------------------------");
@@ -127,9 +145,9 @@ public class  Forecast implements PredictionService {
 
         } else {
             double decrease = energyBalance.getGreenPercent();// unit %
-            double seaLevelDecrease = (0.6 *(decrease));
-            double temperatureDecrease = (0.4 *(decrease));
-            double C02Decrease = (1 * (decrease));
+            seaLevelIncrease = 1 - 0.6 * decrease;
+            temperatureIncrease = 1 - 0.4 *decrease;
+            CO2Increase = 1 - decrease;
 
             seaLevel *= (0.6 * decrease/100);
             temperature *= (0.4 * decrease/100);
@@ -147,9 +165,7 @@ public class  Forecast implements PredictionService {
     }
     @Override
     public void show() {
-
     }
-
     @Override
     public void updateEnergy(double greenEnergy) {
 
@@ -181,6 +197,28 @@ public class  Forecast implements PredictionService {
     @Override
     public void incrementYear(){
         this.currentYear++;
+    }
+
+    @Override
+    public double getTempInc() {
+        return temperatureIncrease;
+    }
+
+    @Override
+    public double getCO2Inc() {
+        return CO2Increase;
+    }
+
+    @Override
+    public double getSeaInc() {
+        return seaLevelIncrease;
+    }
+
+    @Override
+    public boolean isDeacreasing() {
+        if (energyBalance.getGreenEnergy() <= energyBalance.getFossilEnergy()){
+            return false;
+        } else return true;
     }
 }
 

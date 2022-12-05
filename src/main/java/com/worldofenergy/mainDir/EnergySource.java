@@ -1,5 +1,11 @@
 package com.worldofenergy.mainDir;
 
+import javafx.scene.paint.Color;
+import javafx.util.Pair;
+
+/**
+ * EnergySource is an abstract class. It is therefore not able to create objects. The objects are created by the subclasses: {@link WindMill}, {@link SolarPanel}, {@link HydroPowerplant} and {@link GeothermalPowerplant}.
+ */
 public abstract class EnergySource {
     /**
      * The price of the energy source. E.g. 50 coins
@@ -18,6 +24,11 @@ public abstract class EnergySource {
      */
     int passiveIncome; // Passive income from built energy sources
 
+    Pair<Color, Color> colorStrokePair;
+    public Pair<Color, Color> getColorStrokePair() {
+        return colorStrokePair;
+    }
+
     /**
      * Getter method that returns the price of the energy source. E.g. WindMill.getPrice() returns the price of a windmill
      * @return the price of the energy source
@@ -33,5 +44,6 @@ public abstract class EnergySource {
     public String getName() {
         return name;
     }
+
     //    abstract void upgradeOutput();
 }

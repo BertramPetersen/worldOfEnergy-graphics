@@ -4,9 +4,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Implements the interface {@link CommandWords}. This class implements the commands previously created in the ENUM class {@link Commands}.
+ * It's main function is to connect each command with its String version.
+ */
 public class CommandWordsImplementation implements CommandWords {
+    /**
+     * A HashMap of the available and valid commands of the game. This HashMap serves to create a connection between the Command and its String version.
+     * E.g. Build and "Build"
+     */
     private HashMap<String, Commands> validCommands;
 
+    /**
+     * For all valid commands, sets the String version of a command and the actual command as a pair. E.g. "go to" and go to.
+     */
     public CommandWordsImplementation(){
         validCommands = new HashMap<String, Commands>();
         for (Commands command : Commands.values()){

@@ -8,13 +8,24 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
+        File file = new File("src/main/resources/com/worldofenergy/mainDir/Presentation/imagProject.jpg");
+        Image image;
+        image = new Image(new FileInputStream(file));
+
+        stage.getIcons().add(image);
+
         DataService game = new Game();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(HelloApplication.class.getResource("hello-view.fxml"));
@@ -41,13 +52,13 @@ public class HelloApplication extends Application {
     public static void showCountryView(DataService game, Stage stage) throws IOException{
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(HelloApplication.class.getResource("country-view.fxml"));
+        loader.setControllerFactory(c -> new CountryController(game));
         Scene scene = new Scene(loader.load());
 
         CountryController cc = loader.getController();
 
         stage.setScene(scene);
         stage.show();
-        cc.setGame(game);
     }
 
     public static void showMainView(DataService game, Stage stage) throws IOException{

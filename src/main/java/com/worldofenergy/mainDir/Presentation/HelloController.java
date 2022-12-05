@@ -8,29 +8,42 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Cursor;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
+import javafx.scene.shape.SVGPath;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.Year;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
 
     DataService game;
     Stage stage;
+    private final int year = Year.now().getValue();
     @FXML
     private Label co2Forecast;
     @FXML
+    private Label co2Increase;
+    @FXML
     private Label tempForecast;
     @FXML
+    private Label tempIncrease;
+    @FXML
     private Label seaForecast;
+    @FXML
+    private Label seaIncrease;
     @FXML
     private Label coins;
     @FXML
@@ -39,6 +52,8 @@ public class HelloController implements Initializable {
     private ProgressBar balanceBar;
     @FXML
     private Label turnCounter;
+    @FXML
+    private Pane Anchor;
 
     public HelloController(DataService game, Stage stage){
         this.game = game;
@@ -50,9 +65,25 @@ public class HelloController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        setForecast();
+        setForecast();
         setCoins();
+        turnCounter.setText(String.valueOf(20 + (-game.getTurnCount()) + " years"));
         setBalance();
+//        SVGPath svg = new SVGPath();
+//        String path = "M 364 229 L 336 273 L 335 299 L 357 324 L 389 319 L 496 326 L 507 302 L 489 306 L 482 295 L 455 244 L 450 245 L 432 239 L 403 223 L 364 229";
+//        svg.setContent(path);
+//        svg.setId("North Africa");
+//        svg.setOpacity(0.1);
+//        svg.setOnMouseClicked(e  -> {
+//            try {
+//                enterCountry(e);
+//            } catch (IOException ex) {
+//                throw new RuntimeException(ex);
+//            }
+//        });
+
+//        Anchor.getChildren().add(svg);
+
     }
 
 
@@ -62,6 +93,12 @@ public class HelloController implements Initializable {
         game.setCurrentRoom(destination);
         HelloApplication.showCountryView(game, stage);
 
+    }
+    public void enterCountry1(MouseEvent e) throws IOException{
+        SVGPath svg = (SVGPath)e.getSource();
+        String destination = svg.getId().toUpperCase();
+        game.setCurrentRoom(destination);
+        HelloApplication.showCountryView(game, stage);
     }
 
 
@@ -88,6 +125,7 @@ public class HelloController implements Initializable {
         setForecast();
         setCoins();
         setBalance();
+        turnCounter.setText(String.valueOf(20 + (-game.getTurnCount()) + " years"));
         showWelcome();
     }
 
@@ -96,9 +134,19 @@ public class HelloController implements Initializable {
     }
 
     public void setForecast() {
-        co2Forecast.setText("CO2 increase: %.2f Tonnes".formatted(game.getCO2()));
+        co2Forecast.setText("Yearly CO2 emission: %.2f Tonnes".formatted(game.getCO2()));
         tempForecast.setText("Temperature: %.2f \u2103 ".formatted(game.getTemp())); // Unicode: degrees celcius
         seaForecast.setText("Sea Level: %.2f cm".formatted(game.getSea()));
+
+        if (!game.isDecreasing()){
+            co2Increase.setText("CO2 emissions will increase by %.2f%% each year".formatted(game.getCO2Inc()));
+            tempIncrease.setText("CO2 emissions will increase by %.2f%% each year".formatted(game.getTempInc()));
+            seaIncrease.setText("Sea levels will increase by %.2f%% each year".formatted(game.getSeaInc()));
+        }else{
+            co2Increase.setText("CO2 emissions will decrease by %.2f%% each year".formatted(game.getCO2Inc()));
+            tempIncrease.setText("Temperatures will decrease by %.2f%% each year".formatted(game.getTempInc()));
+            seaIncrease.setText("Sea levels will decrease by %.2f%% each year".formatted(game.getSeaInc()));
+        }
     }
 
     public void setBalance() {
@@ -106,31 +154,79 @@ public class HelloController implements Initializable {
         PredictionService forecast = game.getForecast();
         energyBalance.updateEnergy(game.getTotalPowerOutput());
         forecast.update((EnergyBalance) energyBalance);
-        String balance = String.format("%.0f%% / %.0f%%", energyBalance.getGreenPercent(), energyBalance.getFossilPercent());
+        String balance;
+        if (energyBalance.getGreenPercent() >= 100 ) {
+            balance = "100% / 0%";
+        }
+            else {
+                balance = String.format("%.0f%% / %.0f%%", energyBalance.getGreenPercent(), energyBalance.getFossilPercent());
+            }
         balanceLabel.setText(balance);
         balanceBar.setProgress(energyBalance.getGreenPercent() / 100);
     }
 
     public void endTurn(ActionEvent e) throws IOException, InterruptedException {
-        initRandomEvent();
-        game.updateTurn();
-        if (game.getTimeToQuiz()){
-            showQuiz();
-        } else if (game.getInitRandomEvent()){
-            initRandomEvent();
-        }
-        game.resetQuizSystem();
-        setCoins();
-        turnCounter.setText("turn: "+game.getTurnCount());
-        setForecast();
-    }
 
+        if(!winLoseCondition()) {
+            game.updateTurn();
+            if (game.getTimeToQuiz()) {
+                showQuiz();
+            } else if (game.getInitRandomEvent()) {
+                initRandomEvent();
+            }
+            game.resetQuizSystem();
+            setCoins();
+            turnCounter.setText(String.valueOf(20 + (-game.getTurnCount()) + " years"));
+            setForecast();
+            setBalance();
+
+        }
+    }
+    public static void showLoseStage() throws IOException {
+        Stage loseStage = new Stage();
+        loseStage.setTitle("Defeat");
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(HelloController.class.getResource("lose-view.fxml"));
+        Scene scene = new Scene(loader.load());
+        loseStage.setScene(scene);
+        loseStage.showAndWait();
+
+    }
+    public static void showWinStage() throws IOException {
+        Stage winStage = new Stage();
+        winStage.setTitle("Victory");
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(HelloController.class.getResource("Win-view.fxml"));
+        Scene scene = new Scene(loader.load());
+        winStage.setScene(scene);
+        winStage.showAndWait();
+    }
+    public boolean winLoseCondition() throws IOException {
+        PredictionService energyBalance = game.getEnergyBalance();
+        // if (energy.balance.getGreenPercent() >= 50 {
+            // showProgressIndicator()
+            // "Keep building you are doing a phenomenal job!
+        // if (game.getTurnCount() >= 10) {
+            // showHalfwayPoint()
+            // You are halfway through the game. Build strategic with your sources, or else you might lose!
+
+        if (energyBalance.getGreenPercent() >= 100) {
+            showWinStage();
+            return true;
+        }
+        else if (game.getTurnCount() >= 20 ) {
+            showLoseStage();
+            return true;
+        } else {
+            return false;
+        }
+    }
     public void setHelpButton(ActionEvent e) throws IOException {
         Stage stage1 = new Stage();
         TilePane tilePane = new TilePane();
 
         Label label = new Label("\n \nTo build " +
-                "energy sources, go to one of the areas on he map.\n" +
+                "energy sources, go to one of the areas on the map.\n" +
                 "Press the button 'Windmill' or one of the four energy sources you want to build.\n" +
                 "You will then be able to build as many sources you want, and see how many different \n" +
                 "sources you have built. \n \nClose this window to continue the game.\n");

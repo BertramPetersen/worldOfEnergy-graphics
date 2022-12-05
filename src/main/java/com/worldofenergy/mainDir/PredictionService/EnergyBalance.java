@@ -2,6 +2,12 @@ package com.worldofenergy.mainDir.PredictionService;
 
 import com.worldofenergy.mainDir.util.Colors;
 
+/**
+ * The class EnergyBalance implements the interface {@link PredictionService}, by which it implements multiple methods.
+ * The class consist of the logic behind the energy balance in the game.
+ * It's main purpose is to display the energy balance bar which visualizes the ratio between green and fossil energy.
+ * @see PredictionService
+ */
 public class EnergyBalance implements PredictionService {
     /**
      * Amount of green energy the player has at the beginning. 0 means the world only has fossil energy at the start.
@@ -108,6 +114,11 @@ public class EnergyBalance implements PredictionService {
         return greenPercent;
     }
 
+    @Override
+    public boolean isDeacreasing() {
+        return false;
+    }
+
     /**
      * @return the percentage of {@link #fossilEnergy} as a double.
      */
@@ -115,7 +126,6 @@ public class EnergyBalance implements PredictionService {
     public double getFossilPercent() {
         return fossilPercent;
     }
-
 
     @Override
     public void incrementYear() {
@@ -138,12 +148,27 @@ public class EnergyBalance implements PredictionService {
     }
 
     @Override
+    public double getTempInc() {
+        return 0;
+    }
+
+    @Override
     public double getCO2() {
         return 0;
     }
 
     @Override
+    public double getCO2Inc() {
+        return 0;
+    }
+
+    @Override
     public double getSeaLevel() {
+        return 0;
+    }
+
+    @Override
+    public double getSeaInc() {
         return 0;
     }
 }
