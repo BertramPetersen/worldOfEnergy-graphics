@@ -14,7 +14,7 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Label fx:id="question" alignment="TOP_LEFT" layoutX="134.0" layoutY="96.0" prefHeight="114.0" prefWidth="334.0" text="" textAlignment="CENTER" wrapText="true">
+      <Label fx:id="question" alignment="TOP_CENTER" layoutX="152.0" layoutY="87.0" prefHeight="114.0" prefWidth="334.0" text="" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="15.0" />
          </font>
