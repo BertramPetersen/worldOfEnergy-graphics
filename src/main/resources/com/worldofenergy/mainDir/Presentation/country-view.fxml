@@ -17,6 +17,7 @@
 <?import javafx.scene.text.Font?>
 
 <?import java.net.URL?>
+<?import javafx.scene.layout.Region?>
 <StackPane maxHeight="1000" maxWidth="1900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.worldofenergy.mainDir.Presentation.CountryController">
     <children>
         <AnchorPane fx:id="anchorPane" prefHeight="200.0" prefWidth="200.0">
@@ -148,6 +149,7 @@
             <Pane fx:id="greenPane" layoutX="331.0" layoutY="142.0" prefHeight="261.0" prefWidth="151.0" />
             </children>
         </AnchorPane>
+        <Button styleClass="TestSVG" prefHeight="300" prefWidth="300" maxHeight="300" maxWidth="300"/>
     </children>
     <stylesheets>
         <URL value="@style.css"/>
