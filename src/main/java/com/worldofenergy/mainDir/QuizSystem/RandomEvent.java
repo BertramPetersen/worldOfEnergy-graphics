@@ -138,14 +138,7 @@ public class RandomEvent implements QuizService {
                     room.updateOutput();
                 for (Map.Entry<String, List<Position>> entry : CountryController.positions.entrySet()) {
                     if (entry.getKey().equals(room.getName())) {
-                        List<Position> newPositionsSolar = entry.getValue().stream().filter(position -> !position.getEnergySource().getName().equals("Solar Panel")).collect(Collectors.toList());
-                        entry.setValue(newPositionsSolar);
-                        List<Position> newPositionsHydro = entry.getValue().stream().filter(position -> !position.getEnergySource().getName().equals("Hydro Powerplant")).collect(Collectors.toList());
-                        entry.setValue(newPositionsHydro);
-                        List<Position> newPositionsGeo = entry.getValue().stream().filter(position -> !position.getEnergySource().getName().equals("Geo Powerplant")).collect(Collectors.toList());
-                        entry.setValue(newPositionsGeo);
-                        List<Position> newPositionsWind = entry.getValue().stream().filter(position -> !position.getEnergySource().getName().equals("Windmill")).collect(Collectors.toList());
-                        entry.setValue(newPositionsWind);
+                        CountryController.positions.remove(room.getName());
                     }
                 }
             }
