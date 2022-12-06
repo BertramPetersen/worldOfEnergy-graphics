@@ -84,7 +84,7 @@ public class QuizController implements Initializable {
         if (e.getSource() instanceof SVGPath){
             text = ((SVGPath) e.getSource()).getId();
         } else {
-            text = ((Label) e.getSource()).getText();
+            text = ((Label) e.getSource()).getId();
         }
 
         if (answer.equalsIgnoreCase(text)){
