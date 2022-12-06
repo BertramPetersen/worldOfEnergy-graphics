@@ -1,7 +1,7 @@
 package com.worldofenergy.mainDir.Presentation;
 
 import com.worldofenergy.mainDir.*;
-import com.worldofenergy.mainDir.DTOs.PForecast;
+import com.worldofenergy.mainDir.DTOs.ForecastDTO;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,11 +14,9 @@ import javafx.scene.control.ButtonBar;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.PixelReader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
@@ -33,7 +31,7 @@ public class CountryController implements Initializable{
     private DataService game;
     private Room room;
     private Stage stage;
-    private PForecast forecast;
+    private ForecastDTO forecast;
     @FXML
     private Label coins;
     @FXML
@@ -61,7 +59,7 @@ public class CountryController implements Initializable{
     @FXML
     private ButtonBar bar;
 
-    public CountryController(DataService game, PForecast forecast){
+    public CountryController(DataService game, ForecastDTO forecast){
         this.game = game;
         this.room = game.getCurrentRoom();
         this.forecast = forecast;

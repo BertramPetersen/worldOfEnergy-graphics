@@ -1,10 +1,10 @@
 package com.worldofenergy.mainDir.DTOs;
 
-public class PForecast {
-    double temp, CO2, seaLevel;
-    double tempInc, CO2Inc, seaLevelInc;
+public class ForecastDTO {
+    private double temp, CO2, seaLevel;
+    private double tempInc, CO2Inc, seaLevelInc;
 
-    public PForecast(double temp, double CO2, double seaLevel, double tempInc, double CO2Inc, double getSeaLevel) {
+    public ForecastDTO(double temp, double CO2, double seaLevel, double tempInc, double CO2Inc, double getSeaLevel) {
         this.temp = temp;
         this.CO2 = CO2;
         this.seaLevel = seaLevel;
@@ -61,7 +61,16 @@ public class PForecast {
         this.seaLevelInc = seaLevelInc;
     }
 
-    public PForecast(){
+    public ForecastDTO(){
 
+    }
+
+    public void setValue(ForecastDTO forecastDTO) {
+        this.temp = forecastDTO.getTemp();
+        this.CO2 = forecastDTO.getCO2();
+        this.seaLevel = forecastDTO.getSeaLevel();
+        this.tempInc = forecastDTO.getTempInc();
+        this.CO2Inc = forecastDTO.getCO2Inc();
+        this.seaLevelInc = forecastDTO.getSeaLevelInc();
     }
 }

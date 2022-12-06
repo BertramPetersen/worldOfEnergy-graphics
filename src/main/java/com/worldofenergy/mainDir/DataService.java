@@ -1,6 +1,6 @@
 package com.worldofenergy.mainDir;
 
-import com.worldofenergy.mainDir.DTOs.PForecast;
+import com.worldofenergy.mainDir.DTOs.ForecastDTO;
 import com.worldofenergy.mainDir.PredictionService.PredictionService;
 
 import java.util.ArrayList;
@@ -54,5 +54,7 @@ public interface DataService {
 
     boolean isDecreasing();
 
-    PForecast getPForecast();
+    ForecastDTO getForecastDTO();
+
+    ForecastDTO updateForecastDTO();
 }

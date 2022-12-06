@@ -1,6 +1,6 @@
 package com.worldofenergy.mainDir;
 
-import com.worldofenergy.mainDir.DTOs.PForecast;
+import com.worldofenergy.mainDir.DTOs.ForecastDTO;
 import com.worldofenergy.mainDir.PredictionService.EnergyBalance;
 import com.worldofenergy.mainDir.PredictionService.Forecast;
 import com.worldofenergy.mainDir.PredictionService.PredictionService;
@@ -84,11 +84,10 @@ public class Game implements DataService {
      */
     PredictionService forecast;
 
-    @Override
-    public PForecast getPForecast() {
-        PForecast f = new PForecast(getTemp(),getCO2(),getSea(),getTempInc(),getCO2Inc(),getSeaInc());
-        return f;
-    }
+    /**
+     * Instance of the current ForecastDTO. Used to store the values of forecast until {@link #updateTurn()}
+     */
+    ForecastDTO forecastDTO;
 
     /**
      * Calls our newly instantiated classes and our created variables.
@@ -110,6 +109,7 @@ public class Game implements DataService {
         this.randomEvent = new RandomEvent();
         this.energyBalance = new EnergyBalance();
         this.forecast = new Forecast();
+        updateForecastDTO();
         //this.forecast.update((EnergyBalance)this.energyBalance);
         }
 
@@ -501,4 +501,25 @@ public class Game implements DataService {
     public boolean isDecreasing() {
         return forecast.isDeacreasing();
     }
+
+    /**
+     * Used to get the {@link #forecastDTO}
+     * @return
+     */
+    @Override
+    public ForecastDTO getForecastDTO(){
+        return this.forecastDTO;
+    }
+
+    /**
+     * Updates the values of {@link #forecastDTO}.
+     *
+     * @return
+     */
+    @Override
+    public ForecastDTO updateForecastDTO() {
+        this.forecastDTO = new ForecastDTO(getTemp(),getCO2(),getSea(),getTempInc(),getCO2Inc(),getSeaInc());
+        return this.forecastDTO;
+    }
+
 }
