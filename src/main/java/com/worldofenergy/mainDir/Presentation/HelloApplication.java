@@ -97,6 +97,8 @@ public class HelloApplication extends Application {
         stage.close();
     }
 
+
+
     public static void main(String[] args) {
         launch();
     }

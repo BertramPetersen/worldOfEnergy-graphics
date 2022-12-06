@@ -1,14 +1,11 @@
 package com.worldofenergy.mainDir.Presentation;
 
 import com.worldofenergy.mainDir.DataService;
-import com.worldofenergy.mainDir.PredictionService.PredictionService;
-import com.worldofenergy.mainDir.QuizSystem.Quiz;
 import com.worldofenergy.mainDir.Wallet;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -19,6 +16,7 @@ import javafx.scene.layout.TilePane;
 import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -42,6 +40,8 @@ public class QuizController implements Initializable {
 
     @FXML
     private Label answerD;
+    @FXML
+    private Label failure;
 
     @FXML
     private RadioButton r1;
@@ -94,18 +94,17 @@ public class QuizController implements Initializable {
         } else showIncorrect(stage);
     }
 
-    private void showIncorrect(Stage stage) {
-        Label failure = new Label("Oh no! Your answer was incorrect. The correct answer was "+answer+
-                "You unfortunately get 0 coins. Better luck next time!");
-        failure.setWrapText(true);
+    private void showIncorrect(Stage stage) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(HelloApplication.class.getResource("incorrect.fxml"));
+        loader.setControllerFactory(c -> new IncorrectController(stage, answer));
+        Scene scene = new Scene(loader.load());
 
-        failure.prefWidth(150.0);
-        failure.prefHeight(300.0);
-        failure.setAlignment(Pos.CENTER);
-        TilePane tilePane = new TilePane(failure);
-        tilePane.setAlignment(Pos.CENTER);
-        Scene scene = new Scene(tilePane, 600, 400);
         stage.setScene(scene);
+        stage.show();
+
+
+
     }
 
     private void showCorrect(Stage stage) throws IOException{
@@ -125,7 +124,10 @@ public class QuizController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        init(game, stage);
+        if (url.sameFile(QuizController.class.getResource("quiz.fxml"))) {
+            init(game, stage);
+        }
     }
 }
+
 
