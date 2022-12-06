@@ -118,7 +118,7 @@ public class CountryController implements Initializable {
 
     public void buildEnergySource(ActionEvent e) {
         Button btn = (Button) e.getSource();
-        String energyType = btn.getText();
+        String energyType = btn.getId();
         EnergySource eType = game.stringToEnergySource(energyType);
         boolean construct = game.construct(energyType);
         if (construct) {
