@@ -82,14 +82,14 @@ public class HelloController implements Initializable {
         Button btn = (Button) e.getSource();
         String destination = btn.getText().toUpperCase();
         game.setCurrentRoom(destination);
-        HelloApplication.showCountryView(game, stage, forecastDTO);
+        HelloApplication.showCountryView(game, stage);
     }
 
     public void enterCountry1(MouseEvent e) throws IOException {
         SVGPath svg = (SVGPath) e.getSource();
         String destination = svg.getId().toUpperCase();
         game.setCurrentRoom(destination);
-        HelloApplication.showCountryView(game, stage, forecastDTO);
+        HelloApplication.showCountryView(game, stage);
     }
 
 

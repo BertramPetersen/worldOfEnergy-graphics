@@ -53,11 +53,11 @@ public class HelloApplication extends Application {
         welcomeStage.showAndWait();
     }
 
-    public static void showCountryView(DataService game, Stage stage, ForecastDTO forecast) throws IOException{
+    public static void showCountryView(DataService game, Stage stage) throws IOException{
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(HelloApplication.class.getResource("country-view.fxml"));
-        loader.setControllerFactory(c -> new CountryController(game, forecast));
+        loader.setControllerFactory(c -> new CountryController(game));
         Scene scene = new Scene(loader.load());
 
         CountryController cc = loader.getController();

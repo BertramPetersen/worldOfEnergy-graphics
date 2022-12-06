@@ -59,10 +59,9 @@ public class CountryController implements Initializable {
     @FXML
     private ButtonBar bar;
 
-    public CountryController(DataService game, ForecastDTO forecast){
+    public CountryController(DataService game){
         this.game = game;
         this.room = game.getCurrentRoom();
-        this.forecast = forecast;
     }
 
     public static final Map<String, List<Position>> positions = new HashMap<>();
