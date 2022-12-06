@@ -101,13 +101,6 @@ public class EnergyBalance implements PredictionService {
     }
 
     /**
-     * @return the amount of {@link #totalEnergy} as a double.
-     */
-    public double getTotalEnergy() {
-        return totalEnergy;
-    }
-
-    /**
      * @return the percentage of {@link #greenEnergy} as a double.
      */
     @Override

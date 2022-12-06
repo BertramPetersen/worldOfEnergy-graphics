@@ -186,11 +186,6 @@ public class Forecast implements PredictionService {
     }
 
     @Override
-    public double getTotalEnergy() {
-        return 0;
-    }
-
-    @Override
     public double getFossilEnergy() {
         return 0;
     }
