@@ -1,8 +1,10 @@
 package com.worldofenergy.mainDir.Presentation;
 
-import com.worldofenergy.mainDir.DTOs.ForecastDTO;
 import com.worldofenergy.mainDir.DataService;
 import com.worldofenergy.mainDir.Game;
+import com.worldofenergy.mainDir.Presentation.InfoPages.EnergyInfoController;
+import com.worldofenergy.mainDir.Presentation.InfoPages.HelpController;
+import com.worldofenergy.mainDir.Presentation.quizPages.QuizController;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -69,7 +71,7 @@ public class HelloApplication extends Application {
 
     public static void displayHelp(String energyType, Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        InputStream i = HelloApplication.class.getResourceAsStream("energy-help.fxml");
+        InputStream i = HelpController.class.getResourceAsStream("energy-help.fxml");
         loader.setControllerFactory(c -> new EnergyInfoController(energyType));
         Scene scene = new Scene(loader.load(i));
 
@@ -89,7 +91,7 @@ public class HelloApplication extends Application {
     public static void showQuiz(DataService game) throws IOException, InterruptedException {
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(HelloApplication.class.getResource("quiz.fxml"));
+        loader.setLocation(QuizController.class.getResource("quiz.fxml"));
         loader.setControllerFactory(c -> new QuizController(game, stage));
         Scene scene = new Scene(loader.load());
         stage.setScene(scene);
@@ -111,7 +113,7 @@ public class HelloApplication extends Application {
     public static void ShowHelp() throws IOException {
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(HelloApplication.class.getResource("help-view.fxml"));
+        loader.setLocation(HelpController.class.getResource("help-view.fxml"));
         loader.setControllerFactory(c -> new HelpController(stage));
         Scene scene = new Scene(loader.load());
         stage.setScene(scene);

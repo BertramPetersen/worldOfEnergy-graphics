@@ -1,23 +1,15 @@
-package com.worldofenergy.mainDir.Presentation;
+package com.worldofenergy.mainDir.Presentation.InfoPages;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class HelpController{
+public class EnergyInfoController implements Initializable {
 
-    Stage stage;
-
+    private String energyType;
     private final String windMillDesc = "Windmill, a device for tapping the energy of the wind by means of sails mounted on a rotating shaft. The sails are mounted at an angle or are given a slight twist so that the force of wind against them is divided into two components, one of which, in the plane of the sails, imparts rotation.";
     private final String windMillHow = "Wind turbines work on a simple principle: instead of using electricity to make wind, like a fan, wind turbines use wind to make electricity. Wind turns the propeller-like blades of a turbine around a rotor, which spins a generator, which creates electricity.";
     private final String windMillWhere = "place where there is a lot of wind";
@@ -48,16 +40,22 @@ public class HelpController{
     private Label howItWorks;
     @FXML
     private Label whereToPlace;
-
-
-    public HelpController(Stage stage){
-        this.stage = stage;
+    public EnergyInfoController(String energyType){
+        this.energyType = energyType;
     }
 
-    @FXML
-    public void showEnergyHelp(ActionEvent e) throws IOException {
-        String energyType = ((Button)e.getSource()).getId();
-        HelloApplication.displayHelp(energyType, stage);
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        title.setText(energyType);
+        if (energyType.equalsIgnoreCase("Windmill")){
+            setInfo(windMillHelp);
+        } else if(energyType.equalsIgnoreCase("Solar Panel")){
+            setInfo(SolarPanelHelp);
+        } else if(energyType.equalsIgnoreCase("Hydro Power")){
+            setInfo(HydroPowerHelp);
+        } else {
+            setInfo(GeoPowerHelp);
+        }
     }
 
     private void setInfo(String[] info) {

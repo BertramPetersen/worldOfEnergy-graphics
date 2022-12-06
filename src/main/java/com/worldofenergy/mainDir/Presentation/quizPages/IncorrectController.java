@@ -1,4 +1,4 @@
-package com.worldofenergy.mainDir.Presentation;
+package com.worldofenergy.mainDir.Presentation.quizPages;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
