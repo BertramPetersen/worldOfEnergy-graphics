@@ -136,9 +136,9 @@ public class Forecast implements PredictionService {
         energyBalance.updatePercentage();
         if (energyBalance.getGreenEnergy() <= energyBalance.getFossilEnergy()) {
             double increase = energyBalance.getFossilPercent(); // unit  %
-            seaLevelIncrease = (0.3 * (increase));
-            temperatureIncrease = (0.2 * (increase));
-            CO2Increase = (0.5 * (increase));
+            seaLevelIncrease = (0.03 * (increase));
+            temperatureIncrease = (0.02 * (increase));
+            CO2Increase = (0.05 * (increase));
             seaLevel *= (1 + (seaLevelIncrease / 100));
             temperature *= (1 + (temperatureIncrease / 100));
             CO2 *= (1 + (CO2Increase / 100));
@@ -153,12 +153,12 @@ public class Forecast implements PredictionService {
 
         } else {
             double decrease = energyBalance.getGreenPercent();// unit %
-            seaLevelIncrease = 1 - 0.6 * decrease;
-            temperatureIncrease = 1 - 0.4 * decrease;
+            seaLevelIncrease = 1 - 0.06 * decrease;
+            temperatureIncrease = 1 - 0.04 * decrease;
             CO2Increase = 1 - decrease;
 
-            seaLevel *= (0.6 * decrease / 100);
-            temperature *= (0.4 * decrease / 100);
+            seaLevel *= (0.06 * decrease / 100);
+            temperature *= (0.04 * decrease / 100);
             CO2 *= (1 * decrease / 100);
 
 //            System.out.println();
