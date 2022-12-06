@@ -1,6 +1,7 @@
 package com.worldofenergy.mainDir.Presentation;
 
 import com.worldofenergy.mainDir.*;
+import com.worldofenergy.mainDir.DTOs.ForecastDTO;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -30,6 +31,7 @@ public class CountryController implements Initializable {
     private final DataService game;
     private final Room room;
     private Stage stage;
+    private ForecastDTO forecast;
     @FXML
     private Label coins;
     @FXML
@@ -57,9 +59,10 @@ public class CountryController implements Initializable {
     @FXML
     private ButtonBar bar;
 
-    public CountryController(DataService game) {
+    public CountryController(DataService game, ForecastDTO forecast){
         this.game = game;
         this.room = game.getCurrentRoom();
+        this.forecast = forecast;
     }
 
     public static final Map<String, List<Position>> positions = new HashMap<>();
@@ -110,6 +113,7 @@ public class CountryController implements Initializable {
     public void exitCountry(ActionEvent e) throws IOException {
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         game.setCurrentRoom("AIRPORT");
+
         HelloApplication.showMainView(game, stage);
     }
 

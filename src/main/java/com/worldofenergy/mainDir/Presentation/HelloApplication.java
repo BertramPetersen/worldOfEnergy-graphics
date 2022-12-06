@@ -1,5 +1,6 @@
 package com.worldofenergy.mainDir.Presentation;
 
+import com.worldofenergy.mainDir.DTOs.ForecastDTO;
 import com.worldofenergy.mainDir.DataService;
 import com.worldofenergy.mainDir.Game;
 import javafx.application.Application;
@@ -24,14 +25,19 @@ public class HelloApplication extends Application {
         stage.getIcons().add(image);
 
         DataService game = new Game();
+
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(HelloApplication.class.getResource("hello-view.fxml"));
         loader.setControllerFactory(c -> new HelloController(game, stage));
         Scene scene = new Scene(loader.load());
+
+
+
         stage.setTitle("World Of Energy");
         stage.setMinWidth(905.0);
         stage.setMinHeight(620.0);
         stage.setResizable(false);
+
         stage.setScene(scene);
         stage.show();
         showWelcome();
@@ -47,10 +53,11 @@ public class HelloApplication extends Application {
         welcomeStage.showAndWait();
     }
 
-    public static void showCountryView(DataService game, Stage stage) throws IOException {
+    public static void showCountryView(DataService game, Stage stage, ForecastDTO forecast) throws IOException{
+
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(HelloApplication.class.getResource("country-view.fxml"));
-        loader.setControllerFactory(c -> new CountryController(game));
+        loader.setControllerFactory(c -> new CountryController(game, forecast));
         Scene scene = new Scene(loader.load());
 
         CountryController cc = loader.getController();

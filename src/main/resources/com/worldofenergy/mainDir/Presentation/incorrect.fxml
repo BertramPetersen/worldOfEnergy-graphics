@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.worldofenergy.mainDir.Presentation.IncorrectController">
    <children>
-      <Label layoutX="189.0" layoutY="14.0" text="Wrong Answer">
+      <Label layoutX="189.0" layoutY="14.0" text="Wrong Answer" wrapText="true">
          <font>
             <Font size="34.0" />
          </font>
@@ -19,7 +19,7 @@
       <StackPane layoutX="28.0" layoutY="286.0" styleClass="answerPane" stylesheets="@quiz.css">
          <children>
             <SVGPath id="c" content="M 0 0 L 40 -20 L 504 -20 L 544 0 L 504 20 L 40 20 z" fill="#1d1b1c87" onMouseClicked="#Close" />
-            <Label id="c" fx:id="answerC" alignment="CENTER" prefHeight="40.0" prefWidth="465.0" text="CLOSE" textAlignment="CENTER" wrapText="true" onMouseClicked="#Close">
+            <Label id="c" fx:id="CloseBtn" alignment="CENTER" prefHeight="40.0" prefWidth="465.0" text="CLOSE" textAlignment="CENTER" wrapText="true" onMouseClicked="#Close">
                <font>
                   <Font size="18.0" />
                </font>

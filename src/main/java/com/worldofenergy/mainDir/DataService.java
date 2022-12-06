@@ -1,5 +1,6 @@
 package com.worldofenergy.mainDir;
 
+import com.worldofenergy.mainDir.DTOs.ForecastDTO;
 import com.worldofenergy.mainDir.PredictionService.PredictionService;
 import javafx.util.Pair;
 
@@ -70,5 +71,10 @@ public interface DataService {
 
     boolean isDecreasing();
 
+    ForecastDTO getForecastDTO();
+
+    ForecastDTO updateForecastDTO();
+
     Pair<String, String> getRandomEvent();
+
 }
