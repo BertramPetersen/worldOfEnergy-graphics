@@ -16,7 +16,7 @@ public class EnergyBalance implements PredictionService {
     /**
      * Amount of total energy. Determines the difficulty of the game.
      */
-    protected final double totalEnergy = 1125;
+    protected final double totalEnergy = 3000;
     /**
      * Amount of fossil energy. Is determined by the amount of {@link #greenEnergy}.
      */
