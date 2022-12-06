@@ -20,7 +20,6 @@ import java.net.URISyntaxException;
 import java.util.Random;
 
 public class HelloApplication extends Application {
-
     @Override
     public void start(Stage stage) throws IOException {
         File file = new File("src/main/resources/com/worldofenergy/mainDir/Presentation/imagProject.jpg");
@@ -30,14 +29,20 @@ public class HelloApplication extends Application {
         stage.getIcons().add(image);
 
         DataService game = new Game();
+
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(HelloApplication.class.getResource("hello-view.fxml"));
         loader.setControllerFactory(c -> new HelloController(game, stage));
         Scene scene = new Scene(loader.load());
+        HelloController controller = loader.getController();
+        controller.setForecast();
+
+
         stage.setTitle("World Of Energy");
         stage.setMinWidth(905.0);
         stage.setMinHeight(620.0);
         stage.setResizable(false);
+
         stage.setScene(scene);
         stage.show();
         showWelcome();

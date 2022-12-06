@@ -102,7 +102,7 @@ public class Game implements DataService {
         this.randomEvent = new RandomEvent();
         this.energyBalance = new EnergyBalance();
         this.forecast = new Forecast();
-        this.forecast.update((EnergyBalance)this.energyBalance);
+        //this.forecast.update((EnergyBalance)this.energyBalance);
         }
 
     /**

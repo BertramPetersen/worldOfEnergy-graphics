@@ -69,10 +69,10 @@ public class HelloController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setForecast();
         setCoins();
         turnCounter.setText(String.valueOf(20 + (-game.getTurnCount()) + " years"));
         setBalance();
+        setForecast();
 
     }
 
@@ -110,14 +110,6 @@ public class HelloController implements Initializable {
     public void initRandomEvent() throws IOException{
         HelloApplication.ShowRandomEvent(game);
     }
-    public void init(DataService obj) throws IOException{
-        this.game = obj;
-        setForecast();
-        setCoins();
-        setBalance();
-        turnCounter.setText(String.valueOf(20 + (-game.getTurnCount()) + " years"));
-        showWelcome();
-    }
 
     public void setCoins() {
         coins.setText("" + game.getCoins() + " Coins");
@@ -144,7 +136,7 @@ public class HelloController implements Initializable {
         PredictionService energyBalance = game.getEnergyBalance();
         PredictionService forecast = game.getForecast();
         energyBalance.updateEnergy(game.getTotalPowerOutput());
-        forecast.update((EnergyBalance) energyBalance);
+        //forecast.update((EnergyBalance) energyBalance);
         String balance;
         if (energyBalance.getGreenPercent() >= 100 ) {
             balance = "100% / 0%";
@@ -170,7 +162,6 @@ public class HelloController implements Initializable {
             turnCounter.setText(String.valueOf(20 + (-game.getTurnCount()) + " years"));
             setForecast();
             setBalance();
-
         }
     }
     public static void showLoseStage() throws IOException {
