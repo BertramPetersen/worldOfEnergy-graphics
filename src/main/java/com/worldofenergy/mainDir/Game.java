@@ -97,7 +97,7 @@ public class Game implements DataService {
         createdRooms = new ArrayList<>();
         this.quiz = new Quiz();
         this.commands = new CommandWordsImplementation();
-        Wallet.setCoins(50000);
+        Wallet.setCoins(500);
         createRooms();
         this.location = roomMap.get("Airport");
         this.randomEvent = new RandomEvent();
