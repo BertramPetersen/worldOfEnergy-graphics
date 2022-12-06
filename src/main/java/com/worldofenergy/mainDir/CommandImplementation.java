@@ -34,10 +34,10 @@ public class CommandImplementation implements Command {
         return commandValue;
     }
 
-    @Override
-    public boolean isUnknown() {
-        return (commandName == Commands.UNKNOWN);
-    }
+   // @Override
+    //public boolean isUnknown() {
+      //  return (commandName == Commands.UNKNOWN);
+   // }
 
     @Override
     public boolean hasCommandValue() {
