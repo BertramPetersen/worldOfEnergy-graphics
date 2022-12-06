@@ -127,13 +127,13 @@ public class HelloController implements Initializable {
     public void setForecast() {
 
         Forecast.setText(""+endYear+" Forecast");
-        co2Forecast.setText("Yearly CO2 emission: %.2f Million Tonnes".formatted(forecastDTO.getCO2()));
-        tempForecast.setText("Temperature: %.2f \u2103 ".formatted(forecastDTO.getTemp())); // Unicode: degrees celcius
+        co2Forecast.setText("Increase in CO2 emissions: %.2f Million Tonnes".formatted(forecastDTO.getCO2()));
+        tempForecast.setText("Temperature increase: %.2f\u2103 ".formatted(forecastDTO.getTemp())); // Unicode: degrees celcius
         seaForecast.setText("Sea Level Increase: %.2f cm".formatted(forecastDTO.getSeaLevel()));
 
         if (!game.isDecreasing()){
-            co2Increase.setText("CO2 emissions will increase by %.2f%% each year".formatted(forecastDTO.getCO2Inc()));
-            tempIncrease.setText("Temperatures will increase by %.2f%% each year".formatted(forecastDTO.getTempInc()));
+            co2Increase.setText("CO2 emissions will continue to increase by %.2f%% each year".formatted(forecastDTO.getCO2Inc()));
+            tempIncrease.setText("Temperatures will continue to increase by %.2f%% each year".formatted(forecastDTO.getTempInc()));
             seaIncrease.setText("Sea levels will increase by %.2f%% each year".formatted(forecastDTO.getSeaLevelInc()));
         }else{
             co2Increase.setText("CO2 emissions will decrease by %.2f%% each year".formatted(forecastDTO.getCO2Inc()));
