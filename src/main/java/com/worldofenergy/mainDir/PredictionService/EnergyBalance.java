@@ -116,7 +116,7 @@ public class EnergyBalance implements PredictionService {
     }
 
     @Override
-    public boolean isDeacreasing() {
+    public boolean isDecreasing() {
         return false;
     }
 

@@ -226,7 +226,7 @@ public class Forecast implements PredictionService {
     }
 
     @Override
-    public boolean isDeacreasing() {
+    public boolean isDecreasing() {
         if (energyBalance.getGreenEnergy() <= energyBalance.getFossilEnergy()) {
             return false;
         } else return true;

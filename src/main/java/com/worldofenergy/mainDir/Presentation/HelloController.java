@@ -7,10 +7,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.scene.Cursor;
-import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -29,8 +25,8 @@ import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
 
-    DataService game;
-    Stage stage;
+    private DataService game;
+    private Stage stage;
     private final int year = Year.now().getValue();
     private final int endYear = this.year + 20;
 
@@ -59,12 +55,12 @@ public class HelloController implements Initializable {
     @FXML
     private Pane Anchor;
 
-    public HelloController(DataService game, Stage stage){
+    public HelloController(DataService game, Stage stage) {
         this.game = game;
         this.stage = stage;
     }
-    public HelloController(){
 
+    public HelloController() {
     }
 
     @Override
@@ -73,26 +69,25 @@ public class HelloController implements Initializable {
         setCoins();
         turnCounter.setText(String.valueOf(20 + (-game.getTurnCount()) + " years"));
         setBalance();
-
     }
 
 
-    public void enterCountry(ActionEvent e) throws IOException{
-        Button btn = (Button)e.getSource();
+    public void enterCountry(ActionEvent e) throws IOException {
+        Button btn = (Button) e.getSource();
         String destination = btn.getText().toUpperCase();
         game.setCurrentRoom(destination);
         HelloApplication.showCountryView(game, stage);
-
     }
-    public void enterCountry1(MouseEvent e) throws IOException{
-        SVGPath svg = (SVGPath)e.getSource();
+
+    public void enterCountry1(MouseEvent e) throws IOException {
+        SVGPath svg = (SVGPath) e.getSource();
         String destination = svg.getId().toUpperCase();
         game.setCurrentRoom(destination);
         HelloApplication.showCountryView(game, stage);
     }
 
 
-    public void showWelcome() throws IOException{
+    public void showWelcome() throws IOException {
         Stage welcomeStage = new Stage();
         welcomeStage.setTitle("Welcome to World Of Energy");
         FXMLLoader loader = new FXMLLoader();
@@ -107,10 +102,11 @@ public class HelloController implements Initializable {
         setCoins();
     }
 
-    public void initRandomEvent() throws IOException{
+    public void initRandomEvent() throws IOException {
         HelloApplication.ShowRandomEvent(game);
     }
-    public void init(DataService obj) throws IOException{
+
+    public void init(DataService obj) throws IOException {
         this.game = obj;
         setForecast();
         setCoins();
@@ -124,16 +120,16 @@ public class HelloController implements Initializable {
     }
 
     public void setForecast() {
-        Forecast.setText(""+endYear+" Forecast");
+        Forecast.setText("" + endYear + " Forecast");
         co2Forecast.setText("Yearly CO2 emission: %.2f Tonnes".formatted(game.getCO2()));
         tempForecast.setText("Temperature: %.2f \u2103 ".formatted(game.getTemp())); // Unicode: degrees celcius
         seaForecast.setText("Sea Level: %.2f cm".formatted(game.getSea()));
 
-        if (!game.isDecreasing()){
+        if (!game.isDecreasing()) {
             co2Increase.setText("CO2 emissions will increase by %.2f%% each year".formatted(game.getCO2Inc()));
             tempIncrease.setText("Temperatures will increase by %.2f%% each year".formatted(game.getTempInc()));
             seaIncrease.setText("Sea levels will increase by %.2f%% each year".formatted(game.getSeaInc()));
-        }else{
+        } else {
             co2Increase.setText("CO2 emissions will decrease by %.2f%% each year".formatted(game.getCO2Inc()));
             tempIncrease.setText("Temperatures will decrease by %.2f%% each year".formatted(game.getTempInc()));
             seaIncrease.setText("Sea levels will decrease by %.2f%% each year".formatted(game.getSeaInc()));
@@ -146,19 +142,18 @@ public class HelloController implements Initializable {
         energyBalance.updateEnergy(game.getTotalPowerOutput());
         forecast.update((EnergyBalance) energyBalance);
         String balance;
-        if (energyBalance.getGreenPercent() >= 100 ) {
+        if (energyBalance.getGreenPercent() >= 100) {
             balance = "100% / 0%";
+        } else {
+            balance = String.format("%.0f%% / %.0f%%", energyBalance.getGreenPercent(), energyBalance.getFossilPercent());
         }
-            else {
-                balance = String.format("%.0f%% / %.0f%%", energyBalance.getGreenPercent(), energyBalance.getFossilPercent());
-            }
         balanceLabel.setText(balance);
         balanceBar.setProgress(energyBalance.getGreenPercent() / 100);
     }
 
     public void endTurn(ActionEvent e) throws IOException, InterruptedException {
 
-        if(!winLoseCondition()) {
+        if (!winLoseCondition()) {
             game.updateTurn();
             if (game.getTimeToQuiz()) {
                 showQuiz();
@@ -170,9 +165,9 @@ public class HelloController implements Initializable {
             turnCounter.setText(String.valueOf(20 + (-game.getTurnCount()) + " years"));
             setForecast();
             setBalance();
-
         }
     }
+
     public static void showLoseStage() throws IOException {
         Stage loseStage = new Stage();
         loseStage.setTitle("Defeat");
@@ -181,8 +176,8 @@ public class HelloController implements Initializable {
         Scene scene = new Scene(loader.load());
         loseStage.setScene(scene);
         loseStage.showAndWait();
-
     }
+
     public static void showWinStage() throws IOException {
         Stage winStage = new Stage();
         winStage.setTitle("Victory");
@@ -192,26 +187,27 @@ public class HelloController implements Initializable {
         winStage.setScene(scene);
         winStage.showAndWait();
     }
+
     public boolean winLoseCondition() throws IOException {
         PredictionService energyBalance = game.getEnergyBalance();
         // if (energy.balance.getGreenPercent() >= 50 {
-            // showProgressIndicator()
-            // "Keep building you are doing a phenomenal job!
+        // showProgressIndicator()
+        // "Keep building you are doing a phenomenal job!
         // if (game.getTurnCount() >= 10) {
-            // showHalfwayPoint()
-            // You are halfway through the game. Build strategic with your sources, or else you might lose!
+        // showHalfwayPoint()
+        // You are halfway through the game. Build strategic with your sources, or else you might lose!
 
         if (energyBalance.getGreenPercent() >= 100) {
             showWinStage();
             return true;
-        }
-        else if (game.getTurnCount() >= 20 ) {
+        } else if (game.getTurnCount() >= 20) {
             showLoseStage();
             return true;
         } else {
             return false;
         }
     }
+
     public void setHelpButton(ActionEvent e) throws IOException {
         Stage stage1 = new Stage();
         TilePane tilePane = new TilePane();
