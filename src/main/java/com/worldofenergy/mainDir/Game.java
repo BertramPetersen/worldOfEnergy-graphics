@@ -193,14 +193,14 @@ public class Game implements DataService {
     }
 
 
-    /**
-     * IS NOT USED SHOULD POSSIBLY BE REMOVED.
-     *
-     * @return the available commands to the player
-     */
-    public CommandWords getCommands() {
-        return commands;
-    }
+   // /**
+    // * IS NOT USED SHOULD POSSIBLY BE REMOVED.
+    // *
+    // * @return the available commands to the player
+    // */
+    //public CommandWords getCommands() {
+      //  return commands;
+    //}
 
     // Return Command with String-input given by Parser.
     @Override

@@ -38,7 +38,7 @@ public class CommandWordsImplementation implements CommandWords {
     }
 
    // @Override
-    //ublic boolean isCommand(String aString) {
+    //public boolean isCommand(String aString) {
      //   return validCommands.containsKey(aString);
     //}
 
