@@ -15,32 +15,27 @@ public class CommandImplementation implements Command {
 
     /**
      * Constructor that gives the player the ability to do something with the commands. E.g. go to asia
-     *
      * @param commandWord the command input of the player. E.g. Build
-     * @param secondWord  the second input of the player. E.g. windmill
+     * @param secondWord the second input of the player. E.g. windmill
      */
     public CommandImplementation(Commands commandWord, String secondWord) {
         this.commandName = commandWord;
         this.commandValue = secondWord;
     }
-
     @Override
-    public Commands getCommandName() {
+    public Commands getCommandName(){
         return commandName;
     }
-
     @Override
     public String getCommandValue() {
         return commandValue;
     }
-
     @Override
-    public boolean isUnknown() {
+    public boolean isUnknown(){
         return (commandName == Commands.UNKNOWN);
     }
-
     @Override
-    public boolean hasCommandValue() {
+    public boolean hasCommandValue(){
         return (commandValue != null);
     }
 }

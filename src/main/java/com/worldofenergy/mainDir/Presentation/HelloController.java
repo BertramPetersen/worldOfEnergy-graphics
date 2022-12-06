@@ -7,6 +7,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.scene.Cursor;
+import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -192,7 +196,7 @@ public class HelloController implements Initializable {
         PredictionService energyBalance = game.getEnergyBalance();
         // if (energy.balance.getGreenPercent() >= 50 {
             // showProgressIndicator()
-            // Keep building you are doing a phenomenal job!
+            // "Keep building you are doing a phenomenal job!
         // if (game.getTurnCount() >= 10) {
             // showHalfwayPoint()
             // You are halfway through the game. Build strategic with your sources, or else you might lose!
@@ -208,7 +212,7 @@ public class HelloController implements Initializable {
             return false;
         }
     }
-    public void setHelpButton(ActionEvent e) {
+    public void setHelpButton(ActionEvent e) throws IOException {
         Stage stage1 = new Stage();
         TilePane tilePane = new TilePane();
 
@@ -217,6 +221,9 @@ public class HelloController implements Initializable {
                 "Press the button 'Windmill' or one of the four energy sources you want to build.\n" +
                 "You will then be able to build as many sources you want, and see how many different \n" +
                 "sources you have built. \n \nClose this window to continue the game.\n");
+        // label.setPadding(new Insets(100));
+        // Dette kan ikke gøres. Når det implementeres, kan vinduet ikke lukkes ned.
+        // Derfor sætter jeg 2 tomme linjer ind.
         Popup popup = new Popup();
         popup.getContent().add(label);
 
