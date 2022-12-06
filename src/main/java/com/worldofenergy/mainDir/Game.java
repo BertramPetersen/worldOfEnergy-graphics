@@ -482,7 +482,7 @@ public class Game implements DataService {
 
     @Override
     public boolean isDecreasing() {
-        return forecast.isDeacreasing();
+        return forecast.isDecreasing();
     }
 
     @Override
