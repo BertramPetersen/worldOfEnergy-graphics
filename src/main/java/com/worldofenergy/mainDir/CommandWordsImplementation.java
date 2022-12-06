@@ -13,7 +13,7 @@ public class CommandWordsImplementation implements CommandWords {
      * A HashMap of the available and valid commands of the game. This HashMap serves to create a connection between the Command and its String version.
      * E.g. Build and "Build"
      */
-    private HashMap<String, Commands> validCommands;
+    private final HashMap<String, Commands> validCommands;
 
     /**
      * For all valid commands, sets the String version of a command and the actual command as a pair. E.g. "go to" and go to.
