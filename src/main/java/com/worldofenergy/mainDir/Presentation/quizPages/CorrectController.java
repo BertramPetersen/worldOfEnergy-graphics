@@ -3,7 +3,7 @@ package com.worldofenergy.mainDir.Presentation.quizPages;
 import javafx.stage.Stage;
 
 public class CorrectController {
-    private Stage stage;
+    private final Stage stage;
 
     public CorrectController(Stage stage){
         this.stage = stage;

@@ -63,8 +63,6 @@ public class HelloApplication extends Application {
         loader.setControllerFactory(c -> new CountryController(game));
         Scene scene = new Scene(loader.load());
 
-        CountryController cc = loader.getController();
-
         stage.setScene(scene);
         stage.show();
     }
@@ -88,7 +86,7 @@ public class HelloApplication extends Application {
         stage.show();
     }
 
-    public static void showQuiz(DataService game) throws IOException, InterruptedException {
+    public static void showQuiz(DataService game) throws IOException {
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(QuizController.class.getResource("quiz.fxml"));

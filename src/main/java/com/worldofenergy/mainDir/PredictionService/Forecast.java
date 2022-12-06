@@ -152,14 +152,6 @@ public class Forecast implements PredictionService {
             temperature *= (0.04 * decrease / 100);
             CO2 *= (0.1 * decrease / 100);
 
-//            System.out.println();
-//            System.out.println("Good job! The year is now " + currentYear + " and the world's C02 output is finally falling");
-//            System.out.println("---------------------------------------------------------------------------------------");
-//            System.out.println("Current Stats:");
-//            System.out.println("The C02 emission has decreased to " + String.format("%.2f",CO2) + ". Decrease per year " + String.format("%.2f",C02Decrease) + "%");
-//            System.out.println("The sea level has fallen with " + String.format("%.2f",seaLevel) + ". Decrease per year " + String.format("%.2f",seaLevelDecrease) + "%");
-//            System.out.println("The average temperature has fallen to " + String.format("%.2f",temperature) + ". Decrease per year " + String.format("%.2f",temperatureDecrease) + "%");
-//            System.out.println("---------------------------------------------------------------------------------------");
         }
     }
     @Override

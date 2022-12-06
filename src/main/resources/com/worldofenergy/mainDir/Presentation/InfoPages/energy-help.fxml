@@ -33,7 +33,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="whereToPlace" alignment="CENTER" layoutX="126.0" layoutY="351.0" prefHeight="70.0" prefWidth="222.0" text="place where there is a lot of wind" textAlignment="CENTER">
+                  <Label fx:id="whereToPlace" alignment="CENTER" layoutX="96.0" layoutY="351.0" prefHeight="70.0" prefWidth="281.0" text="place where there is a lot of wind" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="14.0" />
                      </font>

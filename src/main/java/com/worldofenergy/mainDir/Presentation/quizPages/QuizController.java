@@ -1,19 +1,13 @@
 package com.worldofenergy.mainDir.Presentation.quizPages;
 
 import com.worldofenergy.mainDir.DataService;
-import com.worldofenergy.mainDir.Presentation.HelloApplication;
 import com.worldofenergy.mainDir.Wallet;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.TilePane;
 import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
 
@@ -37,20 +31,6 @@ public class QuizController implements Initializable {
     private Label answerC;
     @FXML
     private Label answerD;
-    @FXML
-    private Label failure;
-    @FXML
-    private RadioButton r1;
-    @FXML
-    private RadioButton r2;
-    @FXML
-    private RadioButton r3;
-    @FXML
-    private RadioButton r4;
-    @FXML
-    private Button submitBtn;
-    @FXML
-    private ToggleGroup group;
 
     public QuizController(DataService game, Stage stage) {
         this.game = game;
