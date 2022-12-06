@@ -15,7 +15,7 @@
             <Font size="34.0" />
          </font>
       </Label>
-      <Label fx:id="failure" alignment="CENTER" layoutX="128.0" layoutY="101.0" prefHeight="113.0" prefWidth="344.0" style="-fx-border-color: rgb(0,0,0);" text="Oh No!!! Unfortunatly you answer was incorrect" textAlignment="CENTER" />
+      <Label fx:id="failure" alignment="CENTER" layoutX="128.0" layoutY="101.0" prefHeight="113.0" prefWidth="344.0" wrapText="true" style="-fx-border-color: rgb(0,0,0);" text="Oh No!!! Unfortunatly you answer was incorrect" textAlignment="CENTER" />
       <StackPane layoutX="28.0" layoutY="286.0" styleClass="answerPane" stylesheets="@quiz.css">
          <children>
             <SVGPath id="c" content="M 0 0 L 40 -20 L 504 -20 L 544 0 L 504 20 L 40 20 z" fill="#1d1b1c87" onMouseClicked="#Close" />
