@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.worldofenergy.mainDir.Presentation.HelpController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.worldofenergy.mainDir.Presentation.InfoPages.HelpController">
    <children>
       <Label alignment="CENTER" layoutX="232.0" layoutY="21.0" prefHeight="49.0" prefWidth="137.0" text="Help">
          <font>
@@ -19,7 +19,7 @@
             <Insets left="15.0" right="15.0" />
          </padding>
       </Label>
-      <ButtonBar layoutX="122.0" layoutY="268.0" prefHeight="75.0" prefWidth="357.0" stylesheets="@style.css">
+      <ButtonBar layoutX="122.0" layoutY="268.0" prefHeight="75.0" prefWidth="357.0" stylesheets="@../style.css">
          <buttons>
             <Button id="Windmill" maxHeight="70.0" maxWidth="88.0" minHeight="-Infinity" minWidth="62.0" mnemonicParsing="false" onAction="#showEnergyHelp" prefHeight="70.0" prefWidth="108.0" scaleX="0.6" scaleY="0.6" style="-fx-scale-shape: true; -fx-background-color: #000;" styleClass="Windmill" />
             <Button id="Solar Panel" maxHeight="70.0" maxWidth="88.0" minHeight="-Infinity" minWidth="62.0" onAction="#showEnergyHelp" prefHeight="70.0" prefWidth="108.0" scaleX="0.6" scaleY="0.6" style="-fx-scale-shape: true; -fx-background-color: #000;" styleClass="Solar" />

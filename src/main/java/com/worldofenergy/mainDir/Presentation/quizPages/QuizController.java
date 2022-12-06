@@ -1,6 +1,7 @@
-package com.worldofenergy.mainDir.Presentation;
+package com.worldofenergy.mainDir.Presentation.quizPages;
 
 import com.worldofenergy.mainDir.DataService;
+import com.worldofenergy.mainDir.Presentation.HelloApplication;
 import com.worldofenergy.mainDir.Wallet;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -87,7 +88,7 @@ public class QuizController implements Initializable {
 
     private void showIncorrect(Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(HelloApplication.class.getResource("incorrect.fxml"));
+        loader.setLocation(QuizController.class.getResource("incorrect.fxml"));
         loader.setControllerFactory(c -> new IncorrectController(stage, answer));
         Scene scene = new Scene(loader.load());
 
@@ -96,18 +97,25 @@ public class QuizController implements Initializable {
     }
 
     private void showCorrect(Stage stage) throws IOException {
-        Label success = new Label("Congratulations! \n Your Answer Was Correct You just got 50 coins added to your wallet!");
-        success.setWrapText(true);
-        success.prefWidth(150.0);
-        success.prefHeight(300.0);
-        success.setAlignment(Pos.CENTER);
-        TilePane tilePane = new TilePane(success);
-        tilePane.setAlignment(Pos.CENTER);
-        Button btn = new Button("Close");
-        btn.setOnAction(e -> HelloApplication.closeWindow(e));
-        tilePane.getChildren().add(btn);
-        Scene scene = new Scene(tilePane, 600, 400);
+//        Label success = new Label("Congratulations! \n Your Answer Was Correct You just got 50 coins added to your wallet!");
+//        success.setWrapText(true);
+//        success.prefWidth(150.0);
+//        success.prefHeight(300.0);
+//        success.setAlignment(Pos.CENTER);
+//        TilePane tilePane = new TilePane(success);
+//        tilePane.setAlignment(Pos.CENTER);
+//        Button btn = new Button("Close");
+//        btn.setOnAction(e -> HelloApplication.closeWindow(e));
+//        tilePane.getChildren().add(btn);
+//        Scene scene = new Scene(tilePane, 600, 400);
+//        stage.setScene(scene);
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(QuizController.class.getResource("correct.fxml"));
+        loader.setControllerFactory(c -> new CorrectController(stage));
+        Scene scene = new Scene(loader.load());
+
         stage.setScene(scene);
+        stage.show();
     }
 
     @Override
