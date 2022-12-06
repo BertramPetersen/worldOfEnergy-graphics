@@ -1,7 +1,9 @@
 package com.worldofenergy.mainDir.QuizSystem;
 
+import com.worldofenergy.mainDir.Game;
 import com.worldofenergy.mainDir.PredictionService.EnergyBalance;
 import com.worldofenergy.mainDir.PredictionService.Forecast;
+import com.worldofenergy.mainDir.Room;
 import javafx.util.Pair;
 
 /**
@@ -20,6 +22,6 @@ public interface QuizService {
     String getNextAnswer();
     String[] getNextOptions();
     void incrementQuiz();
-    Pair<String, String> getEventDescription(Forecast forecast);
+    Pair<String, String> getEventDescription(Forecast forecast, Game game);
 
 }

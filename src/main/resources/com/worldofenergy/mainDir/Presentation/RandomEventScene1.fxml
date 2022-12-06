@@ -15,7 +15,7 @@
          <children>
             <ImageView fx:id="background" fitHeight="400.0" fitWidth="614.0">
                <image>
-                  <Image url="@AmazonDeforestation.jpg" />
+                  <Image url="@EventBackgrounds/AmazonDeforestation.jpg" />
                </image>
             </ImageView>
             <Label fx:id="Description" alignment="CENTER" layoutX="1.0" layoutY="147.0" prefHeight="109.0" prefWidth="600.0" style="-fx-background-color: rgba(255,255,255,0.7);" text="The brazilian government just announced an almost complete deforestation of the Amazon Rainforest. Now all the forest’s carbon storage capacity will be lost to the atmosphere  Your green energy will decrease" textAlignment="CENTER" wrapText="true">

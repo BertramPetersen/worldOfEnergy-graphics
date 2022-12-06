@@ -15,7 +15,7 @@ public class GeothermalPowerplant extends EnergySource {
         super.price = 800;
         super.output = 0.9;
         super.name = "Geo Powerplant";
-        super.passiveIncome = 390;
+        super.passiveIncome = 370;
         super.colorStrokePair = new Pair<>(new Color(0.35,0.25,0.1,1), Color.BLACK);
     }
 }

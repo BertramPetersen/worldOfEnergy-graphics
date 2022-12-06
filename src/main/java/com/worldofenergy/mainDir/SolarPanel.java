@@ -15,7 +15,7 @@ public class SolarPanel extends EnergySource {
         super.price = 50;
         super.output = 0.2;
         super.name = "Solar Panel";
-        super.passiveIncome = 20;
+        super.passiveIncome = 10;
         super.colorStrokePair = new Pair<>(new Color(0,0,0,1), Color.WHITE);
     }
 }

@@ -48,7 +48,7 @@ public class RandomEventSceneController implements Initializable  {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Pair<String, String> randomEvent = game.getRandomEvent();
         Description.setText(randomEvent.getKey());
-        File file = new File("src\\main\\resources\\com\\worldofenergy\\mainDir\\Presentation\\" + randomEvent.getValue());
+        File file = new File("src\\main\\resources\\com\\worldofenergy\\mainDir\\Presentation\\EventBackgrounds\\" + randomEvent.getValue());
         Image image = new Image(file.toURI().toString());
         background.setImage(image);
     }

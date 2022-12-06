@@ -239,7 +239,6 @@ public class Game implements DataService {
         switch(playQuizOrRandomEvent()){
             case 1: timeToQuiz = true;
             case -1: initRandomEvent = true;
-            default: break;
         }
 
     }
@@ -255,18 +254,9 @@ public class Game implements DataService {
             room.PassiveIncome();
         }
     }
-    public void playQuizOrRandomEvent1() { // 1. version of play quiz or random event
-        double x = Math.random();
-        if (turnCounter % 2 == 0) { // takeQuiz is run every other turn
-            quiz.takeQuiz();
-        }
-        else if (x >= 0.7) { // There is a 30% chance of a random event when quiz is not being run
-            randomEvent.initiateRandomEvent((Forecast) forecast);
-        }
-    }
     public int playQuizOrRandomEvent() { // 2. version of play quiz or random event
         double x = Math.random();
-        if (x >= 0.1 && turnCounter > 3) { // RandomEvent has a 20% chance of being run after the 3rd round
+        if (x >= 0.75 && turnCounter > 3) { // RandomEvent has a 20% chance of being run after the 3rd round
             // randomEvent.initiateRandomEvent((Forecast) forecast);
             return -1;
         } else { // takeQuiz has a 70% chance of being run. But is always run in the 2 first rounds
@@ -497,6 +487,6 @@ public class Game implements DataService {
 
     @Override
     public Pair<String, String> getRandomEvent() {
-        return randomEvent.getEventDescription((Forecast) forecast);
+        return randomEvent.getEventDescription((Forecast) forecast, this);
     }
 }

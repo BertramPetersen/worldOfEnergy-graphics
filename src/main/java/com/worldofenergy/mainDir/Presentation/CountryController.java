@@ -63,31 +63,7 @@ public class CountryController implements Initializable{
         this.game = game;
         this.room = game.getCurrentRoom();
     }
-
-    class Position {
-        private int x,y;
-        private EnergySource energySource;
-
-        public int getX() {
-            return x;
-        }
-
-        public int getY() {
-            return y;
-        }
-
-        public EnergySource getEnergySource() {
-            return energySource;
-        }
-
-        public Position(int x, int y, EnergySource energySource){
-            this.x = x;
-            this.y = y;
-            this.energySource = energySource;
-        }
-    }
-
-    private static final Map<String, List<Position>> positions = new HashMap<>();
+    public static final Map<String, List<Position>> positions = new HashMap<>();
 
 
     @Override
