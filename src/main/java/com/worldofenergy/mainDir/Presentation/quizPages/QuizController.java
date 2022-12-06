@@ -93,29 +93,17 @@ public class QuizController implements Initializable {
         Scene scene = new Scene(loader.load());
 
         stage.setScene(scene);
-        stage.show();
+        stage.showAndWait();
     }
 
     private void showCorrect(Stage stage) throws IOException {
-//        Label success = new Label("Congratulations! \n Your Answer Was Correct You just got 50 coins added to your wallet!");
-//        success.setWrapText(true);
-//        success.prefWidth(150.0);
-//        success.prefHeight(300.0);
-//        success.setAlignment(Pos.CENTER);
-//        TilePane tilePane = new TilePane(success);
-//        tilePane.setAlignment(Pos.CENTER);
-//        Button btn = new Button("Close");
-//        btn.setOnAction(e -> HelloApplication.closeWindow(e));
-//        tilePane.getChildren().add(btn);
-//        Scene scene = new Scene(tilePane, 600, 400);
-//        stage.setScene(scene);
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(QuizController.class.getResource("correct.fxml"));
         loader.setControllerFactory(c -> new CorrectController(stage));
         Scene scene = new Scene(loader.load());
 
         stage.setScene(scene);
-        stage.show();
+        stage.showAndWait();
     }
 
     @Override
