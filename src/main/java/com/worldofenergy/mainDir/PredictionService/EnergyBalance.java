@@ -6,6 +6,7 @@ import com.worldofenergy.mainDir.util.Colors;
  * The class EnergyBalance implements the interface {@link PredictionService}, by which it implements multiple methods.
  * The class consist of the logic behind the energy balance in the game.
  * It's main purpose is to display the energy balance bar which visualizes the ratio between green and fossil energy.
+ *
  * @see PredictionService
  */
 public class EnergyBalance implements PredictionService {
@@ -20,7 +21,7 @@ public class EnergyBalance implements PredictionService {
     /**
      * Amount of fossil energy. Is determined by the amount of {@link #greenEnergy}.
      */
-    protected double fossilEnergy =  totalEnergy - greenEnergy;
+    protected double fossilEnergy = totalEnergy - greenEnergy;
     /**
      * Amount of {@link #greenEnergy} in percentage relative to {@link #totalEnergy}.
      */
@@ -36,10 +37,11 @@ public class EnergyBalance implements PredictionService {
      * This method updates green and fossil energy simultaneously by equaling the parameter greenEnergy to the variable {@link #greenEnergy},
      * and setting {@link #fossilEnergy} equal to {@link #totalEnergy} - {@link #greenEnergy}.
      * </p>
+     *
      * @param greenEnergy a double responsible for updating the greenEnergy variable
      * @see #updatePercentage
      */
-    public void updateEnergy (double greenEnergy) {
+    public void updateEnergy(double greenEnergy) {
         this.greenEnergy = greenEnergy;
         this.fossilEnergy = totalEnergy - greenEnergy;
     }
@@ -51,6 +53,7 @@ public class EnergyBalance implements PredictionService {
      * and setting {@link #fossilPercent} equal to 100 - {@link #greenPercent}.
      * This method should generally be called after the {@link #updateEnergy} method
      * </p>
+     *
      * @see #updateEnergy
      */
     public void updatePercentage() {
@@ -63,26 +66,24 @@ public class EnergyBalance implements PredictionService {
      * {@link #greenEnergy} and {@link #fossilEnergy} is represented relative to their percentage of the {@link #totalEnergy}.
      * {@link #greenEnergy} is represented by the color green. {@link #fossilEnergy} is represented by the color red.
      * <p>
-     *
+     * <p>
      * The method converts {@link #greenPercent} and {@link #fossilPercent} to an int then prints out "|" equal to the green and fossil percentage.
      * E.g. if the {@link #greenPercent} and {@link #fossilPercent} is respectively 67.20% and 32,80%, it would print out 67 green "|" and 33 red "|".
      *
      * </p>
      */
-    public void show(){
+    public void show() {
         updatePercentage();
         System.out.printf("The Energy balance (Green/Fossil) is: %.2f / %.2f\n", greenPercent, fossilPercent);
-        System.out.print("["+ Colors.GREEN);
+        System.out.print("[" + Colors.GREEN);
         for (int i = 0; i <= (int) greenPercent; i++) {
             System.out.print("|");
         }
         for (int i = 0; i < (100 - (int) greenPercent); i++) {
-            System.out.print(Colors.RED+"|");
+            System.out.print(Colors.RED + "|");
         }
-        System.out.print(Colors.RESET+"]\n");
+        System.out.print(Colors.RESET + "]\n");
         System.out.println("Press Enter to continue");
-
-
     }
 
     /**
@@ -129,12 +130,10 @@ public class EnergyBalance implements PredictionService {
 
     @Override
     public void incrementYear() {
-
     }
 
     @Override
     public void update(EnergyBalance energyBalance) {
-
     }
 
     @Override
