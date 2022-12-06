@@ -24,11 +24,7 @@ public abstract class EnergySource {
      */
     protected int passiveIncome; // Passive income from built energy sources
 
-    protected Pair<Color, Color> colorStrokePair;
 
-    public Pair<Color, Color> getColorStrokePair() {
-        return colorStrokePair;
-    }
 
     /**
      * Getter method that returns the price of the energy source. E.g. WindMill.getPrice() returns the price of a windmill
