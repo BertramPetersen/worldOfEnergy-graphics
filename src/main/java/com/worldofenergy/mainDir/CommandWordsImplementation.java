@@ -13,36 +13,39 @@ public class CommandWordsImplementation implements CommandWords {
      * A HashMap of the available and valid commands of the game. This HashMap serves to create a connection between the Command and its String version.
      * E.g. Build and "Build"
      */
-    private HashMap<String, Commands> validCommands;
+    private final HashMap<String, Commands> validCommands;
 
     /**
      * For all valid commands, sets the String version of a command and the actual command as a pair. E.g. "go to" and go to.
      */
-    public CommandWordsImplementation(){
+    public CommandWordsImplementation() {
         validCommands = new HashMap<String, Commands>();
-        for (Commands command : Commands.values()){
-            if(command != Commands.UNKNOWN){
+        for (Commands command : Commands.values()) {
+            if (command != Commands.UNKNOWN) {
                 validCommands.put(command.toString(), command);
             }
         }
     }
+
     @Override
-    public Commands getCommand(String commandWord){
+    public Commands getCommand(String commandWord) {
         Commands command = validCommands.get(commandWord);
-        if(command != null){
+        if (command != null) {
             return command;
-        }else{
+        } else {
             return Commands.UNKNOWN;
         }
     }
+
+   // @Override
+    //public boolean isCommand(String aString) {
+     //   return validCommands.containsKey(aString);
+    //}
+
     @Override
-    public boolean isCommand(String aString){
-        return validCommands.containsKey(aString);
-    }
-    @Override
-    public List<String> getCommandWords(){
+    public List<String> getCommandWords() {
         List<String> commandWords = new ArrayList<>();
-        for(String commandWord : validCommands.keySet()){
+        for (String commandWord : validCommands.keySet()) {
             commandWords.add(commandWord);
         }
         return commandWords;

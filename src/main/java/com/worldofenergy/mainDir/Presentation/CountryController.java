@@ -27,8 +27,8 @@ import java.util.*;
 
 public class CountryController implements Initializable {
 
-    private DataService game;
-    private Room room;
+    private final DataService game;
+    private final Room room;
     private Stage stage;
     @FXML
     private Label coins;
@@ -142,7 +142,7 @@ public class CountryController implements Initializable {
     private static final float MIN_BLUE_HUE = 0.5f; // CYAN
     private static final float MAX_BLUE_HUE = 0.88f; // MAGENTA
 
-    // This method should work, but it doens't :)
+    // This method should work, but it doesn't :)
    /* private boolean isBlueAtPixel(int x, int y){
         PixelReader pixelReader = bg.getImage().getPixelReader();
         Color color = pixelReader.getColor(x, y);

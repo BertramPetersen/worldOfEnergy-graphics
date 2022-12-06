@@ -21,12 +21,13 @@ import java.util.Scanner;
  * <p>
  * This class' main purpose is to use the methods and tools created by the other classes to create a functioning game.
  * Within this class is also where many of the necessary classes is instantiated.
- *
+ * <p>
  * It also holds all the built energy sources in an {@link EnergySource} ArrayList.
  * </p>
  * <p>
- *     The game class uses {@link Room}, {@link CommandWords}, {@link EnergySource}, {@link QuizService} and {@link PredictionService} interfaces and classes.
+ * The game class uses {@link Room}, {@link CommandWords}, {@link EnergySource}, {@link QuizService} and {@link PredictionService} interfaces and classes.
  * </p>
+ *
  * @see Room
  * @see CommandWords
  * @see EnergySource
@@ -38,7 +39,7 @@ public class Game implements DataService {
     /**
      * Responsible for keeping track of what turn the player is on. Always starts at 0. Increases by 1 every turn.
      */
-    int turnCounter;
+    private int turnCounter;
     /**
      * location is the room the player is currently in.
      */
@@ -46,18 +47,18 @@ public class Game implements DataService {
     /**
      * All the created rooms in the game.
      */
-    ArrayList<Room> createdRooms;
+    private final ArrayList<Room> createdRooms;
     /**
      * Map responsible for player navigation. Limits the player, so he does not have free movement between every room.
      * E.g. player can go Airport -> Asia, but not Asia -> Southern Europe.
      */
-    HashMap<String, Room> roomMap;
+    private HashMap<String, Room> roomMap;
     private boolean timeToQuiz;
     private boolean initRandomEvent;
     /**
      * The available commands in the game.
      */
-    private CommandWords commands;
+    private final CommandWords commands;
     /**
      * Array of the energy sources. Used to list the price of each one in the help menu.
      */
@@ -66,29 +67,27 @@ public class Game implements DataService {
     /**
      * Instance of QuizService
      */
-    QuizService quiz;
+    private final QuizService quiz;
     /**
      * Instance of QuizService
      */
-    QuizService randomEvent;
+    private final QuizService randomEvent;
+
     /**
      * Instance of PredictionService
      */
-    PredictionService prediction;
+    private final PredictionService energyBalance;
     /**
      * Instance of PredictionService
      */
-    PredictionService energyBalance;
-    /**
-     * Instance of PredictionService
-     */
-    PredictionService forecast;
+    private final PredictionService forecast;
+
     /**
      * Calls our newly instantiated classes and our created variables.
      *
      * <p>
-     *  In this constructor we determine the start terms of the game. We set the {@link #turnCounter} equal to 0, give the player 500 coins to start with and
-     *  sets the start location to "Airport".
+     * In this constructor we determine the start terms of the game. We set the {@link #turnCounter} equal to 0, give the player 500 coins to start with and
+     * sets the start location to "Airport".
      * </p>
      */
     public Game() {
@@ -103,8 +102,8 @@ public class Game implements DataService {
         this.randomEvent = new RandomEvent();
         this.energyBalance = new EnergyBalance();
         this.forecast = new Forecast();
-        this.forecast.update((EnergyBalance)this.energyBalance);
-        }
+        this.forecast.update((EnergyBalance) this.energyBalance);
+    }
 
     /**
      * Creates all the rooms in the game and simultaneously add them to the {@link #createdRooms} ArrayList and the {@link #roomMap} HashMap. Sets possible exits for each room.
@@ -120,10 +119,10 @@ public class Game implements DataService {
      */
     private void createRooms() {
         roomMap = new HashMap<>();
-        Room southAfrica = new Room("South Africa",50,70,30,40 );
+        Room southAfrica = new Room("South Africa", 50, 70, 30, 40);
         createdRooms.add(southAfrica);
         roomMap.put("South Africa", southAfrica);
-        Room  NorthAfrica = new Room("North Africa",40,80,20,40 );
+        Room NorthAfrica = new Room("North Africa", 40, 80, 20, 40);
         createdRooms.add(NorthAfrica);
         roomMap.put("North Africa", NorthAfrica);
         Room southernEurope = new Room("Southern Europe", 25, 80, 30, 40);
@@ -171,6 +170,7 @@ public class Game implements DataService {
      * It then checks if the new room is a valid exit for the current room, if not returning false, else
      * setting current location to the new room and returning true.
      * </p>
+     *
      * @param command the 'go to' command the player inputs.
      * @return false if player doesn't type destination room or types invalid room, return true if player type valid room
      */
@@ -193,19 +193,21 @@ public class Game implements DataService {
     }
 
 
-    /**
-     * IS NOT USED SHOULD POSSIBLY BE REMOVED.
-     * @return the available commands to the player
-     */
-    public CommandWords getCommands() {
-        return commands;
-    }
+   // /**
+    // * IS NOT USED SHOULD POSSIBLY BE REMOVED.
+    // *
+    // * @return the available commands to the player
+    // */
+    //public CommandWords getCommands() {
+      //  return commands;
+    //}
 
     // Return Command with String-input given by Parser.
     @Override
     public Command getCommand(String word1, String word2) {
         return new CommandImplementation(commands.getCommand(word1), word2);
     }
+
     @Override
     public void getRoomDescription() {
         if (this.location.getName().equals("Airport")) {
@@ -222,12 +224,13 @@ public class Game implements DataService {
     }
 
     @Override
-    public List<String> getCommandDescription(){
+    public List<String> getCommandDescription() {
         System.out.println(this.location.getName());
         return commands.getCommandWords();
     }
+
     @Override
-    public void updateTurn(){
+    public void updateTurn() {
         turnCounter++;
         energyBalance.incrementYear();
         energyBalance.updateEnergy(getTotalPowerOutput());
@@ -236,9 +239,11 @@ public class Game implements DataService {
         updatePassiveIncome();
         energyBalance.show();
 //        promptEnterKey();
-        switch(playQuizOrRandomEvent()){
-            case 1: timeToQuiz = true;
-            case -1: initRandomEvent = true;
+        switch (playQuizOrRandomEvent()) {
+            case 1:
+                timeToQuiz = true;
+            case -1:
+                initRandomEvent = true;
         }
 
     }
@@ -250,10 +255,11 @@ public class Game implements DataService {
      * </p>
      */
     public void updatePassiveIncome() {
-        for (Room room : createdRooms){
+        for (Room room : createdRooms) {
             room.PassiveIncome();
         }
     }
+
     public int playQuizOrRandomEvent() { // 2. version of play quiz or random event
         double x = Math.random();
         if (x >= 0.65 && turnCounter > 3) { // RandomEvent has a 20% chance of being run after the 3rd round
@@ -280,15 +286,15 @@ public class Game implements DataService {
     }
 
     @Override
-    public void welcome(){
+    public void welcome() {
         System.out.println("Welcome to World of Energy\n" +
                 "Press \"ENTER\" to continue...");
         promptEnterKey();
         System.out.println("Do you want an introduction to World of Energy?\n" +
                 "Y/N");
         Scanner scanner = new Scanner(System.in);
-        
-        if (!scanner.next().equalsIgnoreCase("n")){
+
+        if (!scanner.next().equalsIgnoreCase("n")) {
             System.out.println("A turn-based game where you have to save the world from global warming...");
             promptEnterKey();
             System.out.println("Your job is to build sustainable energy sources in different countries around the world, to prevent global warming from escalating...");
@@ -340,24 +346,29 @@ public class Game implements DataService {
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
     }
+
     @Override
-    public boolean construct(String type){
+    public boolean construct(String type) {
         return this.location.constructEnergy(type);
     }
+
     @Override
-    public String whereAmI(){return location.getName();}
+    public String whereAmI() {
+        return location.getName();
+    }
+
     @Override
     public boolean quit(Command command) {
         return !command.hasCommandValue();
     }
 
     /**
-     * IS NEVER USED SHOULD POSSILBY BE DELETED
      * @return all the created rooms in the game
      */
     public ArrayList<Room> getCreatedRooms() {
         return createdRooms;
     }
+
     @Override
     public void getPrices() {
         System.out.println("Windmills cost:                 " + this.EnergyPrice[0].getPrice());
@@ -368,30 +379,32 @@ public class Game implements DataService {
     }
 
     @Override
-    public int getCoins(){
+    public int getCoins() {
         return Wallet.getCoins();
     }
 
     @Override
-    public double getTemp(){
+    public double getTemp() {
         return forecast.getTemperature();
     }
+
     @Override
-    public double getCO2(){
+    public double getCO2() {
         return forecast.getCO2();
     }
+
     @Override
-    public double getSea(){
+    public double getSea() {
         return forecast.getSeaLevel();
     }
 
     @Override
-    public Room getCurrentRoom(){
+    public Room getCurrentRoom() {
         return this.location;
     }
 
     @Override
-    public boolean setCurrentRoom(String destination){
+    public boolean setCurrentRoom(String destination) {
         Room destinationRoom = this.location.getExit(destination);
 
         if (destinationRoom == null) {
@@ -403,21 +416,26 @@ public class Game implements DataService {
     }
 
     @Override
-    public PredictionService getEnergyBalance(){
+    public PredictionService getEnergyBalance() {
         return energyBalance;
     }
+
     @Override
-    public PredictionService getForecast(){
+    public PredictionService getForecast() {
         return forecast;
     }
 
     @Override
-    public EnergySource stringToEnergySource(String s){
-        switch(s){
-            case "Windmill": return new WindMill();
-            case "Hydro Power": return new HydroPowerplant();
-            case "Geo Power": return new GeothermalPowerplant();
-            case "Solar Panel": return new SolarPanel();
+    public EnergySource stringToEnergySource(String s) {
+        switch (s) {
+            case "Windmill":
+                return new WindMill();
+            case "Hydro Power":
+                return new HydroPowerplant();
+            case "Geo Power":
+                return new GeothermalPowerplant();
+            case "Solar Panel":
+                return new SolarPanel();
         }
         return null;
     }
@@ -450,8 +468,9 @@ public class Game implements DataService {
         quiz.incrementQuiz();
         return list;
     }
+
     @Override
-    public int[] getBuiltEnergy(){
+    public int[] getBuiltEnergy() {
         int[] builtEnergy = new int[4];
         builtEnergy[0] = this.location.getWindmillCount();
         builtEnergy[1] = this.location.getWaterplantCount();
@@ -461,7 +480,7 @@ public class Game implements DataService {
     }
 
     @Override
-    public int getTurnCount(){
+    public int getTurnCount() {
         return turnCounter;
     }
 

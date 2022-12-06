@@ -40,8 +40,6 @@ public interface EnergySourceConstructor {
         System.out.println("       |/   ,'-_|  \\");
         System.out.println("       /____|'-_|___\\");
         System.out.println("     _..,____]__|_\\-_'|_[___,.._        ");
-
-
     }
 
     static void printWaterPump() {
@@ -61,7 +59,8 @@ public interface EnergySourceConstructor {
         System.out.println("⠀⠀⠀⠀⢸⣁⣀⣀⣀⣀⣀⣀⣀⣀⣹⠀⠀⠀⠀⠀⠀⠀");
         System.out.println("⠀⠀⠀⠀⠈⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀");
     }
-    static void printSolarPanel(){
+
+    static void printSolarPanel() {
         System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⡀⠀⠀⠀⠀⢠⠄⠀⠀⠀⠀⠀⠀");
         System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣄⣀⣀⣠⠏⠀⠀⠀⠀⠀⠀⠀");
         System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡴⠋⠀⠀⠙⢦⠀⠀⠀⠀⠀⠀⠀");
@@ -80,7 +79,8 @@ public interface EnergySourceConstructor {
         System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠒⠚⠉⠁⠀⠀⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀");
         System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠒⠒⠒⠚⠒⠒⠒⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀");
     }
-    static void printGeoThermal(){
+
+    static void printGeoThermal() {
         System.out.println("                             __  . .* ,");
         System.out.println("                           ~#@#%(\" .,$ @");
         System.out.println("                            .\"^ ';\"");

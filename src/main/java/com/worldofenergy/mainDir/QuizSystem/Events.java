@@ -1,8 +1,5 @@
 package com.worldofenergy.mainDir.QuizSystem;
 
-import com.worldofenergy.mainDir.EnergySource;
-import com.worldofenergy.mainDir.Room;
-
 /**
  * This class' purpose is to create the requirements/variables needed for the events that can randomly occur in the game.
  * It's mainly used in {@link RandomEvent} to create an ArrayList of Events.
@@ -13,13 +10,13 @@ public class Events {
     /**
      * Description of the random event.
      */
-    String description;
+    protected String description;
     /**
      * The impact value is a factor. An impact value of 1.5 is equal to 50% increase.
      */
-    double impact;
-    String fileName;
-    String region;
+    protected double impact;
+    protected String fileName;
+    protected String region;
     /**
      * Constructor that creates events. An event has a description and an impact.
      *
