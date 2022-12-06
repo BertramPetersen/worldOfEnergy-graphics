@@ -47,7 +47,7 @@ public class Game implements DataService {
     /**
      * All the created rooms in the game.
      */
-    private ArrayList<Room> createdRooms;
+    private final ArrayList<Room> createdRooms;
     /**
      * Map responsible for player navigation. Limits the player, so he does not have free movement between every room.
      * E.g. player can go Airport -> Asia, but not Asia -> Southern Europe.
@@ -58,7 +58,7 @@ public class Game implements DataService {
     /**
      * The available commands in the game.
      */
-    private CommandWords commands;
+    private final CommandWords commands;
     /**
      * Array of the energy sources. Used to list the price of each one in the help menu.
      */
@@ -67,22 +67,20 @@ public class Game implements DataService {
     /**
      * Instance of QuizService
      */
-    private QuizService quiz;
+    private final QuizService quiz;
     /**
      * Instance of QuizService
      */
-    private QuizService randomEvent;
+    private final QuizService randomEvent;
+
     /**
      * Instance of PredictionService
      */
+    private final PredictionService energyBalance;
     /**
      * Instance of PredictionService
      */
-    private PredictionService energyBalance;
-    /**
-     * Instance of PredictionService
-     */
-    private PredictionService forecast;
+    private final PredictionService forecast;
 
     /**
      * Calls our newly instantiated classes and our created variables.
@@ -365,8 +363,6 @@ public class Game implements DataService {
     }
 
     /**
-     * IS NEVER USED SHOULD POSSILBY BE DELETED
-     *
      * @return all the created rooms in the game
      */
     public ArrayList<Room> getCreatedRooms() {
