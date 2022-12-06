@@ -10,7 +10,7 @@ public class Parser {
     /**
      * Scanner used to read user input. Used in {@link #getCommand()}
      */
-    private Scanner reader;
+    private final Scanner reader;
     /**
      * Instance of the interface {@link DataService}.
      */
