@@ -36,8 +36,8 @@ public class HelloController implements Initializable {
 
     ForecastDTO forecastDTO;
     
-    private final int year = Year.now().getValue();
-    private final int endYear = this.year + 20;
+    private final int year = 2015;
+    private final int endYear = this.year + 15;
 
     @FXML
     private Label Forecast;
@@ -79,7 +79,7 @@ public class HelloController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setCoins();
-        turnCounter.setText(String.valueOf(20 + (-game.getTurnCount()) + " years"));
+        turnCounter.setText(String.valueOf(15 + (-game.getTurnCount()) + " years"));
         this.forecastDTO = game.updateForecastIncrease();
         setBalance();
         setForecast();
@@ -127,9 +127,9 @@ public class HelloController implements Initializable {
     public void setForecast() {
 
         Forecast.setText(""+endYear+" Forecast");
-        co2Forecast.setText("Yearly CO2 emission: %.2f Tonnes".formatted(forecastDTO.getCO2()));
+        co2Forecast.setText("Yearly CO2 emission: %.2f Million Tonnes".formatted(forecastDTO.getCO2()));
         tempForecast.setText("Temperature: %.2f \u2103 ".formatted(forecastDTO.getTemp())); // Unicode: degrees celcius
-        seaForecast.setText("Sea Level: %.2f cm".formatted(forecastDTO.getSeaLevel()));
+        seaForecast.setText("Sea Level Increase: %.2f cm".formatted(forecastDTO.getSeaLevel()));
 
         if (!game.isDecreasing()){
             co2Increase.setText("CO2 emissions will increase by %.2f%% each year".formatted(forecastDTO.getCO2Inc()));
@@ -206,7 +206,7 @@ public class HelloController implements Initializable {
         if (energyBalance.getGreenPercent() >= 100) {
             showWinStage();
             return true;
-        } else if (game.getTurnCount() >= 20) {
+        } else if (game.getTurnCount() >= 15) {
             showLoseStage();
             return true;
         } else {

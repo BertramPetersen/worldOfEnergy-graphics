@@ -16,7 +16,7 @@
             <Font size="27.0" />
          </font>
       </Label>
-      <Label alignment="TOP_CENTER" layoutX="104.0" layoutY="78.0" prefHeight="65.0" prefWidth="498.0" text="A turn-based game where you have to save the world from global warming. You job is to build sustainable energy sources in different contries around the world, to prevent global warming from escalating." textAlignment="CENTER" wrapText="true">
+      <Label alignment="TOP_CENTER" layoutX="104.0" layoutY="78.0" prefHeight="65.0" prefWidth="498.0" text="The year is 2015. The UN has just announced their Sustainable Development Goals.         You have been given the task of completing SDG 7. Which means your job is to increase the amount of renewable energy sources in the global energy mix before 2030" textAlignment="CENTER" wrapText="true">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -27,7 +27,7 @@
             <Font name="Times New Roman" size="13.0" />
          </font>
       </Label>
-      <Label alignment="TOP_CENTER" layoutX="104.0" layoutY="143.0" prefHeight="76.0" prefWidth="498.0" text="You can do that by going to different regions on the map and building sustainable energysoures. Every region in World Of Energy has its own set of potentials for different energysources.It is up to you to build the correct energysources in the different regions. You can build 4 different kinds of energysources: " textAlignment="CENTER" wrapText="true">
+      <Label alignment="TOP_CENTER" layoutX="104.0" layoutY="143.0" prefHeight="76.0" prefWidth="498.0" text="You can do that by going to different regions in World Of Energy and build sustainable energy soures. Every region in World Of Energy has its own set of potentials for different energy sources. It is up to you to build the correct energy sources in the right regions. You can build 4 different kinds of energy sources: " textAlignment="CENTER" wrapText="true">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -54,12 +54,12 @@
             <Label alignment="TOP_CENTER" prefHeight="17.0" prefWidth="182.0" text="Geo: Geothermal Powerplant" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <Label layoutX="104.0" layoutY="302.0" prefHeight="96.0" prefWidth="498.0" text="The more sustainable energysources you build the more favourable the energy balance will become. You win the game by tilting the Energybalance above 80% in favour of sustainable energy. You will throughout the game see a forecast of what the future holds, if you do not alter the energy balance any further.So what is the catch you thinks? Well, energy sources costs money to build. Therefore you must be mindful as to where you build!" textAlignment="CENTER" wrapText="true">
+      <Label layoutX="92.0" layoutY="302.0" prefHeight="108.0" prefWidth="522.0" text="The more sustainable energy sources you build the more favourable the energy balance will become. You win the game by pushing the energy balance to 100% in favour of sustainable energy. You will throughout the game see a forecast of what the future holds, in case you do not alter the energy balance any further. So what is the catch you think? Well, energy sources costs money to build. Therefore you must be mindful as to where you build!" textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="Times New Roman" size="13.0" />
          </font>
       </Label>
-      <Button fx:id="startGame" layoutX="294.0" layoutY="398.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="56.0" prefWidth="118.0" text="Start Game!">
+      <Button fx:id="startGame" layoutX="294.0" layoutY="412.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="56.0" prefWidth="118.0" text="Start Game!">
          <font>
             <Font name="Times New Roman" size="18.0" />
          </font>
