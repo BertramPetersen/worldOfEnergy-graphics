@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import javafx.util.Pair;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -34,8 +35,8 @@ public class RandomEventSceneController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Pair<String, String> randomEvent = game.getRandomEvent();
         Description.setText(randomEvent.getKey());
-        File file = new File("src\\main\\resources\\com\\worldofenergy\\mainDir\\Presentation\\EventBackgrounds\\" + randomEvent.getValue());
-        Image image = new Image(file.toURI().toString());
+        File file = new File("src/main/resources/com/worldofenergy/mainDir/Presentation/EventBackgrounds/" + randomEvent.getValue());
+        Image image = new Image( file.toURI().toString());
         background.setImage(image);
     }
 
