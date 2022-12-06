@@ -23,8 +23,8 @@ import java.util.ResourceBundle;
 
 public class QuizController implements Initializable {
 
-    private DataService game;
-    private Stage stage;
+    private final DataService game;
+    private final Stage stage;
     private String answer;
     @FXML
     private Label question;

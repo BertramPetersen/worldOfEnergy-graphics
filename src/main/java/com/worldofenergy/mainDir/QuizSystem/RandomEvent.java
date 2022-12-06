@@ -32,7 +32,7 @@ public class RandomEvent implements QuizService {
     private int i;
 
     /**
-     * An ArrayList of the class {@link Events}. Each item in the ArrayList contains a String "description" and a int "impact".
+     * An ArrayList of the class {@link Events}. Each item in the ArrayList contains a String "description" and an int "impact".
      */
     private final ArrayList<Events> events = new ArrayList<>();
 
@@ -56,7 +56,7 @@ public class RandomEvent implements QuizService {
         events.add(new Events("The river Nile in Egypt has been flooded, and your hydropower plants have been damaged. This will cause an increase of fossil energy", 1.5, "NileFlooding.jpg", "Hydro Powerplant"));
         events.add(new Events("A super typhoon hit Australia and your solar panels are damaged. This is causing green energy levels to decrease.", 1.6, "PhilippinesTyphoon.jpg", "Solar Panel"));
         events.add(new Events("A complete breakdown of the energy infrastructure in Scandinavia has resulted in a severe decrease of their windmill energy output. This will undoubtedly affect the forecast and energy balance", 1.6, "ScandinaviaBreakdown.jpg", "Windmill"));
-        events.add(new Events("A small undetonated nuclear bomb has randomly detonated in North America, resulting in all geothermal power plants becoming defect. This has caused a significant negative effect in the energybalance and forecast", 1.7, "NuclearBombNorthAmerica.jpeg", "Geothermal Powerplant"));
+        events.add(new Events("A small undetonated nuclear bomb has randomly detonated in North America, resulting in all geothermal power plants becoming defect. This has caused a significant negative effect in the energyBalance and forecast", 1.7, "NuclearBombNorthAmerica.jpeg", "Geothermal Powerplant"));
     }
 
     /**

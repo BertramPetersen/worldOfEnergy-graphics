@@ -11,7 +11,7 @@ import java.time.Year;
  */
 public class Forecast implements PredictionService {
 
-    private EnergyBalance energyBalance = new EnergyBalance();
+    private final EnergyBalance energyBalance = new EnergyBalance();
     /**
      * Representation of the percentage at which the seaLevel will increase at each new turn
      */
@@ -227,9 +227,11 @@ public class Forecast implements PredictionService {
 
     @Override
     public boolean isDecreasing() {
-        if (energyBalance.getGreenEnergy() <= energyBalance.getFossilEnergy()) {
-            return false;
-        } else return true;
-    }
+        return !(energyBalance.getGreenEnergy() <= energyBalance.getFossilEnergy());
+
+        //if (energyBalance.getGreenEnergy() <= energyBalance.getFossilEnergy()) {
+        //  return false;
+    } //else return true;
 }
+
 

@@ -13,8 +13,8 @@ public class IncorrectController implements Initializable {
     @FXML
     private Label failure;
 
-    private Stage stage;
-    private String answer;
+    private final Stage stage;
+    private final String answer;
 
     public IncorrectController(Stage stage, String answer) {
         this.stage = stage;
@@ -23,7 +23,7 @@ public class IncorrectController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        failure.setText("Oh noo!! Your answer was unfortunatly incorrect. The correct answer was " + answer + " You get 0 coins added to you wallet");
+        failure.setText("Oh noo!! Your answer was unfortunately incorrect. The correct answer was " + answer + " You get 0 coins added to you wallet");
     }
 
     public void Close() {
