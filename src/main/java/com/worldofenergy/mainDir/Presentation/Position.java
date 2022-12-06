@@ -3,7 +3,7 @@ package com.worldofenergy.mainDir.Presentation;
 import com.worldofenergy.mainDir.EnergySource;
 
 public class Position {
-    private int x,y;
+    private int x, y;
     private EnergySource energySource;
 
     public int getX() {
@@ -18,7 +18,7 @@ public class Position {
         return energySource;
     }
 
-    public Position(int x, int y, EnergySource energySource){
+    public Position(int x, int y, EnergySource energySource) {
         this.x = x;
         this.y = y;
         this.energySource = energySource;
