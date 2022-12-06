@@ -130,31 +130,31 @@ public class Game implements DataService {
      */
     private void createRooms() {
         roomMap = new HashMap<>();
-        Room southAfrica = new Room("South Africa", 50, 70, 30, 40);
+        Room southAfrica = new Room("South Africa", 50, 87, 23, 40);
         createdRooms.add(southAfrica);
         roomMap.put("South Africa", southAfrica);
-        Room NorthAfrica = new Room("North Africa", 40, 80, 20, 40);
+        Room NorthAfrica = new Room("North Africa", 41, 78, 87, 40);
         createdRooms.add(NorthAfrica);
         roomMap.put("North Africa", NorthAfrica);
         Room southernEurope = new Room("Southern Europe", 25, 80, 30, 40);
         createdRooms.add(southernEurope);
         roomMap.put("Southern Europe", southernEurope);
-        Room northAmerica = new Room("North America", 60, 15, 37, 75);
+        Room northAmerica = new Room("North America", 70, 15, 37, 81);
         createdRooms.add(northAmerica);
         roomMap.put("North America", northAmerica);
-        Room scandinavia = new Room("Scandinavia", 90, 20, 40, 60);
+        Room scandinavia = new Room("Scandinavia", 90, 20, 82, 42);
         createdRooms.add(scandinavia);
         roomMap.put("Scandinavia", scandinavia);
-        Room northAsia = new Room("North Asia", 67, 56, 40, 20);
+        Room northAsia = new Room("North Asia", 80, 31, 40, 20);
         createdRooms.add(northAsia);
         roomMap.put("North Asia", northAsia);
-        Room southAmerica = new Room("South America", 10, 75, 55, 66);
+        Room southAmerica = new Room("South America", 12, 75, 55, 76);
         createdRooms.add(southAmerica);
         roomMap.put("South America", southAmerica);
-        Room southAsia = new Room("South Asia", 20, 78, 5, 68);
+        Room southAsia = new Room("South Asia", 20, 78, 43, 68);
         createdRooms.add(southAsia);
         roomMap.put("South Asia", southAsia);
-        Room australia = new Room("Australia", 20, 75, 5, 6);
+        Room australia = new Room("Australia", 63, 75, 27, 69);
         createdRooms.add(australia);
         roomMap.put("Australia", australia);
         Room airport = new Room();
@@ -537,6 +537,15 @@ public class Game implements DataService {
     @Override
     public ForecastDTO updateForecastDTO() {
         this.forecastDTO = new ForecastDTO(getTemp(),getCO2(),getSea(),getTempInc(),getCO2Inc(),getSeaInc());
+        return this.forecastDTO;
+    }
+    @Override
+    public ForecastDTO updateForecastIncrease() {
+        energyBalance.updateEnergy(getTotalPowerOutput());
+        forecast.updateIncrease((EnergyBalance) energyBalance);
+        this.forecastDTO.setCO2Inc(getCO2Inc());
+        this.forecastDTO.setTempInc(getTempInc());
+        this.forecastDTO.setSeaLevelInc(getSeaInc());
         return this.forecastDTO;
     }
 

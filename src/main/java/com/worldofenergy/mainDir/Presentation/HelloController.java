@@ -63,7 +63,7 @@ public class HelloController implements Initializable {
     public HelloController(DataService game, Stage stage) {
         this.game = game;
         this.stage = stage;
-        this.forecastDTO = game.getForecastDTO();
+        this.forecastDTO = game.updateForecastIncrease();
     }
 
     public HelloController() {
@@ -73,6 +73,7 @@ public class HelloController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setCoins();
         turnCounter.setText(String.valueOf(20 + (-game.getTurnCount()) + " years"));
+        this.forecastDTO = game.updateForecastIncrease();
         setBalance();
         setForecast();
     }
@@ -117,6 +118,7 @@ public class HelloController implements Initializable {
     }
 
     public void setForecast() {
+
         Forecast.setText(""+endYear+" Forecast");
         co2Forecast.setText("Yearly CO2 emission: %.2f Tonnes".formatted(forecastDTO.getCO2()));
         tempForecast.setText("Temperature: %.2f \u2103 ".formatted(forecastDTO.getTemp())); // Unicode: degrees celcius
@@ -135,10 +137,8 @@ public class HelloController implements Initializable {
 
     public void setBalance() {
         PredictionService energyBalance = game.getEnergyBalance();
-        PredictionService forecast = game.getForecast();
         energyBalance.updateEnergy(game.getTotalPowerOutput());
-        forecast.update((EnergyBalance) energyBalance);
-        //forecast.updateTemporary((EnergyBalance) energyBalance);
+        energyBalance.updatePercentage();
         String balance;
         if (energyBalance.getGreenPercent() >= 100) {
             balance = "100% / 0%";
@@ -147,7 +147,7 @@ public class HelloController implements Initializable {
         }
         balanceLabel.setText(balance);
         balanceBar.setProgress(energyBalance.getGreenPercent() / 100);
-    }
+        }
 
     public void endTurn(ActionEvent e) throws IOException, InterruptedException {
 

@@ -132,34 +132,25 @@ public class Forecast implements PredictionService {
      * @see EnergyBalance#getFossilPercent()
      */
     public void update(EnergyBalance energyBalance) {
-//        currentYear++;
         energyBalance.updatePercentage();
         if (energyBalance.getGreenEnergy() <= energyBalance.getFossilEnergy()) {
             double increase = energyBalance.getFossilPercent(); // unit  %
-            seaLevelIncrease = (0.3 * (increase));
-            temperatureIncrease = (0.2 * (increase));
-            CO2Increase = (0.5 * (increase));
+            seaLevelIncrease = (0.03 * (increase));
+            temperatureIncrease = (0.02 * (increase));
+            CO2Increase = (0.05 * (increase));
             seaLevel *= (1 + (seaLevelIncrease / 100));
             temperature *= (1 + (temperatureIncrease / 100));
             CO2 *= (1 + (CO2Increase / 100));
-//            System.out.println();
-//            System.out.println("Oh no! The year is now " + currentYear + " and the world's C02 output is still increasing!");
-//            System.out.println("---------------------------------------------------------------------------------------");
-//            System.out.println("Current Stats:");
-//            System.out.println("The C02 emission has increased to " + String.format("%.2f",CO2) + " billion ton. Increase per year " + String.format("%.2f",C02Increase) + "%");
-//            System.out.println("The sea level has risen with " + String.format("%.2f",seaLevel) + "cm. Increase per year " + String.format("%.2f",seaLevelIncrease) + "%");
-//            System.out.println("The average temperature has risen to " + String.format("%.2f",temperature) + "\u2103. Increase per year " + String.format("%.2f",temperatureIncrease)+ "%");
-//            System.out.println("---------------------------------------------------------------------------------------");
 
         } else {
             double decrease = energyBalance.getGreenPercent();// unit %
-            seaLevelIncrease = 1 - 0.6 * decrease;
-            temperatureIncrease = 1 - 0.4 * decrease;
-            CO2Increase = 1 - decrease;
+            seaLevelIncrease = 1 - 0.06 * decrease;
+            temperatureIncrease = 1 - 0.04 * decrease;
+            CO2Increase = 1 - 0.10 * decrease;
 
-            seaLevel *= (0.6 * decrease / 100);
-            temperature *= (0.4 * decrease / 100);
-            CO2 *= (1 * decrease / 100);
+            seaLevel *= (0.06 * decrease / 100);
+            temperature *= (0.04 * decrease / 100);
+            CO2 *= (0.1 * decrease / 100);
 
 //            System.out.println();
 //            System.out.println("Good job! The year is now " + currentYear + " and the world's C02 output is finally falling");
@@ -169,6 +160,21 @@ public class Forecast implements PredictionService {
 //            System.out.println("The sea level has fallen with " + String.format("%.2f",seaLevel) + ". Decrease per year " + String.format("%.2f",seaLevelDecrease) + "%");
 //            System.out.println("The average temperature has fallen to " + String.format("%.2f",temperature) + ". Decrease per year " + String.format("%.2f",temperatureDecrease) + "%");
 //            System.out.println("---------------------------------------------------------------------------------------");
+        }
+    }
+    @Override
+    public void updateIncrease(EnergyBalance energyBalance){
+        energyBalance.updatePercentage();
+        if (energyBalance.getGreenEnergy() <= energyBalance.getFossilEnergy()) {
+            double increase = energyBalance.getFossilPercent(); // unit  %
+            seaLevelIncrease = (0.03 * (increase));
+            temperatureIncrease = (0.02 * (increase));
+            CO2Increase = (0.05 * (increase));
+        } else {
+            double decrease = energyBalance.getGreenPercent();// unit %
+            seaLevelIncrease = 1 - 0.06 * decrease;
+            temperatureIncrease = 1 - 0.04 * decrease;
+            CO2Increase = 1 - 0.10 * decrease;
         }
     }
 
@@ -227,6 +233,11 @@ public class Forecast implements PredictionService {
         //if (energyBalance.getGreenEnergy() <= energyBalance.getFossilEnergy()) {
         //  return false;
     } //else return true;
+
+    @Override
+    public void updatePercentage() {
+
+    }
 }
 
 

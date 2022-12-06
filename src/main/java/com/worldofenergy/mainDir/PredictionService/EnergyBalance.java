@@ -163,6 +163,11 @@ public class EnergyBalance implements PredictionService {
     public double getSeaInc() {
         return 0;
     }
+
+    @Override
+    public void updateIncrease(EnergyBalance energyBalance) {
+        
+    }
 }
 
 
