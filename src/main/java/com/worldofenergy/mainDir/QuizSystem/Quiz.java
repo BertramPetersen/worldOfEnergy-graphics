@@ -50,12 +50,12 @@ public class Quiz implements QuizService {
                 (b) Wind
                 (c) Hydropower
                 (d) Natural gas""", "d"));
-        questions.add(new Question("By which year does FN want to substantially increase the " +
-                "share of renewable energy in the global energy mix? \n " +
-                "(a) 2025 \n " +
-                "(b) 2030 \n " +
-                "(c) 2040 \n " +
-                "(d) 2050",
+        questions.add(new Question("""
+                By which year does FN want to substantially increase the share of renewable energy in the global energy mix?\s
+                 (a) 2025\s
+                 (b) 2030\s
+                 (c) 2040\s
+                 (d) 2050""",
                 "b"));
         questions.add(new Question("""
                 What is sustainable energy?
