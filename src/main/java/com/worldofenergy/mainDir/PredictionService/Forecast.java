@@ -14,15 +14,15 @@ public class Forecast implements PredictionService {
     /**
      * Representation of the percentage at which the seaLevel will increase at each new turn
      */
-    private double seaLevelIncrease;
+    private double seaLevelIncrease = 30.0;
     /**
      * Representation of the percentage at which the CO2 emissions will increase at each new turn
      */
-    private double CO2Increase;
+    private double CO2Increase = 50.0;
     /**
      * Representation of the percentage at which the temperature will increase at each new turn
      */
-    private double temperatureIncrease;
+    private double temperatureIncrease = 0.20;
     /**
      * unit cm e.g. 5 cm.
      */
