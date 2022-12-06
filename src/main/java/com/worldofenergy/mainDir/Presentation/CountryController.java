@@ -13,11 +13,9 @@ import javafx.scene.control.ButtonBar;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.PixelReader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
@@ -27,7 +25,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
-public class CountryController implements Initializable{
+public class CountryController implements Initializable {
 
     private DataService game;
     private Room room;
@@ -59,33 +57,33 @@ public class CountryController implements Initializable{
     @FXML
     private ButtonBar bar;
 
-    public CountryController(DataService game){
+    public CountryController(DataService game) {
         this.game = game;
         this.room = game.getCurrentRoom();
     }
-    public static final Map<String, List<Position>> positions = new HashMap<>();
 
+    public static final Map<String, List<Position>> positions = new HashMap<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        String path = "/com/worldofenergy/mainDir/Presentation/CountryBackgrounds/" + room.getName()+".png";
+        String path = "/com/worldofenergy/mainDir/Presentation/CountryBackgrounds/" + room.getName() + ".png";
         URL bgPath = getClass().getResource(path);
-        if(bgPath != null){
+        if (bgPath != null) {
             bg.setImage(new Image(bgPath.toString()));
         }
         setPot(room);
         setBuilt(room);
-        coins.setText(""+game.getCoins()+" Coins");
-        if (!positions.isEmpty()){
-            if (positions.get(room.getName()) != null){
+        coins.setText("" + game.getCoins() + " Coins");
+        if (!positions.isEmpty()) {
+            if (positions.get(room.getName()) != null) {
                 positions.get(room.getName())
                         .forEach((position) -> drawCircle2(position.getX(), position.getY(), position.getEnergySource()));
             }
         }
         anime();
     }
-    
-    private void anime(){
+
+    private void anime() {
         FadeTransition fade = new FadeTransition(Duration.millis(200), bar);
         fade.setFromValue(0.0);
         fade.setToValue(1.0);
@@ -96,47 +94,43 @@ public class CountryController implements Initializable{
 
     private void setBuilt(Room room) {
         int[] built = game.getBuiltEnergy();
-        wAmount.setText(""+built[0]);
-        hAmount.setText(""+built[1]);
-        sAmount.setText(""+built[2]);
-        gAmount.setText(""+built[3]);
+        wAmount.setText("" + built[0]);
+        hAmount.setText("" + built[1]);
+        sAmount.setText("" + built[2]);
+        gAmount.setText("" + built[3]);
     }
 
-    private void setPot(Room room){
-        windPot.setText("Wind: "+room.getWindPot());
-        hydroPot.setText("Hydro: "+room.getWaterPot());
-        geoPot.setText("Geo: "+room.getGeoPot());
-        sunPot.setText("Sun: "+room.getSunPot());
+    private void setPot(Room room) {
+        windPot.setText("Wind: " + room.getWindPot());
+        hydroPot.setText("Hydro: " + room.getWaterPot());
+        geoPot.setText("Geo: " + room.getGeoPot());
+        sunPot.setText("Sun: " + room.getSunPot());
     }
 
     public void exitCountry(ActionEvent e) throws IOException {
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         game.setCurrentRoom("AIRPORT");
         HelloApplication.showMainView(game, stage);
-
     }
 
-    public void buildEnergySource(ActionEvent e){
-        Button btn = (Button)e.getSource();
+    public void buildEnergySource(ActionEvent e) {
+        Button btn = (Button) e.getSource();
         String energyType = btn.getText();
         EnergySource eType = game.stringToEnergySource(energyType);
         boolean construct = game.construct(energyType);
-        if(construct){
+        if (construct) {
             setBuilt(game.getCurrentRoom());
-            coins.setText(""+game.getCoins()+" Coins");
+            coins.setText("" + game.getCoins() + " Coins");
             drawCircle(eType);
-        }
-        else if (!room.ValidateFunds(eType)){
+        } else if (!room.ValidateFunds(eType)) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Insufficient funds");
             alert.setHeaderText(null);
-            alert.setContentText("You do not have enough funds for construction of "+energyType);
+            alert.setContentText("You do not have enough funds for construction of " + energyType);
             alert.showAndWait();
-
-
-
         }
     }
+
     public void drawCircle2(int x, int y, EnergySource energySource) {
         int r = 5;
         Circle circle;
@@ -144,6 +138,7 @@ public class CountryController implements Initializable{
         circle.setStroke(energySource.getColorStrokePair().getValue());
         greenPane.getChildren().add(circle);
     }
+
     private static final float MIN_BLUE_HUE = 0.5f; // CYAN
     private static final float MAX_BLUE_HUE = 0.88f; // MAGENTA
 
@@ -160,14 +155,14 @@ public class CountryController implements Initializable{
     */
     public void drawCircle(EnergySource energySource) {
         Random rand = new Random();
-        int x = (rand.nextInt((int)greenPane.getWidth()) + 1 );
+        int x = (rand.nextInt((int) greenPane.getWidth()) + 1);
         int y = (rand.nextInt((int) greenPane.getHeight()) + 1);
         int r = 5;
         // isBlueAtPixel(x, y);
         Position position = new Position(x, y, energySource);
         positions.compute(room.getName(), (roomName, possiblePos) -> {
-            if (possiblePos == null){
-                return new ArrayList<>(){{
+            if (possiblePos == null) {
+                return new ArrayList<>() {{
                     add(position);
                 }};
             }
@@ -180,6 +175,7 @@ public class CountryController implements Initializable{
         circle.setStroke(energySource.getColorStrokePair().getValue());
         greenPane.getChildren().add(circle);
     }
+
     public void setHelpButton(ActionEvent e) throws IOException {
         Stage stage1 = new Stage();
         TilePane tilePane = new TilePane();
