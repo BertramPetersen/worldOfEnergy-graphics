@@ -316,6 +316,12 @@ public class Room implements EnergySourceConstructor {
     public void removeGeothermalPowerplant(){
         builtEnergySource.removeIf(source -> source instanceof GeothermalPowerplant);
     }
+    public void removeAllEnergySources() {
+        removeGeothermalPowerplant();
+        removeWindmill();
+        removeSolarPanel();
+        removeHydroPowerplant();
+    }
     /**
      * @return the total green power output for the room
      */

@@ -256,7 +256,7 @@ public class Game implements DataService {
     }
     public int playQuizOrRandomEvent() { // 2. version of play quiz or random event
         double x = Math.random();
-        if (x >= 0.75 && turnCounter > 3) { // RandomEvent has a 20% chance of being run after the 3rd round
+        if (x >= 0.65 && turnCounter > 3) { // RandomEvent has a 20% chance of being run after the 3rd round
             // randomEvent.initiateRandomEvent((Forecast) forecast);
             return -1;
         } else { // takeQuiz has a 70% chance of being run. But is always run in the 2 first rounds
