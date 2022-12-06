@@ -120,6 +120,7 @@ public class CountryController implements Initializable {
         game.setCurrentRoom("AIRPORT");
 
         HelloApplication.showMainView(game, stage);
+
     }
 
     public void buildEnergySource(ActionEvent e) {

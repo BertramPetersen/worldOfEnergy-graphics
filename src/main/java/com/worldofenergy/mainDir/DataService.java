@@ -77,4 +77,5 @@ public interface DataService {
 
     Pair<String, String> getRandomEvent();
 
+    ForecastDTO updateForecastIncrease();
 }

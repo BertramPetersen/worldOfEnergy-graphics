@@ -49,14 +49,14 @@ public class RandomEvent implements QuizService {
      * Contains all the created events and their respective descriptions and impacts. Adds them all to the {@link #events} Arraylist.
      */
     private void createEvents() {
-        events.add(new Events("A south american country's government just announced an almost complete halt and removal of their project to build renewable energy sources. Instead getting energy from burning trees in the Amazon Rainforest. Now all the forest’s carbon storage capacity will be lost to the atmosphere!", 1.5, "AmazonDeforestation.jpg",  "South America"));
-        events.add(new Events("North asia has just been hit by a tsunami. All the previously built renewable energy sources in the region has become defect. This will result in a decrease in green energy!", 1.4, "original.jpg", "North Asia"));
-        events.add(new Events("A volcano in South Africa has erupted. In the ensuing chaos the region's renewable energy was destroyed. Your green energy will therefore decrease!", 1.4, "Volcano.jpg", "South Africa"));
-        events.add(new Events("There has just been an earthquake in south asia. Your renewable energy sources in south asia have been damaged, this will result in a decrease in green energy!", 1.3, "NepalEarthquake.jpg", "South Asia"));
-        events.add(new Events("A large river in south africa has been flooded, and your energy sources have been greatly damaged. This will cause a decrease in green energy!", 1.5, "NileFlooding.jpg",  "North Africa"));
-        events.add(new Events("A super typhoon hit Australia and completely destroyed all energy infrastructure built in the region. This will cause green energy levels to decrease!", 1.6, "PhilippinesTyphoon.jpg", "Australia"));
-        events.add(new Events("A complete breakdown of the energy infrastructure in Scandinavia has resulted in a severe decrease of their energy output. All your energy sources in the regions has been deleted. This will undoubtedly affect the forecast and energy balance!", 1.6, "ScandinaviaBreakdown.jpg", "Scandinavia"));
-        events.add(new Events("A small undetonated nuclear bomb has randomly detonated in North America, resulting in all green energy sources becoming defect. This will result in a significant negative effect in the energy balance and forecast!", 1.7, "NuclearBombNorthAmerica.jpeg",  "North America"));
+        events.add(new Events("A south american country's government just announced an almost complete halt and removal of their project to build renewable energy sources. Instead getting energy from burning trees in the Amazon Rainforest. Now all the forest’s carbon storage capacity will be lost to the atmosphere!", 1.2, "AmazonDeforestation.jpg",  "South America"));
+        events.add(new Events("North asia has just been hit by a tsunami. All the previously built renewable energy sources in the region has become defect. This will result in a decrease in green energy!", 1.2, "original.jpg", "North Asia"));
+        events.add(new Events("A volcano in South Africa has erupted. In the ensuing chaos the region's renewable energy was destroyed. Your green energy will therefore decrease!", 1.1, "Volcano.jpg", "South Africa"));
+        events.add(new Events("There has just been an earthquake in south asia. Your renewable energy sources in south asia have been damaged, this will result in a decrease in green energy!", 1.2, "NepalEarthquake.jpg", "South Asia"));
+        events.add(new Events("A large river in south africa has been flooded, and your energy sources have been greatly damaged. This will cause a decrease in green energy!", 1.2, "NileFlooding.jpg",  "North Africa"));
+        events.add(new Events("A super typhoon hit Australia and completely destroyed all energy infrastructure built in the region. This will cause green energy levels to decrease!", 1.2, "PhilippinesTyphoon.jpg", "Australia"));
+        events.add(new Events("A complete breakdown of the energy infrastructure in Scandinavia has resulted in a severe decrease of their energy output. All your energy sources in the regions has been deleted. This will undoubtedly affect the forecast and energy balance!", 1.1, "ScandinaviaBreakdown.jpg", "Scandinavia"));
+        events.add(new Events("A small undetonated nuclear bomb has randomly detonated in North America, resulting in all green energy sources becoming defect. This will result in a significant negative effect in the energy balance and forecast!", 1.2, "NuclearBombNorthAmerica.jpeg",  "North America"));
     }
 
     /**

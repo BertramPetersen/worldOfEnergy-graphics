@@ -40,4 +40,8 @@ public interface PredictionService {
     void incrementYear();
 
     boolean isDecreasing();
+
+    void updatePercentage();
+
+    void updateIncrease(EnergyBalance energyBalance);
 }
