@@ -7,6 +7,8 @@ public class CommandLineClient {
     private final Parser parser;
     private final DataService game;
 
+    public WindMill windMill;
+
     public CommandLineClient() {
         this.game = new Game();
         this.parser = new Parser(game);

@@ -21,7 +21,6 @@ public class Wallet {
     /**
      * This setter method is generally used to set the starting amount of {@link #coins} for the player.
      * If Wallet.setCoins(50) is called then, regardless of prior amount of coins in the wallet. The new amount of coins will be 50.
-     *
      * @param coins the amount of {@link #coins} that would in the wallet. E.g. 500
      */
     public static void setCoins(int coins) {
@@ -30,7 +29,6 @@ public class Wallet {
 
     /**
      * This method adds an amount of {@link #coins} to wallet on top of the current amount.
-     *
      * @param amount the amount of {@link #coins} which is added to the wallet. E.g. 50
      */
     public static void addCoins(int amount) {
@@ -39,7 +37,6 @@ public class Wallet {
 
     /**
      * This method subtracts an amount of {@link #coins} from wallet.
-     *
      * @param amount the amount of {@link #coins} which is subtracted from the wallet. E.g. 50
      */
     public static void subtractCoins(int amount) {

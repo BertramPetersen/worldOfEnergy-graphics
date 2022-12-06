@@ -24,8 +24,8 @@ import java.util.ResourceBundle;
 
 public class QuizController implements Initializable {
 
-    private final DataService game;
-    private final Stage stage;
+    DataService game;
+    Stage stage;
     private String answer;
     @FXML
     private Label question;
@@ -40,8 +40,6 @@ public class QuizController implements Initializable {
 
     @FXML
     private Label answerD;
-
-
     @FXML
     private Label failure;
 
@@ -59,7 +57,6 @@ public class QuizController implements Initializable {
 
     @FXML
     private Button submitBtn;
-
     @FXML
     private ToggleGroup group;
 
@@ -111,12 +108,12 @@ public class QuizController implements Initializable {
     }
 
     private void showCorrect(Stage stage) throws IOException{
-        Label success = new Label("Congratulations! \n Your Answer Was Correct You just got 50 coins added to your wallet!");
-        success.setWrapText(true);
-        success.prefWidth(150.0);
-        success.prefHeight(300.0);
-        success.setAlignment(Pos.CENTER);
-        TilePane tilePane = new TilePane(success);
+        Label succes = new Label("Congratulations! \n Your Answer Was Correct You just got 50 coins added to your wallet!");
+        succes.setWrapText(true);
+        succes.prefWidth(150.0);
+        succes.prefHeight(300.0);
+        succes.setAlignment(Pos.CENTER);
+        TilePane tilePane = new TilePane(succes);
         tilePane.setAlignment(Pos.CENTER);
         Button btn = new Button("Close");
         btn.setOnAction(e -> HelloApplication.closeWindow(e));
