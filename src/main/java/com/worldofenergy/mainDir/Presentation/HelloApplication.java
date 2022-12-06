@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class HelloApplication extends Application {
     @Override
@@ -66,6 +67,16 @@ public class HelloApplication extends Application {
         stage.show();
     }
 
+    public static void displayHelp(String energyType, Stage stage) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        InputStream i = HelloApplication.class.getResourceAsStream("energy-help.fxml");
+        loader.setControllerFactory(c -> new EnergyInfoController(energyType));
+        Scene scene = new Scene(loader.load(i));
+
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public static void showMainView(DataService game, Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(HelloApplication.class.getResource("hello-view.fxml"));
@@ -91,6 +102,17 @@ public class HelloApplication extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(HelloApplication.class.getResource("RandomEventScene1.fxml"));
         loader.setControllerFactory(c -> new RandomEventSceneController(game, stage));
+        Scene scene = new Scene(loader.load());
+        stage.setScene(scene);
+        stage.showAndWait();
+    }
+
+
+    public static void ShowHelp() throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(HelloApplication.class.getResource("help-view.fxml"));
+        loader.setControllerFactory(c -> new HelpController(stage));
         Scene scene = new Scene(loader.load());
         stage.setScene(scene);
         stage.showAndWait();

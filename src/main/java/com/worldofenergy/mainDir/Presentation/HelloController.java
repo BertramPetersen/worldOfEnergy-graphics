@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -19,7 +20,10 @@ import javafx.scene.shape.SVGPath;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.time.Year;
 import java.util.ResourceBundle;
@@ -65,16 +69,19 @@ public class HelloController implements Initializable {
         this.stage = stage;
         this.forecastDTO = game.getForecastDTO();
     }
+    public HelloController(DataService game) {
+        this.game = game;
+    }
 
     public HelloController() {
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setCoins();
-        turnCounter.setText(String.valueOf(20 + (-game.getTurnCount()) + " years"));
-        setBalance();
-        setForecast();
+            setCoins();
+            turnCounter.setText(String.valueOf(20 + (-game.getTurnCount()) + " years"));
+            setBalance();
+            setForecast();
     }
 
 
@@ -208,30 +215,21 @@ public class HelloController implements Initializable {
     }
 
     public void setHelpButton(ActionEvent e) throws IOException {
-        Stage stage1 = new Stage();
-        TilePane tilePane = new TilePane();
+        HelloApplication.ShowHelp();
 
-        Label label = new Label("\n \nTo build " +
-                "energy sources, go to one of the areas on the map.\n" +
-                "Press the button 'Windmill' or one of the four energy sources you want to build.\n" +
-                "You will then be able to build as many sources you want, and see how many different \n" +
-                "sources you have built. \n \nClose this window to continue the game.\n");
-        // label.setPadding(new Insets(100));
-        // Dette kan ikke gøres. Når det implementeres, kan vinduet ikke lukkes ned.
-        // Derfor sætter jeg 2 tomme linjer ind.
-        Popup popup = new Popup();
-        popup.getContent().add(label);
-
-        Scene scene = new Scene(tilePane, 550, 130);
-        stage1.setScene(scene);
-        if (!popup.isShowing()) {
-            stage1.show();
-            popup.show(stage1);
-        }
     }
 
     public void setPForecast() {
         this.forecastDTO = game.getForecastDTO();
+    }
+
+    public void showEnergyHelp(ActionEvent e) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        Scene scene = new Scene(loader.load());
+
+        stage.setScene(scene);
+        stage.showAndWait();
     }
 }
 
