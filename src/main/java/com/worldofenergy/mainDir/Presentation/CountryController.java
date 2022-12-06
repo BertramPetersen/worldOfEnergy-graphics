@@ -1,6 +1,7 @@
 package com.worldofenergy.mainDir.Presentation;
 
 import com.worldofenergy.mainDir.*;
+import com.worldofenergy.mainDir.DTOs.ForecastDTO;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,9 +28,10 @@ import java.util.*;
 
 public class CountryController implements Initializable {
 
-    private DataService game;
-    private Room room;
+    private final DataService game;
+    private final Room room;
     private Stage stage;
+    private ForecastDTO forecast;
     @FXML
     private Label coins;
     @FXML
@@ -57,7 +59,7 @@ public class CountryController implements Initializable {
     @FXML
     private ButtonBar bar;
 
-    public CountryController(DataService game) {
+    public CountryController(DataService game){
         this.game = game;
         this.room = game.getCurrentRoom();
     }
@@ -110,6 +112,7 @@ public class CountryController implements Initializable {
     public void exitCountry(ActionEvent e) throws IOException {
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         game.setCurrentRoom("AIRPORT");
+
         HelloApplication.showMainView(game, stage);
     }
 
@@ -142,7 +145,7 @@ public class CountryController implements Initializable {
     private static final float MIN_BLUE_HUE = 0.5f; // CYAN
     private static final float MAX_BLUE_HUE = 0.88f; // MAGENTA
 
-    // This method should work, but it doens't :)
+    // This method should work, but it doesn't :)
    /* private boolean isBlueAtPixel(int x, int y){
         PixelReader pixelReader = bg.getImage().getPixelReader();
         Color color = pixelReader.getColor(x, y);

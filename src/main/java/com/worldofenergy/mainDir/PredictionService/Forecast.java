@@ -11,19 +11,19 @@ import java.time.Year;
  */
 public class Forecast implements PredictionService {
 
-    private EnergyBalance energyBalance = new EnergyBalance();
+    private final EnergyBalance energyBalance = new EnergyBalance();
     /**
      * Representation of the percentage at which the seaLevel will increase at each new turn
      */
-    private double seaLevelIncrease;
+    private double seaLevelIncrease = 30.0;
     /**
      * Representation of the percentage at which the CO2 emissions will increase at each new turn
      */
-    private double CO2Increase;
+    private double CO2Increase = 50.0;
     /**
      * Representation of the percentage at which the temperature will increase at each new turn
      */
-    private double temperatureIncrease;
+    private double temperatureIncrease = 20.0;
     /**
      * unit cm e.g. 5 cm.
      */
@@ -186,11 +186,6 @@ public class Forecast implements PredictionService {
     }
 
     @Override
-    public double getTotalEnergy() {
-        return 0;
-    }
-
-    @Override
     public double getFossilEnergy() {
         return 0;
     }
@@ -227,9 +222,11 @@ public class Forecast implements PredictionService {
 
     @Override
     public boolean isDecreasing() {
-        if (energyBalance.getGreenEnergy() <= energyBalance.getFossilEnergy()) {
-            return false;
-        } else return true;
-    }
+        return !(energyBalance.getGreenEnergy() <= energyBalance.getFossilEnergy());
+
+        //if (energyBalance.getGreenEnergy() <= energyBalance.getFossilEnergy()) {
+        //  return false;
+    } //else return true;
 }
+
 

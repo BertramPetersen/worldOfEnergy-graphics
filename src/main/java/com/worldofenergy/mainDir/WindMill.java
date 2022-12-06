@@ -16,6 +16,6 @@ public class WindMill extends EnergySource {
         super.output = 0.4;
         super.name = "Windmill";
         super.passiveIncome = 20;
-        super.colorStrokePair = new Pair<>(new Color(1,1,1,1), Color.BLACK);
+        super.colorStrokePair = new Pair<>(new Color(1, 1, 1, 1), Color.BLACK);
     }
 }

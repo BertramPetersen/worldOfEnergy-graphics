@@ -31,8 +31,6 @@ public interface PredictionService {
 
     double getGreenEnergy();
 
-    double getTotalEnergy();
-
     double getFossilEnergy();
 
     double getGreenPercent();

@@ -14,8 +14,9 @@ import java.util.stream.Collectors;
  * The class RandomEvent implements the interface {@link QuizService}, by which it implements multiple methods.
  * The class consists of the logic behind the randomly occurring events in the game. It also contains all the possible events in an {@link Events} ArrayList.
  * <p>
- *     It's main purpose is to display the random event, affect the forecast negatively by accelerating the negative consequences, show and explain to the player the consequences of the random event.
+ * It's main purpose is to display the random event, affect the forecast negatively by accelerating the negative consequences, show and explain to the player the consequences of the random event.
  * </p>
+ *
  * @see Events
  * @see QuizService
  */
@@ -30,9 +31,8 @@ public class RandomEvent implements QuizService {
      */
     private int i;
 
-    private String url;
     /**
-     * An ArrayList of the class {@link Events}. Each item in the ArrayList contains a String "description" and a int "impact".
+     * An ArrayList of the class {@link Events}. Each item in the ArrayList contains a String "description" and an int "impact".
      */
     private final ArrayList<Events> events = new ArrayList<>();
 
@@ -57,7 +57,6 @@ public class RandomEvent implements QuizService {
         events.add(new Events("A super typhoon hit Australia and completely destroyed all energy infrastructure built in the region. This will cause green energy levels to decrease!", 1.6, "PhilippinesTyphoon.jpg", "Australia"));
         events.add(new Events("A complete breakdown of the energy infrastructure in Scandinavia has resulted in a severe decrease of their energy output. All your energy sources in the regions has been deleted. This will undoubtedly affect the forecast and energy balance!", 1.6, "ScandinaviaBreakdown.jpg", "Scandinavia"));
         events.add(new Events("A small undetonated nuclear bomb has randomly detonated in North America, resulting in all green energy sources becoming defect. This will result in a significant negative effect in the energy balance and forecast!", 1.7, "NuclearBombNorthAmerica.jpeg",  "North America"));
-
     }
 
     /**
@@ -119,7 +118,6 @@ public class RandomEvent implements QuizService {
 
     @Override
     public void incrementQuiz() {
-
     }
 
     @Override
