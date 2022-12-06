@@ -1,5 +1,8 @@
 package com.worldofenergy.mainDir.Presentation;
+
 import com.worldofenergy.mainDir.DataService;
+
+
 import com.worldofenergy.mainDir.Game;
 import com.worldofenergy.mainDir.PredictionService.PredictionService;
 import com.worldofenergy.mainDir.QuizSystem.RandomEvent;
@@ -17,8 +20,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+
 import javafx.stage.Stage;
 import javafx.util.Pair;
+
+
+public class RandomEventSceneController {
 
 import java.io.File;
 import java.io.IOException;
@@ -32,6 +39,7 @@ public class RandomEventSceneController implements Initializable  {
     private Label Description;
     @FXML
     private ImageView background;
+
 
 
 
