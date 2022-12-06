@@ -131,22 +131,23 @@ public class RandomEvent implements QuizService {
         forecast.increase(events.get(i).impact);
         String description = events.get(i).description;
         String fileName = events.get(i).fileName;
-        for (Map.Entry<String, List<Position>> entry : CountryController.positions.entrySet()) {
-            List<Position> newPositionsSolar = entry.getValue().stream().filter(position -> !position.getEnergySource().getName().equals("Solar Panel")).collect(Collectors.toList());
-            entry.setValue(newPositionsSolar);
-            List<Position> newPositionsHydro = entry.getValue().stream().filter(position -> !position.getEnergySource().getName().equals("Hydro Powerplant")).collect(Collectors.toList());
-            entry.setValue(newPositionsHydro);
-            List<Position> newPositionsGeo = entry.getValue().stream().filter(position -> !position.getEnergySource().getName().equals("Geo Powerplant")).collect(Collectors.toList());
-            entry.setValue(newPositionsGeo);
-            List<Position> newPositionsWind = entry.getValue().stream().filter(position -> !position.getEnergySource().getName().equals("Windmill")).collect(Collectors.toList());
-            entry.setValue(newPositionsWind);
-        }
 
         for (Room room : game.getCreatedRooms()) {
             if (room.getName().equals(events.get(i).region)) {
                     room.removeAllEnergySources();
                     room.updateOutput();
-
+                for (Map.Entry<String, List<Position>> entry : CountryController.positions.entrySet()) {
+                    if (entry.getKey().equals(room.getName())) {
+                        List<Position> newPositionsSolar = entry.getValue().stream().filter(position -> !position.getEnergySource().getName().equals("Solar Panel")).collect(Collectors.toList());
+                        entry.setValue(newPositionsSolar);
+                        List<Position> newPositionsHydro = entry.getValue().stream().filter(position -> !position.getEnergySource().getName().equals("Hydro Powerplant")).collect(Collectors.toList());
+                        entry.setValue(newPositionsHydro);
+                        List<Position> newPositionsGeo = entry.getValue().stream().filter(position -> !position.getEnergySource().getName().equals("Geo Powerplant")).collect(Collectors.toList());
+                        entry.setValue(newPositionsGeo);
+                        List<Position> newPositionsWind = entry.getValue().stream().filter(position -> !position.getEnergySource().getName().equals("Windmill")).collect(Collectors.toList());
+                        entry.setValue(newPositionsWind);
+                    }
+                }
             }
         }
 
