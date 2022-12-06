@@ -28,11 +28,11 @@ public class Room implements EnergySourceConstructor {
     /**
      * The name of a room. E.g. Southern America. Used in the {@link Room} constructor
      */
-    private String name;
+    private final String name;
     /**
      * An Arraylist of the abstract class {@link EnergySource}. Each built energy source is added to the builtEnergySource ArrayList.
      */
-    private ArrayList<EnergySource> builtEnergySource = new ArrayList<>();
+    private final ArrayList<EnergySource> builtEnergySource = new ArrayList<>();
     /**
      * Determines how the player can move between room in the game by setting each room's possible exits.
      */
@@ -346,9 +346,9 @@ public class Room implements EnergySourceConstructor {
         System.out.printf("Welcome to %s\n", this.name);
         System.out.printf("%-44s %s\n", "This room has potential for: ", " This room currently have:");
         System.out.printf("%-40s %-4s %s %d \n", "Potential for wind energy: " + this.windPot, "|", "Windmills: ", getWindmillCount());
-        System.out.printf("%-40s %-4s %s %d \n", "Potential for Geothermal energy: " + this.geoPot, "|", "Geothermal powerplants: ", getGeoplantCount());
+        System.out.printf("%-40s %-4s %s %d \n", "Potential for Geothermal energy: " + this.geoPot, "|", "Geothermal power plants: ", getGeoplantCount());
         System.out.printf("%-40s %-4s %s %d \n", "Potential for Solar energy: " + this.sunPot, "|", "Solar Panels: ", getSolarPanelCount());
-        System.out.printf("%-40s %-4s %s %d \n", "Potential for Hydropowered energy: " + this.waterPot, "|", "Hydro powerplants: ", getWaterplantCount());
+        System.out.printf("%-40s %-4s %s %d \n", "Potential for Hydropowered energy: " + this.waterPot, "|", "Hydro power plants: ", getWaterplantCount());
         System.out.println();
         System.out.println("You currently have " + Wallet.getCoins() + " in your wallet. To build type \"build\" + either:");
         System.out.println("""
