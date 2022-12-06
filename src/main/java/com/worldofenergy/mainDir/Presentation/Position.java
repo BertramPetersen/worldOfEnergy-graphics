@@ -4,7 +4,7 @@ import com.worldofenergy.mainDir.EnergySource;
 
 public class Position {
     private int x, y;
-    private EnergySource energySource;
+    private final EnergySource energySource;
 
     public int getX() {
         return x;
