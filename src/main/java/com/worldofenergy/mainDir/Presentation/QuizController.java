@@ -2,19 +2,21 @@ package com.worldofenergy.mainDir.Presentation;
 
 import com.worldofenergy.mainDir.DataService;
 import com.worldofenergy.mainDir.Wallet;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.TilePane;
+import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -38,6 +40,26 @@ public class QuizController implements Initializable {
 
     @FXML
     private Label answerD;
+
+
+    @FXML
+    private Label failure;
+
+    @FXML
+    private RadioButton r1;
+
+    @FXML
+    private RadioButton r2;
+
+    @FXML
+    private RadioButton r3;
+
+    @FXML
+    private RadioButton r4;
+
+    @FXML
+    private Button submitBtn;
+
     @FXML
     private ToggleGroup group;
 
@@ -59,28 +81,33 @@ public class QuizController implements Initializable {
         answerD.setText(options[3]);
     }
 
-    public void submitQuiz(ActionEvent e) throws IOException{
-        Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        RadioButton selectedBtn = (RadioButton) group.getSelectedToggle();
-        if (answer.equalsIgnoreCase(selectedBtn.getText())){
+    @FXML
+    public void submitQuiz(MouseEvent e) throws IOException{
+       String text;
+        if (e.getSource() instanceof SVGPath){
+            text = ((SVGPath) e.getSource()).getId();
+        } else {
+            text = ((Label) e.getSource()).getId();
+        }
+
+        if (answer.equalsIgnoreCase(text)){
             Wallet.addCoins(50);
 
             showCorrect(stage);
         } else showIncorrect(stage);
     }
 
-    private void showIncorrect(Stage stage) {
-        Label failure = new Label("Oh no! Your answer was incorrect. The correct answer was "+answer+
-                "You unfortunately get 0 coins. Better luck next time!");
-        failure.setWrapText(true);
+    private void showIncorrect(Stage stage) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(HelloApplication.class.getResource("incorrect.fxml"));
+        loader.setControllerFactory(c -> new IncorrectController(stage, answer));
+        Scene scene = new Scene(loader.load());
 
-        failure.prefWidth(150.0);
-        failure.prefHeight(300.0);
-        failure.setAlignment(Pos.CENTER);
-        TilePane tilePane = new TilePane(failure);
-        tilePane.setAlignment(Pos.CENTER);
-        Scene scene = new Scene(tilePane, 600, 400);
         stage.setScene(scene);
+        stage.show();
+
+
+
     }
 
     private void showCorrect(Stage stage) throws IOException{
@@ -100,7 +127,10 @@ public class QuizController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        init(game, stage);
+        if (url.sameFile(QuizController.class.getResource("quiz.fxml"))) {
+            init(game, stage);
+        }
     }
 }
+
 

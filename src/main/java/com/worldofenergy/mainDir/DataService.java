@@ -1,6 +1,7 @@
 package com.worldofenergy.mainDir;
 
 import com.worldofenergy.mainDir.PredictionService.PredictionService;
+import javafx.util.Pair;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,4 +69,7 @@ public interface DataService {
     int getTurnCount();
 
     boolean isDecreasing();
+
+    Pair<String, String> getRandomEvent();
+
 }

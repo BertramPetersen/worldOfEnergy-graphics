@@ -16,6 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import java.net.URL?>
 <StackPane maxHeight="1000" maxWidth="1900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.worldofenergy.mainDir.Presentation.CountryController">
     <children>
         <AnchorPane fx:id="anchorPane" prefHeight="200.0" prefWidth="200.0">
@@ -30,7 +31,7 @@
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
-                <VBox layoutX="728.0" style="-fx-background-color: #FFFFFFDA;">
+                <VBox styleClass="ForecastBoxCountry" layoutX="728.0" >
                     <children>
                         <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="172.0">
                             <children>
@@ -61,7 +62,7 @@
                               <Insets left="5.0" />
                            </VBox.margin>
                         </GridPane>
-                                <Separator opacity="0.85" prefHeight="13.0" prefWidth="172.0" style="-fx-background-color: #FFFFFFDA;">
+                                <Separator styleClass="Sep" opacity="0.85" prefHeight="13.0" prefWidth="172.0" >
                                     <VBox.margin>
                                         <Insets bottom="5.0" top="5.0" />
                                     </VBox.margin>
@@ -148,4 +149,7 @@
             </children>
         </AnchorPane>
     </children>
+    <stylesheets>
+        <URL value="@style.css"/>
+    </stylesheets>
 </StackPane>

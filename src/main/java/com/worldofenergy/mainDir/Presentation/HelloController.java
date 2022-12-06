@@ -28,6 +28,10 @@ public class HelloController implements Initializable {
     DataService game;
     Stage stage;
     private final int year = Year.now().getValue();
+    private final int endYear = this.year + 20;
+
+    @FXML
+    private Label Forecast;
     @FXML
     private Label co2Forecast;
     @FXML
@@ -65,20 +69,6 @@ public class HelloController implements Initializable {
         setCoins();
         turnCounter.setText(String.valueOf(20 + (-game.getTurnCount()) + " years"));
         setBalance();
-//        SVGPath svg = new SVGPath();
-//        String path = "M 364 229 L 336 273 L 335 299 L 357 324 L 389 319 L 496 326 L 507 302 L 489 306 L 482 295 L 455 244 L 450 245 L 432 239 L 403 223 L 364 229";
-//        svg.setContent(path);
-//        svg.setId("North Africa");
-//        svg.setOpacity(0.1);
-//        svg.setOnMouseClicked(e  -> {
-//            try {
-//                enterCountry(e);
-//            } catch (IOException ex) {
-//                throw new RuntimeException(ex);
-//            }
-//        });
-
-//        Anchor.getChildren().add(svg);
 
     }
 
@@ -114,7 +104,7 @@ public class HelloController implements Initializable {
     }
 
     public void initRandomEvent() throws IOException{
-        HelloApplication.ShowRandomEvent(game, stage);
+        HelloApplication.ShowRandomEvent(game);
     }
     public void init(DataService obj) throws IOException{
         this.game = obj;
@@ -130,13 +120,14 @@ public class HelloController implements Initializable {
     }
 
     public void setForecast() {
+        Forecast.setText(""+endYear+" Forecast");
         co2Forecast.setText("Yearly CO2 emission: %.2f Tonnes".formatted(game.getCO2()));
         tempForecast.setText("Temperature: %.2f \u2103 ".formatted(game.getTemp())); // Unicode: degrees celcius
         seaForecast.setText("Sea Level: %.2f cm".formatted(game.getSea()));
 
         if (!game.isDecreasing()){
             co2Increase.setText("CO2 emissions will increase by %.2f%% each year".formatted(game.getCO2Inc()));
-            tempIncrease.setText("CO2 emissions will increase by %.2f%% each year".formatted(game.getTempInc()));
+            tempIncrease.setText("Temperatures will increase by %.2f%% each year".formatted(game.getTempInc()));
             seaIncrease.setText("Sea levels will increase by %.2f%% each year".formatted(game.getSeaInc()));
         }else{
             co2Increase.setText("CO2 emissions will decrease by %.2f%% each year".formatted(game.getCO2Inc()));

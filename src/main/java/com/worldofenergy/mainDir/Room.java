@@ -322,7 +322,18 @@ public class Room implements EnergySourceConstructor {
             }
         Wallet.addCoins(accumulativePassiveIncome);
     }
-
+    public void removeWindmill(){
+        builtEnergySource.removeIf(source -> source instanceof WindMill);
+    }
+    public void removeSolarPanel(){
+        builtEnergySource.removeIf(source -> source instanceof SolarPanel);
+    }
+    public void removeHydroPowerplant(){
+        builtEnergySource.removeIf(source -> source instanceof HydroPowerplant);
+    }
+    public void removeGeothermalPowerplant(){
+        builtEnergySource.removeIf(source -> source instanceof GeothermalPowerplant);
+    }
     /**
      * @return the total green power output for the room
      */

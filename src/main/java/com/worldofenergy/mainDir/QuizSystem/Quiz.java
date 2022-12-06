@@ -1,7 +1,13 @@
 package com.worldofenergy.mainDir.QuizSystem;
 
+import com.worldofenergy.mainDir.Game;
 import com.worldofenergy.mainDir.PredictionService.Forecast;
+
+
+import com.worldofenergy.mainDir.Room;
+
 import com.worldofenergy.mainDir.Wallet;
+import javafx.util.Pair;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -174,9 +180,9 @@ public class Quiz implements QuizService {
      * @throws IndexOutOfBoundsException when {@link #i} is greater than the ArrayList length
      */
     public void takeQuiz() {
+        if (i >= questions.size()) i=0; Collections.shuffle(questions);
         System.out.println("You now have the opportunity to earn money to build more energy sources by taking the following quiz:");
         System.out.println();
-        try {
             Scanner keyboardInput = new Scanner(System.in);
             System.out.println(questions.get(i).prompt);
             String answer = keyboardInput.nextLine().toLowerCase();
@@ -196,11 +202,6 @@ public class Quiz implements QuizService {
                 System.out.println("You unfortunately get 0 coins. Better luck next time!");
                 i++;
             }
-        } catch (IndexOutOfBoundsException e) {
-            i = 0;
-            Collections.shuffle(questions);
-            takeQuiz();
-        }
     }
 
     @Override
@@ -224,6 +225,11 @@ public class Quiz implements QuizService {
     @Override
     public String getNextQuestion() {
         return questions.get(i).question;
+    }
+
+    @Override
+    public Pair<String, String> getEventDescription(Forecast forecast, Game game) {
+        return null;
     }
 
 }
