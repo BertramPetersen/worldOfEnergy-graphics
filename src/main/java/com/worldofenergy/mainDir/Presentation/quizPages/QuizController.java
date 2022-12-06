@@ -93,7 +93,7 @@ public class QuizController implements Initializable {
         Scene scene = new Scene(loader.load());
 
         stage.setScene(scene);
-        stage.showAndWait();
+        stage.show();
     }
 
     private void showCorrect(Stage stage) throws IOException {
@@ -103,7 +103,7 @@ public class QuizController implements Initializable {
         Scene scene = new Scene(loader.load());
 
         stage.setScene(scene);
-        stage.showAndWait();
+        stage.show();
     }
 
     @Override
