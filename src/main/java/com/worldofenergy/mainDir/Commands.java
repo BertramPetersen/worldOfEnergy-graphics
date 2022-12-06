@@ -43,17 +43,17 @@ public enum Commands {
 
     /**
      * Each ENUM takes in a value of the field variable {@link #commandString}. E.g. END_TURN = "end".
+     *
      * @param commandString the input the user has to type to activate the command
      */
-    Commands(String commandString){
+    Commands(String commandString) {
         this.commandString = commandString;
     }
 
     /**
-     *
      * @return a string representation of the value of commandString
      */
-    public String toString(){
+    public String toString() {
         return commandString;
     }
 }
