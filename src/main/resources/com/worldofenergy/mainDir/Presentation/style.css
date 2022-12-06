@@ -1,10 +1,10 @@
-.NAfrica {
+.SVGCountry {
     -fx-opacity: 0;
 
 }
 
-.NAfrica:hover{
-    -fx-opacity: 0.3;
+.SVGCountry:hover{
+    -fx-opacity: 0.4;
     -fx-cursor: HAND;
 
 }
