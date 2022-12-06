@@ -1,5 +1,6 @@
 package com.worldofenergy.mainDir.Presentation;
 
+import com.worldofenergy.mainDir.DTOs.PForecast;
 import com.worldofenergy.mainDir.DataService;
 import com.worldofenergy.mainDir.Game;
 import com.worldofenergy.mainDir.PredictionService.PredictionService;
@@ -29,13 +30,13 @@ public class HelloApplication extends Application {
         stage.getIcons().add(image);
 
         DataService game = new Game();
+        PForecast forecast = game.getPForecast();
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(HelloApplication.class.getResource("hello-view.fxml"));
-        loader.setControllerFactory(c -> new HelloController(game, stage));
+        loader.setControllerFactory(c -> new HelloController(game, stage, forecast));
         Scene scene = new Scene(loader.load());
-        HelloController controller = loader.getController();
-        controller.setForecast();
+
 
 
         stage.setTitle("World Of Energy");
@@ -57,10 +58,10 @@ public class HelloApplication extends Application {
         welcomeStage.showAndWait();
     }
 
-    public static void showCountryView(DataService game, Stage stage) throws IOException{
+    public static void showCountryView(DataService game, Stage stage, PForecast forecast) throws IOException{
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(HelloApplication.class.getResource("country-view.fxml"));
-        loader.setControllerFactory(c -> new CountryController(game));
+        loader.setControllerFactory(c -> new CountryController(game, forecast));
         Scene scene = new Scene(loader.load());
 
         CountryController cc = loader.getController();
@@ -69,10 +70,10 @@ public class HelloApplication extends Application {
         stage.show();
     }
 
-    public static void showMainView(DataService game, Stage stage) throws IOException{
+    public static void showMainView(DataService game, Stage stage, PForecast forecast) throws IOException{
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(HelloApplication.class.getResource("hello-view.fxml"));
-        loader.setControllerFactory(c -> new HelloController(game, stage));
+        loader.setControllerFactory(c -> new HelloController(game, stage, forecast));
         Scene scene = new Scene(loader.load());
         stage.setScene(scene);
         stage.show();

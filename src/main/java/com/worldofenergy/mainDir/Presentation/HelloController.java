@@ -1,5 +1,6 @@
 package com.worldofenergy.mainDir.Presentation;
 
+import com.worldofenergy.mainDir.DTOs.PForecast;
 import com.worldofenergy.mainDir.DataService;
 import com.worldofenergy.mainDir.PredictionService.EnergyBalance;
 import com.worldofenergy.mainDir.PredictionService.PredictionService;
@@ -7,10 +8,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.scene.Cursor;
-import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -31,6 +28,8 @@ public class HelloController implements Initializable {
 
     DataService game;
     Stage stage;
+
+    PForecast forecast;
     private final int year = Year.now().getValue();
     private final int endYear = this.year + 20;
 
@@ -63,6 +62,11 @@ public class HelloController implements Initializable {
         this.game = game;
         this.stage = stage;
     }
+    public HelloController(DataService game, Stage stage, PForecast forecast){
+        this.game = game;
+        this.stage = stage;
+        this.forecast = forecast;
+    }
     public HelloController(){
 
     }
@@ -81,14 +85,14 @@ public class HelloController implements Initializable {
         Button btn = (Button)e.getSource();
         String destination = btn.getText().toUpperCase();
         game.setCurrentRoom(destination);
-        HelloApplication.showCountryView(game, stage);
+        HelloApplication.showCountryView(game, stage, forecast);
 
     }
     public void enterCountry1(MouseEvent e) throws IOException{
         SVGPath svg = (SVGPath)e.getSource();
         String destination = svg.getId().toUpperCase();
         game.setCurrentRoom(destination);
-        HelloApplication.showCountryView(game, stage);
+        HelloApplication.showCountryView(game, stage, forecast);
     }
 
 
@@ -117,18 +121,18 @@ public class HelloController implements Initializable {
 
     public void setForecast() {
         Forecast.setText(""+endYear+" Forecast");
-        co2Forecast.setText("Yearly CO2 emission: %.2f Tonnes".formatted(game.getCO2()));
-        tempForecast.setText("Temperature: %.2f \u2103 ".formatted(game.getTemp())); // Unicode: degrees celcius
-        seaForecast.setText("Sea Level: %.2f cm".formatted(game.getSea()));
+        co2Forecast.setText("Yearly CO2 emission: %.2f Tonnes".formatted(forecast.getCO2()));
+        tempForecast.setText("Temperature: %.2f \u2103 ".formatted(forecast.getTemp())); // Unicode: degrees celcius
+        seaForecast.setText("Sea Level: %.2f cm".formatted(forecast.getSeaLevel()));
 
         if (!game.isDecreasing()){
-            co2Increase.setText("CO2 emissions will increase by %.2f%% each year".formatted(game.getCO2Inc()));
-            tempIncrease.setText("Temperatures will increase by %.2f%% each year".formatted(game.getTempInc()));
-            seaIncrease.setText("Sea levels will increase by %.2f%% each year".formatted(game.getSeaInc()));
+            co2Increase.setText("CO2 emissions will increase by %.2f%% each year".formatted(forecast.getCO2Inc()));
+            tempIncrease.setText("Temperatures will increase by %.2f%% each year".formatted(forecast.getTempInc()));
+            seaIncrease.setText("Sea levels will increase by %.2f%% each year".formatted(forecast.getSeaLevelInc()));
         }else{
-            co2Increase.setText("CO2 emissions will decrease by %.2f%% each year".formatted(game.getCO2Inc()));
-            tempIncrease.setText("Temperatures will decrease by %.2f%% each year".formatted(game.getTempInc()));
-            seaIncrease.setText("Sea levels will decrease by %.2f%% each year".formatted(game.getSeaInc()));
+            co2Increase.setText("CO2 emissions will decrease by %.2f%% each year".formatted(forecast.getCO2Inc()));
+            tempIncrease.setText("Temperatures will decrease by %.2f%% each year".formatted(forecast.getTempInc()));
+            seaIncrease.setText("Sea levels will decrease by %.2f%% each year".formatted(forecast.getSeaLevelInc()));
         }
     }
 
@@ -136,7 +140,8 @@ public class HelloController implements Initializable {
         PredictionService energyBalance = game.getEnergyBalance();
         PredictionService forecast = game.getForecast();
         energyBalance.updateEnergy(game.getTotalPowerOutput());
-        //forecast.update((EnergyBalance) energyBalance);
+        forecast.update((EnergyBalance) energyBalance);
+        //forecast.updateTemporary((EnergyBalance) energyBalance);
         String balance;
         if (energyBalance.getGreenPercent() >= 100 ) {
             balance = "100% / 0%";
@@ -160,6 +165,7 @@ public class HelloController implements Initializable {
             game.resetQuizSystem();
             setCoins();
             turnCounter.setText(String.valueOf(20 + (-game.getTurnCount()) + " years"));
+            forecast = game.getPForecast();
             setForecast();
             setBalance();
         }
@@ -224,6 +230,10 @@ public class HelloController implements Initializable {
             stage1.show();
             popup.show(stage1);
         }
+    }
+
+    public void setPForecast() {
+        this.forecast = game.getPForecast();
     }
 }
 

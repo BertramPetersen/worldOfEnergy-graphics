@@ -1,5 +1,6 @@
 package com.worldofenergy.mainDir;
 
+import com.worldofenergy.mainDir.DTOs.PForecast;
 import com.worldofenergy.mainDir.PredictionService.EnergyBalance;
 import com.worldofenergy.mainDir.PredictionService.Forecast;
 import com.worldofenergy.mainDir.PredictionService.PredictionService;
@@ -82,6 +83,13 @@ public class Game implements DataService {
      * Instance of PredictionService
      */
     PredictionService forecast;
+
+    @Override
+    public PForecast getPForecast() {
+        PForecast f = new PForecast(getTemp(),getCO2(),getSea(),getTempInc(),getCO2Inc(),getSeaInc());
+        return f;
+    }
+
     /**
      * Calls our newly instantiated classes and our created variables.
      *

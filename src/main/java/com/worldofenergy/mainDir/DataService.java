@@ -1,5 +1,6 @@
 package com.worldofenergy.mainDir;
 
+import com.worldofenergy.mainDir.DTOs.PForecast;
 import com.worldofenergy.mainDir.PredictionService.PredictionService;
 
 import java.util.ArrayList;
@@ -52,4 +53,6 @@ public interface DataService {
     int getTurnCount();
 
     boolean isDecreasing();
+
+    PForecast getPForecast();
 }
