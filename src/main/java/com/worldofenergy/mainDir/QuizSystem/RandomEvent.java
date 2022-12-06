@@ -127,7 +127,7 @@ public class RandomEvent implements QuizService {
     Pair<String, String> descriptionAndImage;
     @Override
     public Pair<String, String> getEventDescription(Forecast forecast, Game game) {
-        if (i >= events.size()) i = 0;
+        if (i >= events.size() - 1) i = 0;
         forecast.increase(events.get(i).impact);
         String description = events.get(i).description;
         String fileName = events.get(i).fileName;
@@ -136,11 +136,7 @@ public class RandomEvent implements QuizService {
             if (room.getName().equals(events.get(i).region)) {
                     room.removeAllEnergySources();
                     room.updateOutput();
-                for (Map.Entry<String, List<Position>> entry : CountryController.positions.entrySet()) {
-                    if (entry.getKey().equals(room.getName())) {
                         CountryController.positions.remove(room.getName());
-                    }
-                }
             }
         }
 

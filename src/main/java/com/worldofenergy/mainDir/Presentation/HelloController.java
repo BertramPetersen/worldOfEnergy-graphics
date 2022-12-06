@@ -167,7 +167,7 @@ public class HelloController implements Initializable {
             }
             game.resetQuizSystem();
             setCoins();
-            turnCounter.setText(String.valueOf(20 + (-game.getTurnCount()) + " years"));
+            turnCounter.setText(String.valueOf(15 + (-game.getTurnCount()) + " years"));
             forecastDTO = game.updateForecastDTO();
             setForecast();
             setBalance();
