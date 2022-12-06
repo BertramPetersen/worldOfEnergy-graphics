@@ -23,7 +23,7 @@ public class Forecast implements PredictionService {
     /**
      * Representation of the percentage at which the temperature will increase at each new turn
      */
-    private double temperatureIncrease = 0.20;
+    private double temperatureIncrease = 20.0;
     /**
      * unit cm e.g. 5 cm.
      */
