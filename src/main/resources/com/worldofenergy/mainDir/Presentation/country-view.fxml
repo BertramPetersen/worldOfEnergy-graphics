@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
@@ -10,13 +11,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import java.net.URL?>
+<?import javafx.scene.layout.Pane?>
 <StackPane maxHeight="1000" maxWidth="1900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.worldofenergy.mainDir.Presentation.CountryController">
     <children>
         <AnchorPane fx:id="anchorPane" prefHeight="200.0" prefWidth="200.0">
@@ -31,7 +31,7 @@
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
-                <VBox styleClass="ForecastBoxCountry" layoutX="728.0" >
+                <VBox layoutX="728.0" styleClass="ForecastBoxCountry">
                     <children>
                         <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="172.0">
                             <children>
@@ -62,7 +62,7 @@
                               <Insets left="5.0" />
                            </VBox.margin>
                         </GridPane>
-                                <Separator styleClass="Sep" opacity="0.85" prefHeight="13.0" prefWidth="172.0" >
+                                <Separator opacity="0.85" prefHeight="13.0" prefWidth="172.0" styleClass="Sep">
                                     <VBox.margin>
                                         <Insets bottom="5.0" top="5.0" />
                                     </VBox.margin>
@@ -115,16 +115,13 @@
                         </VBox>
                     </children>
                 </VBox>
-                <ButtonBar layoutX="239.0" layoutY="539.0" prefHeight="61.0" prefWidth="345.0" style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid; -fx-opacity: 1;">
+                <ButtonBar layoutX="239.0" layoutY="522.0" prefHeight="78.0" prefWidth="372.0" style="-fx-background-color: #FFFFFFDA; -fx-border-style: Solid; -fx-opacity: 1;">
                     <buttons>
-                        <Button mnemonicParsing="false" onAction="#buildEnergySource" text="Windmill" />
-                        <Button mnemonicParsing="false" onAction="#buildEnergySource" text="Solar Panel" />
-                        <Button mnemonicParsing="false" onAction="#buildEnergySource" text="Hydro Power" textAlignment="CENTER" wrapText="true">
-                            <font>
-                                <Font size="10.0" />
-                            </font>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#buildEnergySource" text="Geo Power" />
+                        <Button mnemonicParsing="false" onAction="#buildEnergySource" id="Windmill" styleClass="Windmill" maxHeight="70.0" maxWidth="88.0" minHeight="-Infinity" minWidth="62.0" prefHeight="70.0" prefWidth="108.0" scaleX="0.6" scaleY="0.6" style="-fx-scale-shape: true; -fx-background-color: #000;"/>
+                        <Button onAction="#buildEnergySource" id="Solar Panel" maxHeight="70.0" maxWidth="88.0" minHeight="-Infinity" minWidth="62.0" prefHeight="70.0" prefWidth="108.0" scaleX="0.6" scaleY="0.6" style="-fx-scale-shape: true; -fx-background-color: #000;" styleClass="Solar" />
+                        <Button onAction="#buildEnergySource" id="Hydro Power" maxHeight="70.0" maxWidth="88.0" minHeight="-Infinity" minWidth="62.0" prefHeight="70.0" prefWidth="108.0" scaleX="0.6" scaleY="0.6" style="-fx-scale-shape: true; -fx-background-color: #000;" styleClass="Hydro" />
+                        <Button onAction="#buildEnergySource" id="Geo Power" maxHeight="70.0" maxWidth="88.0" minHeight="-Infinity" minWidth="62.0" prefHeight="70.0" prefWidth="108.0" scaleX="0.6" scaleY="0.6" style="-fx-scale-shape: true; -fx-background-color: #000;" styleClass="Geo" />
+
                     </buttons>
                     <padding>
                         <Insets right="20.0" />
@@ -150,6 +147,6 @@
         </AnchorPane>
     </children>
     <stylesheets>
-        <URL value="@style.css"/>
+        <URL value="@style.css" />
     </stylesheets>
 </StackPane>
