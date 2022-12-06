@@ -16,7 +16,6 @@ import javafx.scene.layout.TilePane;
 import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -24,52 +23,44 @@ import java.util.ResourceBundle;
 
 public class QuizController implements Initializable {
 
-    DataService game;
-    Stage stage;
+    private final DataService game;
+    private final Stage stage;
     private String answer;
     @FXML
     private Label question;
     @FXML
     private Label answerA;
-
     @FXML
     private Label answerB;
-
     @FXML
     private Label answerC;
-
     @FXML
     private Label answerD;
     @FXML
     private Label failure;
-
     @FXML
     private RadioButton r1;
-
     @FXML
     private RadioButton r2;
-
     @FXML
     private RadioButton r3;
-
     @FXML
     private RadioButton r4;
-
     @FXML
     private Button submitBtn;
     @FXML
     private ToggleGroup group;
 
-    public QuizController (DataService game, Stage stage)  {
+    public QuizController(DataService game, Stage stage) {
         this.game = game;
         this.stage = stage;
     }
 
-    public void init(DataService game, Stage stage){
+    public void init(DataService game, Stage stage) {
         ArrayList<Object> quiz = game.getQuiz();
-        String question = (String)quiz.get(0);
-        String[] options = (String[])quiz.get(1);
-        answer = (String)quiz.get(2);
+        String question = (String) quiz.get(0);
+        String[] options = (String[]) quiz.get(1);
+        answer = (String) quiz.get(2);
 
         this.question.setText(question);
         answerA.setText(options[0]);
@@ -79,15 +70,15 @@ public class QuizController implements Initializable {
     }
 
     @FXML
-    public void submitQuiz(MouseEvent e) throws IOException{
-       String text;
-        if (e.getSource() instanceof SVGPath){
+    public void submitQuiz(MouseEvent e) throws IOException {
+        String text;
+        if (e.getSource() instanceof SVGPath) {
             text = ((SVGPath) e.getSource()).getId();
         } else {
             text = ((Label) e.getSource()).getId();
         }
 
-        if (answer.equalsIgnoreCase(text)){
+        if (answer.equalsIgnoreCase(text)) {
             Wallet.addCoins(50);
 
             showCorrect(stage);
@@ -102,18 +93,15 @@ public class QuizController implements Initializable {
 
         stage.setScene(scene);
         stage.show();
-
-
-
     }
 
-    private void showCorrect(Stage stage) throws IOException{
-        Label succes = new Label("Congratulations! \n Your Answer Was Correct You just got 50 coins added to your wallet!");
-        succes.setWrapText(true);
-        succes.prefWidth(150.0);
-        succes.prefHeight(300.0);
-        succes.setAlignment(Pos.CENTER);
-        TilePane tilePane = new TilePane(succes);
+    private void showCorrect(Stage stage) throws IOException {
+        Label success = new Label("Congratulations! \n Your Answer Was Correct You just got 50 coins added to your wallet!");
+        success.setWrapText(true);
+        success.prefWidth(150.0);
+        success.prefHeight(300.0);
+        success.setAlignment(Pos.CENTER);
+        TilePane tilePane = new TilePane(success);
         tilePane.setAlignment(Pos.CENTER);
         Button btn = new Button("Close");
         btn.setOnAction(e -> HelloApplication.closeWindow(e));

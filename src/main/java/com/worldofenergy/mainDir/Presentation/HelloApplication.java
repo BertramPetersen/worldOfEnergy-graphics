@@ -14,7 +14,6 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Random;
 
 public class HelloApplication extends Application {
     @Override
@@ -43,7 +42,8 @@ public class HelloApplication extends Application {
         stage.show();
         showWelcome();
     }
-    public static void showWelcome() throws IOException{
+
+    public static void showWelcome() throws IOException {
         Stage welcomeStage = new Stage();
         welcomeStage.setTitle("Welcome to World Of Energy");
         FXMLLoader loader = new FXMLLoader();
@@ -54,6 +54,7 @@ public class HelloApplication extends Application {
     }
 
     public static void showCountryView(DataService game, Stage stage, ForecastDTO forecast) throws IOException{
+
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(HelloApplication.class.getResource("country-view.fxml"));
         loader.setControllerFactory(c -> new CountryController(game, forecast));
@@ -65,7 +66,7 @@ public class HelloApplication extends Application {
         stage.show();
     }
 
-    public static void showMainView(DataService game, Stage stage, ForecastDTO forecast) throws IOException{
+    public static void showMainView(DataService game, Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(HelloApplication.class.getResource("hello-view.fxml"));
         loader.setControllerFactory(c -> new HelloController(game, stage));
@@ -83,45 +84,22 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.showAndWait();
 //        controller.init(game, stage);
-
-    }
-    public static void ShowRandomEvent(DataService game) throws IOException{
-        Random random = new Random();
-        int x = random.nextInt(3)+1;
-        if(x == 1){
-            Stage stage = new Stage();
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(HelloApplication.class.getResource("RandomEventScene1.fxml"));
-            loader.setControllerFactory(c -> new RandomEventSceneController(game, stage));
-            Scene scene = new Scene(loader.load());
-            stage.setScene(scene);
-            stage.showAndWait();
-
-        } else if (x == 2) {
-            Stage stage = new Stage();
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(HelloApplication.class.getResource("RandomEventScene2.fxml"));
-            loader.setControllerFactory(c -> new RandomEventSceneController(game, stage));
-            Scene scene = new Scene(loader.load());
-            stage.setScene(scene);
-            stage.showAndWait();
-        } else if (x == 3) {
-            Stage stage = new Stage();
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(HelloApplication.class.getResource("RandomEventScene3.fxml"));
-            loader.setControllerFactory(c -> new RandomEventSceneController(game, stage));
-            Scene scene = new Scene(loader.load());
-            stage.setScene(scene);
-            stage.showAndWait();
-        }
-
     }
 
-    public static void closeWindow(ActionEvent e){
-        Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+    public static void ShowRandomEvent(DataService game) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(HelloApplication.class.getResource("RandomEventScene1.fxml"));
+        loader.setControllerFactory(c -> new RandomEventSceneController(game, stage));
+        Scene scene = new Scene(loader.load());
+        stage.setScene(scene);
+        stage.showAndWait();
+    }
+
+    public static void closeWindow(ActionEvent e) {
+        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         stage.close();
     }
-
 
 
     public static void main(String[] args) {

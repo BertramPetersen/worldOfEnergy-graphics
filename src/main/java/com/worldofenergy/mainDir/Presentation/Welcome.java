@@ -13,8 +13,7 @@ public class Welcome {
 
     @FXML
     void closeWindow(ActionEvent event) {
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }
-
 }

@@ -26,10 +26,12 @@ import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
 
+
     DataService game;
     Stage stage;
 
     ForecastDTO forecastDTO;
+    
     private final int year = Year.now().getValue();
     private final int endYear = this.year + 20;
 
@@ -58,13 +60,13 @@ public class HelloController implements Initializable {
     @FXML
     private Pane Anchor;
 
-    public HelloController(DataService game, Stage stage){
+    public HelloController(DataService game, Stage stage) {
         this.game = game;
         this.stage = stage;
         this.forecastDTO = game.getForecastDTO();
     }
-    public HelloController(){
 
+    public HelloController() {
     }
 
     @Override
@@ -73,26 +75,25 @@ public class HelloController implements Initializable {
         turnCounter.setText(String.valueOf(20 + (-game.getTurnCount()) + " years"));
         setBalance();
         setForecast();
-
     }
 
 
-    public void enterCountry(ActionEvent e) throws IOException{
-        Button btn = (Button)e.getSource();
+    public void enterCountry(ActionEvent e) throws IOException {
+        Button btn = (Button) e.getSource();
         String destination = btn.getText().toUpperCase();
         game.setCurrentRoom(destination);
         HelloApplication.showCountryView(game, stage, forecastDTO);
-
     }
-    public void enterCountry1(MouseEvent e) throws IOException{
-        SVGPath svg = (SVGPath)e.getSource();
+
+    public void enterCountry1(MouseEvent e) throws IOException {
+        SVGPath svg = (SVGPath) e.getSource();
         String destination = svg.getId().toUpperCase();
         game.setCurrentRoom(destination);
         HelloApplication.showCountryView(game, stage, forecastDTO);
     }
 
 
-    public void showWelcome() throws IOException{
+    public void showWelcome() throws IOException {
         Stage welcomeStage = new Stage();
         welcomeStage.setTitle("Welcome to World Of Energy");
         FXMLLoader loader = new FXMLLoader();
@@ -107,7 +108,7 @@ public class HelloController implements Initializable {
         setCoins();
     }
 
-    public void initRandomEvent() throws IOException{
+    public void initRandomEvent() throws IOException {
         HelloApplication.ShowRandomEvent(game);
     }
 
@@ -139,19 +140,18 @@ public class HelloController implements Initializable {
         forecast.update((EnergyBalance) energyBalance);
         //forecast.updateTemporary((EnergyBalance) energyBalance);
         String balance;
-        if (energyBalance.getGreenPercent() >= 100 ) {
+        if (energyBalance.getGreenPercent() >= 100) {
             balance = "100% / 0%";
+        } else {
+            balance = String.format("%.0f%% / %.0f%%", energyBalance.getGreenPercent(), energyBalance.getFossilPercent());
         }
-            else {
-                balance = String.format("%.0f%% / %.0f%%", energyBalance.getGreenPercent(), energyBalance.getFossilPercent());
-            }
         balanceLabel.setText(balance);
         balanceBar.setProgress(energyBalance.getGreenPercent() / 100);
     }
 
     public void endTurn(ActionEvent e) throws IOException, InterruptedException {
-        game.getInitRandomEvent();
-        if(!winLoseCondition()) {
+
+        if (!winLoseCondition()) {
             game.updateTurn();
             if (game.getTimeToQuiz()) {
                 showQuiz();
@@ -166,6 +166,7 @@ public class HelloController implements Initializable {
             setBalance();
         }
     }
+
     public static void showLoseStage() throws IOException {
         Stage loseStage = new Stage();
         loseStage.setTitle("Defeat");
@@ -174,8 +175,8 @@ public class HelloController implements Initializable {
         Scene scene = new Scene(loader.load());
         loseStage.setScene(scene);
         loseStage.showAndWait();
-
     }
+
     public static void showWinStage() throws IOException {
         Stage winStage = new Stage();
         winStage.setTitle("Victory");
@@ -185,26 +186,27 @@ public class HelloController implements Initializable {
         winStage.setScene(scene);
         winStage.showAndWait();
     }
+
     public boolean winLoseCondition() throws IOException {
         PredictionService energyBalance = game.getEnergyBalance();
         // if (energy.balance.getGreenPercent() >= 50 {
-            // showProgressIndicator()
-            // "Keep building you are doing a phenomenal job!
+        // showProgressIndicator()
+        // "Keep building you are doing a phenomenal job!
         // if (game.getTurnCount() >= 10) {
-            // showHalfwayPoint()
-            // You are halfway through the game. Build strategic with your sources, or else you might lose!
+        // showHalfwayPoint()
+        // You are halfway through the game. Build strategic with your sources, or else you might lose!
 
         if (energyBalance.getGreenPercent() >= 100) {
             showWinStage();
             return true;
-        }
-        else if (game.getTurnCount() >= 20 ) {
+        } else if (game.getTurnCount() >= 20) {
             showLoseStage();
             return true;
         } else {
             return false;
         }
     }
+
     public void setHelpButton(ActionEvent e) throws IOException {
         Stage stage1 = new Stage();
         TilePane tilePane = new TilePane();

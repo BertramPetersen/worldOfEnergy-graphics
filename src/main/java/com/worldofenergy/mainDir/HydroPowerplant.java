@@ -15,7 +15,7 @@ public class HydroPowerplant extends EnergySource {
         super.price = 300;
         super.output = 0.6;
         super.name = "Hydro Powerplant";
-        super.passiveIncome = 140;
-        super.colorStrokePair = new Pair<>(new Color(0.1,0.5,1,1), Color.BLACK);
+        super.passiveIncome = 120;
+        super.colorStrokePair = new Pair<>(new Color(0.1, 0.5, 1, 1), Color.BLACK);
     }
 }
